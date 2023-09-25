@@ -14,4 +14,13 @@ class PlateController extends Controller
 
         return response()->json(compact('plates'));
     }
+
+    public function show(string $id)
+    {
+        $plate = Plate::find($id);
+
+        if (!$plate) return response(null, 404);
+
+        return response()->json($plate);
+    }
 }
