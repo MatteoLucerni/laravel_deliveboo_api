@@ -36,6 +36,6 @@ class PlateController extends Controller
         $plate->description = $data['description'];
         $plate->save();
 
-        return response()->json($data);
+        return response()->json();
     }
 }
