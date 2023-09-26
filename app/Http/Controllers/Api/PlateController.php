@@ -23,4 +23,19 @@ class PlateController extends Controller
 
         return response()->json($plate);
     }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $plate = new Plate();
+        $plate->name = $data['name'];
+        $plate->price = $data['price'];
+        $plate->image = $data['image'];
+        $plate->ingredients = $data['ingredients'];
+        $plate->description = $data['description'];
+        $plate->save();
+
+        return response()->json($data);
+    }
 }
