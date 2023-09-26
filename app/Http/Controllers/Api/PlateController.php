@@ -38,4 +38,15 @@ class PlateController extends Controller
 
         return response()->json();
     }
+
+    public function destroy(string $id)
+    {
+        $plate = Plate::find($id);
+
+        if (!$plate) return response(null, 404);
+
+        $plate->delete();
+
+        return response()->json('Deleted successfully');
+    }
 }
