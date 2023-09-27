@@ -13,13 +13,15 @@ class PlateSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 30; $i++) {
+        $plates = config('plates');
+
+        foreach ($plates as $plate) {
             $food = new Plate();
-            $food->name = 'Pizza Margherita';
-            $food->price = 9.99;
-            $food->image = 'https://it.ooni.com/cdn/shop/articles/Margherita-9920.jpg?crop=center&height=800&v=1644590028&width=800';
-            $food->ingredients = 'farina, sale, olio, mozzarella, pomodoro, basilico';
-            $food->description = 'Deliziosa pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona pizza buona';
+            $food->name = $plate['name'];
+            $food->price = $plate['price'];
+            $food->image = $plate['image'];
+            $food->ingredients = $plate['ingredients'];
+            $food->description = $plate['description'];
             $food->save();
         }
     }
