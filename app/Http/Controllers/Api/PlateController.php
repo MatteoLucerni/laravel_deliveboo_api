@@ -11,7 +11,7 @@ class PlateController extends Controller
 {
     public function index()
     {
-        $plates = Plate::all();
+        $plates = Plate::whereNull('deleted_at')->get();
 
         return response()->json(compact('plates'));
     }
@@ -82,6 +82,12 @@ class PlateController extends Controller
         return response()->json('Updated successfully');
     }
 
+    public function trash()
+    {
+        $plates = Plate::onlyTrashed()->get();
+        return response()->json($plates);
+    }
+
     public function destroy(string $id)
     {
         $plate = Plate::find($id);
@@ -90,6 +96,24 @@ class PlateController extends Controller
 
         $plate->delete();
 
-        return response()->json('Deleted successfully');
+        return response()->json('Plate moved to trash successfully');
+    }
+
+    public function dropAll()
+    {
+        Plate::onlyTrashed()->forceDelete();
+
+        return response()->json('Deleted all successfully');
+    }
+
+    public function drop(string $id)
+    {
+        $plate = Plate::onlyTrashed()->find($id);
+
+        if (!$plate) return response(null, 404);
+
+        $plate->forceDelete();
+
+        return response()->json('Plate deleted successfully');
     }
 }
