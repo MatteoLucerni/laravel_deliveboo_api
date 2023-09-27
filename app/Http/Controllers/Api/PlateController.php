@@ -116,4 +116,22 @@ class PlateController extends Controller
 
         return response()->json('Plate deleted successfully');
     }
+
+    public function restore(string $id)
+    {
+        $plate = Plate::onlyTrashed()->find($id);
+
+        if (!$plate) return response(null, 404);
+
+        $plate->restore();
+
+        return response()->json('Plate restored successfully');
+    }
+
+    public function restoreAll()
+    {
+        Plate::onlyTrashed()->restore();
+
+        return response()->json('All plates restored successfully');
+    }
 }
