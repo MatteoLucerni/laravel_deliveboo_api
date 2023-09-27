@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Plate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PlateController extends Controller
 {
@@ -28,6 +29,18 @@ class PlateController extends Controller
     {
         $data = $request->all();
 
+        $validator = Validator::make($data, [
+            'name' => 'required|string',
+            'price' => 'required|numeric',
+            'image' => 'nullable|string',
+            'ingredients' => 'required|string',
+            'description' => 'nullable|string'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
+
         $plate = new Plate();
         $plate->name = $data['name'];
         $plate->price = $data['price'];
@@ -46,6 +59,18 @@ class PlateController extends Controller
         if (!$plate) return response(null, 404);
 
         $data = $request->all();
+
+        $validator = Validator::make($data, [
+            'name' => 'required|string',
+            'price' => 'required|numeric',
+            'image' => 'nullable|string',
+            'ingredients' => 'required|string',
+            'description' => 'nullable|string'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
 
         $plate->name = $data['name'];
         $plate->price = $data['price'];
