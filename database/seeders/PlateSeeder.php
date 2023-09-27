@@ -13,7 +13,7 @@ class PlateSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 30; $i++) {
             $food = new Plate();
             $food->name = 'Pizza Margherita';
             $food->price = 9.99;
