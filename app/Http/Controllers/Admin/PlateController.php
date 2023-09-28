@@ -30,6 +30,27 @@ class PlateController extends Controller
 
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name'=>'required|string',
+            'price'=>'required|numeric',
+            'image'=>'nullable|url',
+            'ingredients'=>'required|string',
+            'description'=>'required|string',
+        ],
+        [
+            'name.required'=>'Name field is required',
+            'name.string'=>'Name field must me a string',
+            'price.required'=>'Price field is required',
+            'price.numeric'=>'Price field must me a number',
+            'image.url'=>'Image url is not valid',
+            'ingredients.required'=>'Ingredients field is required',
+            'ingredients.string'=>'Ingredients field must be a string',
+            'description.required'=>'Description field is required',
+            'description.string'=>'Description field must me a string',
+        ]
+    );
+
         $data = $request->all();
 
         $plate = new Plate();
@@ -58,7 +79,20 @@ class PlateController extends Controller
             'image' => 'nullable|string',
             'ingredients' => 'required|string',
             'description' => 'nullable|string'
-        ]);
+        ],
+        [
+            'name.required'=>'Name field is required',
+            'name.string'=>'Name field must me a string',
+            'price.required'=>'Price field is required',
+            'price.numeric'=>'Price field must me a number',
+            'image.url'=>'Image url is not valid',
+            'ingredients.required'=>'Ingredients field is required',
+            'ingredients.string'=>'Ingredients field must be a string',
+            'description.required'=>'Description field is required',
+            'description.string'=>'Description field must me a string',
+        ]
+    
+    );
 
         $data = $request->all();
 
