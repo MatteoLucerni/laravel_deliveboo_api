@@ -64,10 +64,11 @@
                                 @endif
                             </td>
                             <td>
-                                <a class="btn btn-primary" href="{{ route('admin.plates.show', $plate->id) }}">Details</a>
-                                <a class="btn btn-warning" href="">Edit</a>
+                                <a class="btn btn-primary" href="{{ route('admin.plates.show', $plate->id) }}"><i
+                                        class="fas fa-eye me-2"></i>Details</a>
+                                <a class="btn btn-warning" href=""><i class="fas fa-pen me-2"></i>Edit</a>
 
-                                <form class="d-inline-block" action="{{ route('admin.plates.destroy', $plate->id) }}"
+                                <form class="d-inline-block" action="{{ route('admin.plates.destroy', $plate) }}"
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
