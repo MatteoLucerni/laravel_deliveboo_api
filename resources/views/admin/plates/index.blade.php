@@ -63,7 +63,7 @@
                             </td>
                             <td>
                                 <a class="btn btn-primary" href="{{ route('admin.plates.show', $plate->id) }}">Details</a>
-                                <a class="btn btn-warning" href="">Edit</a>
+                                <a class="btn btn-warning" href="{{ route('admin.plates.edit', $plate->id) }}">Edit</a>
                                 <a class="btn btn-danger" href="">Delete</a>
                             </td>
                             <td>Created: {{ $plate->created_at }} <br>

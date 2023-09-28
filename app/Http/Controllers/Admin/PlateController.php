@@ -42,4 +42,30 @@ class PlateController extends Controller
 
         return to_route('admin.plates.show', $plate->id);
     }
+
+    public function edit(Plate $plate)
+    {
+        return view('admin.plates.edit', compact('plate'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $plate = Plate::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|string',
+            'price' => 'required|numeric',
+            'image' => 'nullable|string',
+            'ingredients' => 'required|string',
+            'description' => 'nullable|string'
+        ]);
+
+        $data = $request->all();
+
+        $plate->update($data);
+
+        $plate->save();
+
+        return to_route('admin.plates.show', $plate->id);
+    }
 }
