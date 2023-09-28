@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
-use Faker\Generator;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,13 +11,36 @@ class CategorySeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(Generator $faker): void
+    public function run(): void
     {
-        $category = new Category();
-        $category->name = 'main_dish';
-        $category->image = 'https://www.giallozafferano.it/images/244-24489/Spaghetti-alla-Carbonara_600x500.jpg';
-        $category->color = $faker->hexColor;
+        $categories = [
+            [
+                "name" => "Main dish",
+                "color" => "#3498db"
+            ],
+            [
+                "name" => "Appetizer",
+                "color" => "#2ecc71"
+            ],
+            [
+                "name" => "Side Dishes",
+                "color" => "#34495e"
+            ],
+            [
+                "name" => "Dessert",
+                "color" => "#75a5a6"
+            ],
+            [
+                "name" => "Other",
+                "color" => "#bdc3c7"
+            ],
+        ];
 
-        $category->save();
+        foreach ($categories as $category) {
+            $new_category = new Category();
+            $new_category->name = $category['name'];
+            $new_category->color = $category['color'];
+            $new_category->save();
+        }
     }
 }

@@ -22,8 +22,9 @@ class Plate extends Model
         return $this->belongsTo(Restaurant::class);
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->hasMany(Categories::class);
+
+        return $this->belongsTo(Category::class);
     }
 }

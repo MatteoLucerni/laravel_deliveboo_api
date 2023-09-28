@@ -8,11 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'image', 'color'];
+    protected $fillable = ['name', 'color'];
 
-    public function plate()
+    public function plates()
     {
-        return $this->belongsTo(Plate::class);
+        return $this->hasMany(Plate::class);
     }
 }
-
