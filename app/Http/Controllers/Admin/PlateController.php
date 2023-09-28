@@ -22,4 +22,24 @@ class PlateController extends Controller
 
         return view('admin.plates.show', compact('plate'));
     }
+
+    public function create()
+    {
+        return view('admin.plates.create');
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $plate = new Plate();
+        $plate->fill($data);
+        $plate->save();
+
+        $restaurant = Restaurant::where('user_id', auth()->user()->id)->first();
+
+        $restaurant->plates()->save($plate);
+
+        return to_route('admin.plates.show', $plate->id);
+    }
 }
