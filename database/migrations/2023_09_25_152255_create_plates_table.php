@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('ingredients');
             $table->text('description')->nullable();
+            $table->boolean('is_visible');
             $table->timestamps();
             $table->softDeletes();
         });

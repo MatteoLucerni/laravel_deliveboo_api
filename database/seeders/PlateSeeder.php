@@ -22,6 +22,7 @@ class PlateSeeder extends Seeder
             $food->image = $plate['image'];
             $food->ingredients = $plate['ingredients'];
             $food->description = $plate['description'];
+            $food->is_visible = $plate['is_visible'];
             $food->save();
         }
     }
