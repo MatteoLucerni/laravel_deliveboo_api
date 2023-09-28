@@ -17,6 +17,7 @@ class PlateSeeder extends Seeder
 
         foreach ($plates as $plate) {
             $food = new Plate();
+            $food->restaurant_id = 1;
             $food->name = $plate['name'];
             $food->price = $plate['price'];
             $food->image = $plate['image'];
