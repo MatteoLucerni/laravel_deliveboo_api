@@ -13,10 +13,15 @@
 
     <div class="content">
         <div class="container">
-
+            <img class="w-25" src="{{ $plate->image }}" alt="{{ $plate->name }}">
             <h3>
                 {{ $plate->name }}
             </h3>
+            <h3>
+                {{ $plate->price }}€
+            </h3>
+            <p>{{ $plate->ingredients }}</p>
+            <p>{{ $plate->description }}</p>
             <a href="{{ route('admin.plates.index') }}" class="btn btn-secondary">Go back to plates list</a>
 
         </div>
