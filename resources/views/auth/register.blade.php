@@ -11,7 +11,7 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
-                            <h3>Dati utente</h3>
+                            <h3>Profile info</h3>
                             <div class="mb-4 row">
                                 <label for="name"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
 
-                            <h3 class="mb-4">Dati ristorante</h3>
+                            <h3 class="mb-4">Restaurant info</h3>
 
                             <div class="mb-4 row">
                                 <label for="restaurant-name" class="col-md-4 col-form-label text-md-right">Restaurant
@@ -108,6 +108,8 @@
                                 <div class="col-md-6">
                                     <input id="resturant-type" type="text" class="form-control" name="resturantType"
                                         required>
+                                    <div id="type-help" class="form-text">Italian, chineese, french, etc...
+                                    </div>
                                 </div>
                             </div>
 
