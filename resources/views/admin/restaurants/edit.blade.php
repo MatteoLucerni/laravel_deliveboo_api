@@ -68,6 +68,7 @@
 
                 <!-- Submit Button -->
                 <button type="submit" class="btn btn-success">Submit</button>
+                <a class="btn btn-secondary" href="{{ route('admin.plates.index') }}">Go back</a>
             </form>
         </div>
     </div>
