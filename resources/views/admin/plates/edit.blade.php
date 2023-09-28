@@ -16,26 +16,29 @@
         <div class="container">
             <h3>Edit Plate</h3>
 
-            <form action="{{ route('admin.plates.update', $plate->id) }}" method="POST">
+            <form class="my-5" action="{{ route('admin.plates.update', $plate->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
                 <!-- Plate Name -->
                 <div class="mb-3">
                     <label for="plateName" class="form-label">Plate Name</label>
-                    <input name="name" type="text" class="form-control" id="plateName" value="{{ old('name', $plate->name) }}" required>
+                    <input name="name" type="text" class="form-control" id="plateName"
+                        value="{{ old('name', $plate->name) }}" required>
                 </div>
 
                 <!-- Plate Image -->
                 <div class="mb-3">
                     <label for="plateImage" class="form-label">Plate Image URL</label>
-                    <input name="image" type="url" class="form-control" id="plateImage" value="{{ old('image', $plate->image) }}" required>
+                    <input name="image" type="url" class="form-control" id="plateImage"
+                        value="{{ old('image', $plate->image) }}" required>
                 </div>
 
                 <!-- Plate Price -->
                 <div class="mb-3">
                     <label for="platePrice" class="form-label">Plate Price</label>
-                    <input name="price" type="number" class="form-control" id="platePrice" value="{{ old('price', $plate->price) }}" required>
+                    <input name="price" type="number" class="form-control" id="platePrice"
+                        value="{{ old('price', $plate->price) }}" required>
                 </div>
 
                 <!-- Plate Ingredients -->
@@ -53,11 +56,13 @@
                 <!-- Plate Description -->
                 <div class="mb-3">
                     <label for="is_visible" class="form-label">Visible?</label>
-                    <input value="1" type="checkbox" name="is_visible" id="is_visible" {{ $plate->is_visible ? 'checked' : '' }}>
+                    <input value="1" type="checkbox" name="is_visible" id="is_visible"
+                        {{ $plate->is_visible ? 'checked' : '' }}>
                 </div>
 
                 <!-- Submit Button -->
                 <button type="submit" class="btn btn-success">Update</button>
+                <a class="btn btn-secondary" href="{{ route('admin.plates.index') }}">Go back</a>
             </form>
         </div>
     </div>
