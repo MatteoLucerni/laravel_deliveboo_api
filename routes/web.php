@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\PlateController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Plate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,11 +19,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// routes for Admin
+Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function () {
+    Route::get('/', [AdminHomeController::class, 'index'])->name('home');
+
+    // routes for plates
+    Route::resource('/plates', PlateController::class);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,4 +35,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
