@@ -42,4 +42,43 @@ class PlateController extends Controller
 
         return to_route('admin.plates.show', $plate->id);
     }
+
+    public function destroy(Plate $plate)
+    {
+        $plate->delete();
+        return to_route('admin.plates.index')->with('alert-message', "plate '$plate->title' moved to trash successfully")->with('alert-type', 'success');
+    }
+
+    // trash
+
+    public function trash()
+    {
+        $plates = Plate::onlyTrashed()->get();
+        return view('admin.plates.trash', compact('plates'));
+    }
+
+    public function dropAll()
+    {
+        plate::onlyTrashed()->forceDelete();
+        return to_route('admin.plates.trash')->with('alert-message', "All plates in the trash deleted successfully")->with('alert-type', 'success');
+    }
+
+    public function drop(string $id)
+    {
+        $plate = Plate::onlyTrashed()->findOrFail($id);
+
+        $plate->forceDelete();
+
+        return redirect()->route('admin.plates.trash')->with('alert-message', "plate '$plate->title' deleted successfully")->with('alert-type', 'success');
+    }
+
+
+    public function restore(string $id)
+    {
+        $plate = Plate::onlyTrashed()->findOrFail($id);
+
+        $plate->restore();
+
+        return to_route('admin.plates.trash')->with('alert-message', "plate '$plate->title' restored successfully")->with('alert-type', 'success');
+    }
 }

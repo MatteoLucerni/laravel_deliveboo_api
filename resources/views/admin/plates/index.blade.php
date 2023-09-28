@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Panel')
 @section('content')
     <div class="jumbotron p-5 mb-4 bg-light rounded-3">
         <div class="container py-3">
@@ -29,6 +30,7 @@
         <div class="container">
             <h2>Plates list</h2>
             <a class="btn btn-success my-3" href="{{ route('admin.plates.create') }}">Create a new plate</a>
+            <a class="btn btn-secondary my-3" href="{{ route('admin.plates.trash') }}">Go to trash</a>
             <table class="table table-dark table-striped">
                 <thead>
                     <tr>
@@ -62,9 +64,18 @@
                                 @endif
                             </td>
                             <td>
-                                <a class="btn btn-primary" href="{{ route('admin.plates.show', $plate->id) }}">Details</a>
-                                <a class="btn btn-warning" href="">Edit</a>
-                                <a class="btn btn-danger" href="">Delete</a>
+                                <a class="btn btn-primary" href="{{ route('admin.plates.show', $plate->id) }}"><i
+                                        class="fas fa-eye me-2"></i>Details</a>
+                                <a class="btn btn-warning" href=""><i class="fas fa-pen me-2"></i>Edit</a>
+
+                                <form class="d-inline-block" action="{{ route('admin.plates.destroy', $plate) }}"
+                                    method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger">
+                                        <i class="fas fa-trash me-2"></i>Delete plate
+                                    </button>
+                                </form>
                             </td>
                             <td>Created: {{ $plate->created_at }} <br>
                                 Edited: {{ $plate->updated_at }}</td>

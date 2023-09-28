@@ -25,6 +25,12 @@ Route::get('/', function () {
 Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function () {
     Route::get('/', [AdminHomeController::class, 'index'])->name('home');
 
+    // softdelets and trash
+    Route::get('/plates/trash', [PlateController::class, 'trash'])->name('plates.trash');
+    Route::delete('/plates/trash/{id}/drop', [PlateController::class, 'drop'])->name('plates.drop');
+    Route::delete('/plates/trash/drop', [PlateController::class, 'dropAll'])->name('plates.dropAll');
+    Route::patch('/plates/{id}/restore', [PlateController::class, 'restore'])->name('plates.restore');
+
     // routes for plates
     Route::resource('/plates', PlateController::class);
 });
