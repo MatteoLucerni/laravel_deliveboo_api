@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
-    public function edit(Restaurant $restaurant)
+    public function edit(string $id)
     {
+        $restaurant = Restaurant::findOrFail($id);
         return view('admin.restaurants.edit', compact('restaurant'));
     }
 

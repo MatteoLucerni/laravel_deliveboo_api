@@ -15,7 +15,7 @@
         <div class="container">
             <h3>Add a plate</h3>
 
-            <form action="{{ route('admin.restaurants.update', $restaurant) }}" class="needs-validation" method="POST">
+            <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" class="needs-validation" method="POST">
                 @method('PATCH')
                 @csrf
                 <!-- Plate Name -->
