@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\PlateController;
 use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Restaurant;
 use App\Models\Plate;
@@ -38,6 +39,9 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function ()
     // routes for resturants
     Route::patch('/restaurants/{id}', [RestaurantController::class, 'update'])->name('restaurants.update');
     Route::get('/restaurants/{id}/edit', [RestaurantController::class, 'edit'])->name('restaurants.edit');
+
+    // routes for orders
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 });
 
 Route::middleware('auth')->group(function () {
