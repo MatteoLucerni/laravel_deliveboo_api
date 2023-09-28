@@ -10,7 +10,7 @@ class Plate extends Model
 {
     use SoftDeletes;
     use HasFactory;
-    protected $fillable = ['name', 'image', 'price', 'ingredients', 'description'];
+    protected $fillable = ['name', 'image', 'price', 'ingredients', 'description', 'is_visible'];
 
     public function orders()
     {

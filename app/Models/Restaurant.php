@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Restaurant extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'address', 'image', 'vat_number'];
+    protected $fillable = ['name', 'address', 'image', 'vat_number', 'is_visible'];
 
 
     public function user()
@@ -18,12 +18,12 @@ class Restaurant extends Model
 
     public function plates()
     {
-        return $this->hasMany(Plates::class);
+        return $this->hasMany(Plate::class);
     }
 
     public function orders()
     {
-        return $this->hasMany(Orders::class);
+        return $this->hasMany(Order::class);
     }
 
     public function types()
