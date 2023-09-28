@@ -14,7 +14,7 @@
     <div class="content">
         <div class="container">
             <h3>{{ $restaurant->name }}</h3>
-
+            <a class="btn btn-success" href="{{ route('admin.plates.create') }}">Create a new plate</a>
             @forelse ($plates as $plate)
                 <li class="my-3">
                     {{ $plate->name }}
