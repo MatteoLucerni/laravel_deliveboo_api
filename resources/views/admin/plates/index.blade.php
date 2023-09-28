@@ -37,6 +37,7 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Category</th>
                         <th scope="col">Price</th>
                         <th scope="col">Has image?</th>
                         <th scope="col">Is visible?</th>
@@ -49,7 +50,14 @@
                         <tr>
                             <th scope="row">{{ $plate->id }}</th>
                             <td>{{ $plate->name }}</td>
-                            <td>{{ $plate->price }}€</td>
+                            <td>
+                                <div class="badge rounded-pill" style="background-color: {{ $plate->category->color }}">
+                                    {{ $plate->category->name }}
+                                </div>
+                            </td>
+                            <td>
+                                {{ $plate->price }}€
+                            </td>
                             <td>
                                 @if ($plate->image != null)
                                     Yes

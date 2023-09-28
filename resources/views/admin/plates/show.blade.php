@@ -15,6 +15,9 @@
                 <img class="img-fluid rounded-1" src="{{ $plate->image }}" alt="{{ $plate->name }}">
                 <div class="card-body">
                     <h3 class="card-title">{{ $plate->name }}</h3>
+                    <div class="badge rounded-pill mb-1" style="background-color: {{ $plate->category->color }}">
+                        {{ $plate->category->name }}
+                    </div>
                     <h5>{{ $plate->price }}€</h5>
                     <p class="card-text">{{ $plate->description }}</p>
                     <p><Strong>Ingredients: </Strong>{{ $plate->ingredients }}</p>
