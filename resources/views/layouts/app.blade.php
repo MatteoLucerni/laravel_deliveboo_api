@@ -19,6 +19,8 @@
         integrity='sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=='
         crossorigin='anonymous' />
 
+    <link rel="shortcut icon" href="{{ asset('Yummy_Food.svg') }}" type="image/x-icon">
+
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
