@@ -18,7 +18,7 @@
                     <h5>{{ $plate->price }}€</h5>
                     <p class="card-text">{{ $plate->description }}</p>
                     <p><Strong>Ingredients: </Strong>{{ $plate->ingredients }}</p>
-                    <a class="btn btn-warning" href=""><i class="fas fa-pen me-2"></i>Edit</a>
+                    <a class="btn btn-warning" href="{{ route('admin.plates.edit', $plate->id) }}">Edit</a>
                     <form class="d-inline-block" action="{{ route('admin.plates.destroy', $plate) }}" method="POST">
                         @csrf
                         @method('DELETE')
