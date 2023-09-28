@@ -49,7 +49,7 @@ class PlateController extends Controller
         $plate->description = $data['description'];
         $plate->save();
 
-        return response()->json();
+        return response()->json($plate);
     }
 
     public function update(Request $request, $id)
