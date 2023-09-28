@@ -1,28 +1,82 @@
 @extends('layouts.app')
 @section('content')
     <div class="jumbotron p-5 mb-4 bg-light rounded-3">
-        <div class="container py-5">
-            <div class="logo_laravel">
-
-            </div>
-            <h1 class="display-5 fw-bold">
-                Plates page
+        <div class="container py-3">
+            <h1 class="display-5 fw-bold mb-5">
+                Your resturant's panel
             </h1>
+            <div class="border bg-white rounded p-4 d-flex justify-content-between ">
+                <div class="d-flex flex-column justify-content-between">
+                    <div>
+                        <h2>{{ $restaurant->name }}</h2>
+                        <h6>VAT.N: {{ $restaurant->vat_number }}</h6>
+                        <p>{{ $restaurant->address }}</p>
+                    </div>
+                    <div class="buttons">
+                        <div class="mb-2">
+                            <small>On platform since: {{ $restaurant->created_at }}</small> <br>
+                            <small>Last edit date: {{ $restaurant->updated_at }}</small>
+                        </div>
+                        <a class="btn btn-warning" href="">Edit resturant's info</a>
+                    </div>
+                </div>
+                <img class="w-50" src="{{ $restaurant->image }}" alt="{{ $restaurant->name }}">
+            </div>
         </div>
     </div>
 
     <div class="content">
         <div class="container">
-            <h3>{{ $restaurant->name }}</h3>
-            <a class="btn btn-success" href="{{ route('admin.plates.create') }}">Create a new plate</a>
-            @forelse ($plates as $plate)
-                <li class="my-3">
-                    {{ $plate->name }}
-                    <a href="{{ route('admin.plates.show', $plate->id) }}" class="btn btn-primary">Details</a>
-                </li>
-            @empty
-                <h3>No plates</h3>
-            @endforelse
+            <h2>Plates list</h2>
+            <a class="btn btn-success my-3" href="{{ route('admin.plates.create') }}">Create a new plate</a>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Has image?</th>
+                        <th scope="col">Is visible?</th>
+                        <th scope="col">Actions</th>
+                        <th scope="col">Timestamps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($plates as $plate)
+                        <tr>
+                            <th scope="row">{{ $plate->id }}</th>
+                            <td>{{ $plate->name }}</td>
+                            <td>{{ $plate->price }}€</td>
+                            <td>
+                                @if ($plate->image != null)
+                                    Yes
+                                @else
+                                    No
+                                @endif
+                            </td>
+                            <td>
+                                @if ($plate->is_visible)
+                                    Yes
+                                @else
+                                    No
+                                @endif
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" href="{{ route('admin.plates.show', $plate->id) }}">Details</a>
+                                <a class="btn btn-warning" href="">Edit</a>
+                                <a class="btn btn-danger" href="">Delete</a>
+                            </td>
+                            <td>Created: {{ $plate->created_at }} <br>
+                                Edited: {{ $plate->updated_at }}</td>
+
+                        </tr>
+                    @empty
+                        <td colspan="6">
+                            <h3 class="fw-bold text-danger">No plates</h3>
+                        </td>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
 @endsection
