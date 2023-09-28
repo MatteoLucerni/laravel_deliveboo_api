@@ -23,12 +23,25 @@
     @vite(['resources/js/app.js'])
 </head>
 
+<style>
+    body {
+        visibility: hidden;
+    }
+</style>
+
 <body>
     <div id="app">
 
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+                <div class="container d-flex align-items-center ">
+                    <img class="logo" src="{{ asset('Yummy_Food.svg') }}" alt="DeliveBoo Logo">
+                    <div class="ms-3">
+                        <h1 class="display-4">DeliveBoo</h1>
+                        <i>"The happy food's place"</i>
+                    </div>
+                </div>
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
 
@@ -70,7 +83,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('admin.plates.index') }}">{{ __('Dashboard') }}</a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('admin.plates.index') }}">{{ __('Dashboard') }}</a>
                                     <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
