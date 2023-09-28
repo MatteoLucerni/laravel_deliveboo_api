@@ -85,8 +85,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.plates.index') }}">{{ __('Dashboard') }}</a>
+                                    <a class="dropdown-item" href="{{ route('admin.plates.index') }}">Restaurant & Menù</a>
+                                    <a class="dropdown-item" href="{{ route('admin.orders.index') }}">Orders List</a>
                                     <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
