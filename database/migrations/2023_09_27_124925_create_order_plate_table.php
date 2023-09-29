@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->foreignId('plate_id')->constrained()->onDelete('cascade');
-            $table->float('total_price', 6, 2)->onDelete('cascade');
+            $table->integer('quantity')->onDelete('cascade');
             $table->timestamps();
         });
     }
