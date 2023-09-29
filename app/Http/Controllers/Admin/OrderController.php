@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Plate;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -16,7 +17,14 @@ class OrderController extends Controller
 
     public function show(string $id)
     {
-        $orders = Order::findOrFail($id);
-        return view('admin.orders.show', compact('orders'));
+        $order = Order::findOrFail($id);
+        $plates = $order->plates;
+        
+        foreach ($plates as $plate) {
+            $quantity = $plate ? $plate->pivot->quantity : null;
+            $plate['quantity'] = $quantity;
+        }
+        
+        return view('admin.orders.show', compact('order', 'plates', 'quantity'));
     }
 }
