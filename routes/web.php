@@ -41,7 +41,7 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function ()
     Route::get('/restaurants/{id}/edit', [RestaurantController::class, 'edit'])->name('restaurants.edit');
 
     // routes for orders
-    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::resource('/orders', OrderController::class);
 });
 
 Route::middleware('auth')->group(function () {

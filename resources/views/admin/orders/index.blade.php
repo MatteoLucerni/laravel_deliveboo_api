@@ -31,7 +31,8 @@
                         <td>{{ $order->total_price }}€</td>
                         <td>{{ $order->created_at }}</td>
                         <td>
-                            <a class="btn btn-primary" href=""><i class="fas fa-eye me-2"></i>Details</a>
+                            <a class="btn btn-primary" href="{{ route('admin.orders.show', $order->id) }}"><i
+                                    class="fas fa-eye me-2"></i>Details</a>
 
                             <form class="d-inline-block ms-2" action="" method="POST">
                                 @csrf
