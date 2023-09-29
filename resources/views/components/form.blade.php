@@ -86,8 +86,7 @@
                 <!-- Plate Description -->
                 <div class="mb-3">
                     <label for="plateDescription" class="form-label">Plate Description</label>
-                    <textarea name="description" class="@error('description') is-invalid @enderror form-control" id="plateDescription"
-                        required>{{ old('description', $plate->description) }}</textarea>
+                    <textarea name="description" class="@error('description') is-invalid @enderror form-control" id="plateDescription">{{ old('description', $plate->description) }}</textarea>
                     @error('description')
                         <div class="invalid-feedback">
                             {{ $message }}
