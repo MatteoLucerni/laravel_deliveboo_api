@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Plate;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlateController extends Controller
 {
@@ -19,10 +20,19 @@ class PlateController extends Controller
 
     public function show(string $id)
     {
-        $plate = Plate::findOrFail($id);
+        $userId = Auth::id();
+
+        $plate = Plate::where('id', $id)
+            ->whereHas('restaurant', function ($query) use ($userId) {
+                $query->where('user_id', $userId);
+            })
+            ->first();
+
+        if (!$plate) return abort(404);
 
         return view('admin.plates.show', compact('plate'));
     }
+
 
     public function create()
     {
