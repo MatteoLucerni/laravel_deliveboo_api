@@ -102,6 +102,16 @@
                         {{ old('is_visible', $plate->is_visible) ? 'checked' : '' }}>
                 </div>
 
+                <!-- Plate Category -->
+                <div class="mb-3">
+                    <label for="is_visible" class="form-label">Category</label>
+                    <select name="category_id" class="form-select form-select-lg mb-3" aria-label="Large select example">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <!-- Submit Button -->
                 <button type="submit" class="btn btn-success">
                     @if ($plate->exists)
