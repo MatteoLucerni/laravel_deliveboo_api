@@ -18,7 +18,7 @@
                             <small>On platform since: {{ $restaurant->created_at }}</small> <br>
                             <small>Last edit date: {{ $restaurant->updated_at }}</small>
                         </div>
-                        <a class="btn btn-warning" href="{{ route('admin.restaurants.edit', $restaurant) }}"><i
+                        <a class="btn btn-warning" href="{{ route('admin.restaurants.edit', $restaurant->id) }}"><i
                                 class="fas fa-pen me-2"></i>Edit resturant's info</a>
                     </div>
                 </div>

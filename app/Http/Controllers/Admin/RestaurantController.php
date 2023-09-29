@@ -15,13 +15,15 @@ class RestaurantController extends Controller
         return view('admin.restaurants.edit', compact('restaurant'));
     }
 
-    public function update(Request $request, Restaurant $restaurant)
+    public function update(Request $request, string $id)
     {
+
+        $restaurant = Restaurant::findOrFail($id);
         $request->validate(
             [
                 'name' => 'required|string',
                 'address' => 'required|string',
-                'image' => 'url',
+                'image' => 'nullable|url',
                 'vat_number' => 'required|size:13'
             ],
             [

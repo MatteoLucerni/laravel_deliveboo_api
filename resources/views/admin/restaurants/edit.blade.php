@@ -46,7 +46,7 @@
                 <div class="mb-3">
                     <label for="image" class="form-label">Restaurant image</label>
                     <input value="{{ old('image', $restaurant->image) }}" name="image" type="url"
-                        class="form-control @error('image') is-invalid @enderror" id="image" required>
+                        class="form-control @error('image') is-invalid @enderror" id="image">
                     @error('image')
                         <div class="invalid-feedback">
                             {{ $message }}
