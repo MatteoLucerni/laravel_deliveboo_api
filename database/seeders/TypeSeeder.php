@@ -14,12 +14,10 @@ class TypeSeeder extends Seeder
 
     public function run(): void
     {
-        $names = ['Sushi', 'Pizza', 'Pasta', 'italian', 'turkish', 'Greek', 'Spanish', 'Kebab', 'Healty', 'Chinese', 'Burgers', 'Indian'];
-
-        foreach ($names as $name) {
+        
             $type = new Type();
-            $type->name = $name;
+            $type->name = '';
             $type->save();
-        }
+        
     }
 }

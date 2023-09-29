@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
+use App\Models\Type;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -21,6 +22,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
+        
         return view('auth.register');
     }
 
@@ -37,21 +39,35 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $data = $request->all();
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
+        
+
         $restaurant = Restaurant::create([
+            
             'name' => $request->restaurantName,
             'address' => $request->address,
             'vat_number' => $request->vatNumber
-        ]);
 
+        ]);
         $user->restaurant()->save($restaurant);
 
-        event(new Registered($user));
+        $typeName = $request->types;
+
+        
+        $type = Type::where('name' , $request->restaurantType)->first();
+
+        if (!$type) {
+        $type = Type::create(['name' => $request->restaurantType]);
+        }
+
+        $restaurant->types()->attach($type);
 
         Auth::login($user);
 
