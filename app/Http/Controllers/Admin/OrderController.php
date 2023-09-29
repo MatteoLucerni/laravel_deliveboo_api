@@ -35,4 +35,19 @@ class OrderController extends Controller
 
         return view('admin.orders.show', compact('order', 'plates', 'quantity'));
     }
+
+    public function destroy(string $id)
+    {
+        $userId = Auth::id();
+
+        $order = Order::findOrFail($id);
+
+        if ($order->restaurant->user_id != $userId) {
+            return abort(403);
+        }
+
+        $order->delete();
+
+        return redirect()->route('admin.orders.index');
+    }
 }
