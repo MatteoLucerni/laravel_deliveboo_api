@@ -34,7 +34,8 @@
                             <a class="btn btn-primary" href="{{ route('admin.orders.show', $order->id) }}"><i
                                     class="fas fa-eye me-2"></i>Details</a>
 
-                            <form class="d-inline-block ms-2" action="" method="POST">
+                            <form class="d-inline-block ms-2" action="{{ route('admin.orders.destroy', $order->id) }}"
+                                method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">
