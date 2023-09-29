@@ -17,8 +17,10 @@ class OrderPlateSeeder extends Seeder
         $order = Order::find(1);
         $plate = Plate::find(1);
 
+        $plate_2 = Plate::find(4);
 
         $order->plates()->attach($plate, ['quantity'=>3]);
+        $order->plates()->attach($plate_2, ['quantity'=>4]);
         $order->save();
     }
 }
