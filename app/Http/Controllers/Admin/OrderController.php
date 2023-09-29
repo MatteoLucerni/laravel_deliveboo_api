@@ -13,4 +13,10 @@ class OrderController extends Controller
         $orders = Order::orderBy('created_at', 'ASC')->get();
         return view('admin.orders.index', compact('orders'));
     }
+
+    public function show(string $id)
+    {
+        $orders = Order::findOrFail($id);
+        return view('admin.orders.show', compact('orders'));
+    }
 }
