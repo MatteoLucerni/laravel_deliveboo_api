@@ -94,8 +94,8 @@
 
                         </tr>
                     @empty
-                        <td colspan="6">
-                            <h3 class="fw-bold text-danger">No plates</h3>
+                        <td colspan="8">
+                            <h3 class="fw-bold text-danger text-center">No plates</h3>
                         </td>
                     @endforelse
                 </tbody>
