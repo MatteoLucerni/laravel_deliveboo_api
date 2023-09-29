@@ -106,7 +106,7 @@
                                     type (one or more)</label>
 
                                 <div class="col-md-6">
-                                    <input id="resturant-type" type="text" class="form-control" name="resturantType"
+                                    <input id="resturant-type" type="text" class="form-control" name="restaurantType"
                                         required>
                                     <div id="type-help" class="form-text">Italian, chineese, french, etc...
                                     </div>
@@ -127,3 +127,5 @@
         </div>
     </div>
 @endsection
+
+
