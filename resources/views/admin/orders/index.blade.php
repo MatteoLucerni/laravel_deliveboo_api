@@ -9,9 +9,48 @@
         </div>
     </div>
     <div class="container">
-        @forelse ($orders as $order)
-        @empty
-            <h3 class="fw-bold text-danger">No orders</h3>
-        @endforelse
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($orders as $order)
+                    <tr>
+                        <th scope="row">{{ $order->id }}</th>
+                        <td>{{ $order->name }} {{ $order->surname }}</td>
+                        <td>{{ $order->status }}</td>
+                        <td>{{ $order->address }}</td>
+                        <td>{{ $order->total_price }}€</td>
+                        <td>{{ $order->created_at }}</td>
+                        <td>
+                            <a class="btn btn-primary" href=""><i class="fas fa-eye me-2"></i>Details</a>
+
+                            <form class="d-inline-block ms-2" action="" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-trash me-2"></i>Delete order
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td class="fw-bold text-danger text-center" colspan="7">
+                            <h3>No orders</h3>
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+
     </div>
 @endsection
