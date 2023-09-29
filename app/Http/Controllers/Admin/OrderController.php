@@ -10,7 +10,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::orderBy('created_at', 'ASC')->get();
+        $orders = Order::where('restaurant_id', auth()->user()->restaurant->id)->orderBy('created_at', 'ASC')->get();
         return view('admin.orders.index', compact('orders'));
     }
 
