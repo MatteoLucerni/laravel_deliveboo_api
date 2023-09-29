@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Plate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -17,14 +18,36 @@ class OrderController extends Controller
 
     public function show(string $id)
     {
+        $userId = Auth::id();
+
         $order = Order::findOrFail($id);
+
+        if ($order->restaurant->user_id != $userId) {
+            return abort(403);
+        }
+
         $plates = $order->plates;
-        
+
         foreach ($plates as $plate) {
             $quantity = $plate ? $plate->pivot->quantity : null;
             $plate['quantity'] = $quantity;
         }
-        
+
         return view('admin.orders.show', compact('order', 'plates', 'quantity'));
+    }
+
+    public function destroy(string $id)
+    {
+        $userId = Auth::id();
+
+        $order = Order::findOrFail($id);
+
+        if ($order->restaurant->user_id != $userId) {
+            return abort(403);
+        }
+
+        $order->delete();
+
+        return redirect()->route('admin.orders.index');
     }
 }
