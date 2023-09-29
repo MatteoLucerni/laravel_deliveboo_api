@@ -13,13 +13,14 @@
                 <h3>Plates : </h3>
                 <ul class="list-unstyled">
                     @forelse ($order->plates as $plate)
-                    <li class="card-text">{{$plate->name}} <strong>X {{$plate->quantity}}</strong></li>
-                   
+                        <li class="card-text">{{ $plate->name }} <strong>X {{ $plate->quantity }}</strong></li>
+
                     @empty
-                    <li class="text-danger">No plates</li> 
+                        <li class="text-danger">No plates</li>
                     @endforelse
                 </ul>
             </div>
         </div>
+        <a class="mt-3 btn btn-secondary" href="{{ route('admin.orders.index') }}">Go back</a>
     </div>
 @endsection
