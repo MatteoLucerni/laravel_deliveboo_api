@@ -17,10 +17,8 @@
                         href="{{ route('admin.orders.index') }}">Manage your restaurant's orders</a>
                 </div>
             @else
-                <a href="{{ route('admin.plates.index') }}" class="btn btn-primary btn-lg d-flex justify-content-center">Entra
-                    nel
-                    magico mondo dei
-                    ristoratori</a>
+                <a href="{{ route('admin.plates.index') }}" class="btn btn-primary btn-lg d-flex justify-content-center">Step
+                    into the realm of restaurateurs</a>
             @endauth
         </div>
     </div>
