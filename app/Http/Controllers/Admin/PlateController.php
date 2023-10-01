@@ -118,6 +118,10 @@ class PlateController extends Controller
 
         $data = $request->all();
 
+        if (isset($plate->is_visible) || $plate->is_visible != '1') {
+            $plate->is_visible = 0;
+        };
+
         $plate->update($data);
 
         return redirect()->route('admin.plates.show', $plate->id);
