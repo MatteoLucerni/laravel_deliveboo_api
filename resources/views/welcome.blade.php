@@ -6,13 +6,9 @@
             <div class="logo_laravel">
 
             </div>
-            <h1 class="display-5 fw-bold text-center">
+            <h1 class="display-5 mb-5 fw-bold text-center">
                 Welcome to Deliveboo
             </h1>
-            <p class="py-2 text-center">Matteo Lucerni, Guglielmo Piasenti, Matteo Nesti, Giacomo
-                Arcangeli,
-                Andrea
-                Creazzi</p>
             @auth
                 <div class="row gap-3 justify-content-center ">
                     <a class="col-5 h-100 btn btn-primary btn-lg d-flex justify-content-center"
