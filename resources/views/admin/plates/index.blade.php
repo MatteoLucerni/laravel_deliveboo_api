@@ -4,7 +4,7 @@
     <div class="jumbotron p-5 mb-4 bg-light rounded-3">
         <div class="container py-3">
             <h1 class="display-5 fw-bold mb-5">
-                Your resturant's panel
+                Your restaurant's panel
             </h1>
             <div class="border bg-white rounded p-4 d-flex justify-content-between ">
                 <div class="d-flex flex-column justify-content-between">
@@ -12,6 +12,16 @@
                         <h2>{{ $restaurant->name }}</h2>
                         <h6>VAT.N: {{ $restaurant->vat_number }}</h6>
                         <p>{{ $restaurant->address }}</p>
+                        <small>Types:</small>
+                        <ul>
+                            @foreach ($restaurant->types as $type)
+                                <li>
+                                    <strong>
+                                        {{ $type->name }}
+                                    </strong>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                     <div class="buttons">
                         <div class="mb-2">
@@ -22,7 +32,9 @@
                                 class="fas fa-pen me-2"></i>Edit resturant's info</a>
                     </div>
                 </div>
-                <img class="w-50" src="{{ $restaurant->image }}" alt="{{ $restaurant->name }}">
+                <img class="w-50"
+                    src="@if ($restaurant->image) {{ $restaurant->image }} @else https://marcolanci.it/utils/placeholder.jpg @endif"
+                    alt="{{ $restaurant->name }}">
             </div>
         </div>
     </div>
