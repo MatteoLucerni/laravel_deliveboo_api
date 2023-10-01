@@ -67,9 +67,9 @@
                             </td>
                             <td>
                                 @if ($plate->is_visible)
-                                    Yes
+                                    <i class="fa-regular fa-eye"></i>
                                 @else
-                                    No
+                                    <i class="fa-regular fa-eye-slash"></i>
                                 @endif
                             </td>
                             <td>
