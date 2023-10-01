@@ -14,10 +14,17 @@ class TypeSeeder extends Seeder
 
     public function run(): void
     {
-        
-            $type = new Type();
-            $type->name = '';
-            $type->save();
-        
+
+        $types = [
+            ['name' => 'Italian'],
+            ['name' => 'French'],
+            ['name' => 'Chinesee'],
+        ];
+
+        foreach ($types as $type) {
+            $new_type = new Type();
+            $new_type->name = $type['name'];
+            $new_type->save();
+        }
     }
 }

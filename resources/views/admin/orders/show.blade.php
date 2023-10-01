@@ -14,7 +14,6 @@
                 <ul class="list-unstyled">
                     @forelse ($order->plates as $plate)
                         <li class="card-text">{{ $plate->name }} <strong>X {{ $plate->quantity }}</strong></li>
-
                     @empty
                         <li class="text-danger">No plates</li>
                     @endforelse

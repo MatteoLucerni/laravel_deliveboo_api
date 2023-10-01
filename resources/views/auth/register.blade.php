@@ -102,14 +102,22 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="resturant-type" class="col-md-4 col-form-label text-md-right">Resturant
-                                    type (one or more)</label>
-
-                                <div class="col-md-6">
-                                    <input id="resturant-type" type="text" class="form-control" name="restaurantType"
-                                        required>
-                                    <div id="type-help" class="form-text">Italian, chineese, french, etc...
-                                    </div>
+                                <label class="form-label">Types</label>
+                                <div>
+                                    @foreach ($types as $type)
+                                        <div class="form-check form-check-inline">
+                                            <input @if (in_array($type->id, old('type', $restaurant_type_ids ?? []))) checked @endif class="form-check-input"
+                                                type="checkbox" id="tech-{{ $type->id }}" value="{{ $type->id }}"
+                                                name="types[]">
+                                            <label class="form-check-label"
+                                                for="tech-{{ $type->id }}">{{ $type->name }}</label>
+                                        </div>
+                                    @endforeach
+                                    @error('types')
+                                        <div class="text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -127,5 +135,3 @@
         </div>
     </div>
 @endsection
-
-

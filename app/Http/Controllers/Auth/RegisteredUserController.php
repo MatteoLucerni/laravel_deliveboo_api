@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -22,8 +23,9 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        
-        return view('auth.register');
+        $types = Type::all();
+
+        return view('auth.register', compact('types'));
     }
 
     /**
@@ -47,27 +49,21 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        
 
         $restaurant = Restaurant::create([
-            
+
             'name' => $request->restaurantName,
             'address' => $request->address,
-            'vat_number' => $request->vatNumber
-
+            'vat_number' => $request->vatNumber,
+            'types' => [
+                'nullable',
+                'array',
+                Rule::exists('types', 'id')
+            ],
         ]);
         $user->restaurant()->save($restaurant);
 
-        $typeName = $request->types;
-
-        
-        $type = Type::where('name' , $request->restaurantType)->first();
-
-        if (!$type) {
-        $type = Type::create(['name' => $request->restaurantType]);
-        }
-
-        $restaurant->types()->attach($type);
+        if (array_key_exists('types', $data)) $restaurant->types()->attach($data['types']);
 
         Auth::login($user);
 
