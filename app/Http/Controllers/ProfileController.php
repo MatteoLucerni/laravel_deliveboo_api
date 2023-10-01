@@ -48,9 +48,21 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
+        $restaurant = $user->restaurant;
+
+        if ($restaurant) {
+            $restaurant->plates()->forceDelete();
+
+
+
+            $restaurant->orders()->forceDelete();
+
+            $restaurant->forceDelete();
+        }
+
         Auth::logout();
 
-        $user->delete();
+        $user->forceDelete();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
