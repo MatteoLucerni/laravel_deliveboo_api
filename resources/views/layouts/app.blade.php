@@ -105,9 +105,11 @@
             </div>
         </nav>
 
-        <main class="">
+        <main>
             @yield('content')
         </main>
+
+        @yield('scripts')
     </div>
 </body>
 

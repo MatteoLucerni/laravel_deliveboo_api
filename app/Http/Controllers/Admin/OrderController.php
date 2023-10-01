@@ -50,4 +50,60 @@ class OrderController extends Controller
 
         return redirect()->route('admin.orders.index');
     }
+
+    public function trash()
+    {
+        $userId = Auth::id();
+
+        $orders = Order::onlyTrashed()
+            ->whereHas('restaurant', function ($query) use ($userId) {
+                $query->where('user_id', $userId);
+            })
+            ->get();
+
+        return view('admin.orders.trash', compact('orders'));
+    }
+
+    public function dropAll()
+    {
+        $userId = Auth::id();
+
+        Order::onlyTrashed()
+            ->whereHas('restaurant', function ($query) use ($userId) {
+                $query->where('user_id', $userId);
+            })
+            ->forceDelete();
+
+        return redirect()->route('admin.orders.trash');
+    }
+
+    public function drop(string $id)
+    {
+        $userId = Auth::id();
+
+        $order = Order::onlyTrashed()->where('id', $id)->whereHas('restaurant', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->first();
+
+        if (!$order) return abort(404);
+
+        $order->forceDelete();
+
+        return redirect()->route('admin.orders.trash');
+    }
+
+    public function restore(string $id)
+    {
+        $userId = Auth::id();
+
+        $order = Order::onlyTrashed()->where('id', $id)->whereHas('restaurant', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->first();
+
+        if (!$order) return abort(404);
+
+        $order->restore();
+
+        return redirect()->route('admin.orders.trash');
+    }
 }

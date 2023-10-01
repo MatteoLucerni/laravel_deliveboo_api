@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('note')->nullable();
             $table->float('total_price', 6, 2);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

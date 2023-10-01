@@ -9,6 +9,9 @@
         </div>
     </div>
     <div class="container">
+        <div class="buttons">
+            <a href="{{ route('admin.orders.trash') }}" class="btn btn-secondary my-3">Go to trash bin</a>
+        </div>
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
@@ -34,8 +37,9 @@
                             <a class="btn btn-primary" href="{{ route('admin.orders.show', $order->id) }}"><i
                                     class="fas fa-eye me-2"></i>Details</a>
 
-                            <form class="d-inline-block ms-2" action="{{ route('admin.orders.destroy', $order->id) }}"
-                                method="POST">
+                            <form class="d-inline-block ms-2 delete-form"
+                                action="{{ route('admin.orders.destroy', $order->id) }}" method="POST"
+                                data-name="{{ $order->name }}">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">
@@ -55,4 +59,8 @@
         </table>
 
     </div>
+@endsection
+
+@section('scripts')
+    @vite('resources/js/delete-confirm.js');
 @endsection
