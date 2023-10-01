@@ -28,7 +28,7 @@
                 @forelse ($orders as $order)
                     <tr>
                         <th scope="row">{{ $order->id }}</th>
-                        <td>{{ $order->name }} {{ $order->surname }}</td>
+                        <td class="text-capitalize">{{ $order->name }} {{ $order->surname }}</td>
                         <td>{{ $order->status }}</td>
                         <td>{{ $order->address }}</td>
                         <td>{{ $order->total_price }}€</td>
