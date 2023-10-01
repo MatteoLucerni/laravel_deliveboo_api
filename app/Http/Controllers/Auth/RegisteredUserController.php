@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -38,7 +39,6 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'type' => ['required', 'exists:types,id'],
         ]);
 
         $data = $request->all();
@@ -54,8 +54,12 @@ class RegisteredUserController extends Controller
 
             'name' => $request->restaurantName,
             'address' => $request->address,
-            'vat_number' => $request->vatNumber
-
+            'vat_number' => $request->vatNumber,
+            'types' => [
+                'nullable',
+                'array',
+                Rule::exists('types', 'id')
+            ],
         ]);
         $user->restaurant()->save($restaurant);
 
