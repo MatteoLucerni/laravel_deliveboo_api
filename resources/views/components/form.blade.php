@@ -48,19 +48,30 @@
                 </div>
 
                 <!-- Plate Image -->
-                <div class="mb-3">
-                    <label for="plateImage" class="form-label">Plate Image URL</label>
-                    <input name="image" type="url" class="@error('image') is-invalid @enderror form-control"
-                        id="plateImage" value="{{ old('image', $plate->image) }}" required>
-                    @error('image')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
+                <div class="row">
+                    <div class="mb-3 col-11">
+                        <label for="plateImage" class="form-label">Plate Image URL</label>
+                        <input name="image" type="url" class="@error('image') is-invalid @enderror form-control"
+                            id="plateImage" value="{{ old('image', $plate->image) }}" required>
+                        @error('image')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="mb-3 col-1">
+                        @if (!$plate->image)
+                            <img src="https://marcolanci.it/utils/placeholder.jpg" class="img-fluid" style="width:85px"
+                                id="preview">
+                        @elseif($plate->image)
+                            <img src="{{ $plate->image }}" class="img-fluid"
+                                style="object-fit: cover ; height:85px ; width:85px" id="preview">
+                        @endif
+                    </div>
                 </div>
 
                 <!-- Plate Price -->
-                <div class="mb-3">
+                <div class="mb-3 me-3">
                     <label for="platePrice" class="form-label">Plate Price</label>
                     <input name="price" type="number" class="@error('price') is-invalid @enderror form-control"
                         id="platePrice" value="{{ old('price', $plate->price) }}" required>
@@ -122,4 +133,8 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    @vite('resources/js/image-preview.js');
 @endsection
