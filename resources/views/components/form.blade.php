@@ -61,8 +61,8 @@
                     </div>
                     <div class="mb-3 col-1">
                         @if (!$plate->image)
-                            <img src="https://marcolanci.it/utils/placeholder.jpg" class="img-fluid" style="width:85px"
-                                id="preview">
+                            <img src="https://marcolanci.it/utils/placeholder.jpg" class="img-fluid"
+                                style="object-fit: cover ; height:85px ; width:85px" id="preview">
                         @elseif($plate->image)
                             <img src="{{ $plate->image }}" class="img-fluid"
                                 style="object-fit: cover ; height:85px ; width:85px" id="preview">
