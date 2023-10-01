@@ -93,11 +93,10 @@
                         </div>
                     @enderror
                 </div>
-
-                <!-- Plate Description -->
+                <!-- Plate visibility -->
                 <div class="mb-3">
                     <label for="is_visible" class="form-label">Visible?</label>
-                    <input value="1" type="checkbox" name="is_visible" id="is_visible"
+                    <input value="1" type="checkbox" name="is_visible" id="is_visible" checked
                         {{ old('is_visible', $plate->is_visible) ? 'checked' : '' }}>
                 </div>
 
@@ -121,7 +120,6 @@
                 </button>
                 <a class="btn btn-secondary" href="{{ route('admin.plates.index') }}">Go back</a>
             </form>
-
         </div>
     </div>
 @endsection

@@ -67,6 +67,10 @@ class PlateController extends Controller
 
         $plate = new Plate();
         $plate->fill($data);
+
+        if (isset($plate->is_visible) || $plate->is_visible != '1') {
+            $plate->is_visible = 0;
+        };
         $plate->category_id = $data['category_id'];
         $plate->save();
 
