@@ -6,15 +6,13 @@
 
             </div>
             <h1 class="display-5 fw-bold">
-                Plates page
+                Edit your restaurant
             </h1>
         </div>
     </div>
 
     <div class="content">
         <div class="container">
-            <h3>Add a plate</h3>
-
             <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" class="needs-validation" method="POST">
                 @method('PATCH')
                 @csrf
@@ -61,6 +59,22 @@
                         class="form-control @error('vat_number') is-invalid @enderror" id="vat_number" required>
                     @error('vat_number')
                         <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+                <label class="form-label">Types</label>
+                <div class="mb-3">
+                    @foreach ($types as $type)
+                        <div class="form-check form-check-inline">
+                            <input @if (in_array($type->id, old('type', $restaurant_type_ids ?? []))) checked @endif class="form-check-input" type="checkbox"
+                                id="tech-{{ $type->id }}" value="{{ $type->id }}" name="types[]">
+                            <label class="form-check-label" for="tech-{{ $type->id }}">{{ $type->name }}</label>
+                        </div>
+                    @endforeach
+                    @error('types')
+                        <div class="text-danger">
                             {{ $message }}
                         </div>
                     @enderror
