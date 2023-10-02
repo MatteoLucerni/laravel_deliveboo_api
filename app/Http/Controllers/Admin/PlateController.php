@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Plate;
 use App\Models\Restaurant;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,6 +19,18 @@ class PlateController extends Controller
         $restaurant = Restaurant::where('user_id', auth()->user()->id)->first();
         $plates = Plate::where('restaurant_id', $restaurant->id)->get();
 
+        // Format the created_at date for each plate
+        foreach ($plates as $plate) {
+            $plate->formatted_created_at = Carbon::parse($plate->created_at)->format('d/m/Y');
+            $plate->formatted_updated_at = Carbon::parse($plate->updated_at)->format('d/m/Y');
+        }
+
+        // Format the created_at date for each restaurant
+        foreach ($plates as $plate) {
+            $restaurant->formatted_created_at = Carbon::parse($restaurant->created_at)->format('d/m/Y');
+            $restaurant->formatted_updated_at = Carbon::parse($restaurant->updated_at)->format('d/m/Y');
+        }
+
         $trash_plates = Plate::onlyTrashed()
             ->whereHas('restaurant', function ($query) use ($userId) {
                 $query->where('user_id', $userId);
@@ -27,6 +40,7 @@ class PlateController extends Controller
         $trash_count = count($trash_plates);
 
         return view('admin.plates.index', compact('restaurant', 'plates', 'trash_count'));
+
     }
 
     public function show(string $id)

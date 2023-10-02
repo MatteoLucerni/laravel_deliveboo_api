@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Plate;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,6 +17,12 @@ class OrderController extends Controller
 
         $orders = Order::where('restaurant_id', auth()->user()->restaurant->id)->orderBy('created_at', 'ASC')->get();
 
+
+        // Format the created_at date for each order
+        foreach ($orders as $order) {
+            $order->formatted_created_at = Carbon::parse($order->created_at)->format('d/m/Y');
+        }
+
         $trash_orders = Order::onlyTrashed()
             ->whereHas('restaurant', function ($query) use ($userId) {
                 $query->where('user_id', $userId);
@@ -24,6 +31,7 @@ class OrderController extends Controller
 
         $trash_count = count($trash_orders);
         return view('admin.orders.index', compact('orders', 'trash_count'));
+
     }
 
     public function show(string $id)
