@@ -31,7 +31,6 @@ class OrderController extends Controller
 
         $trash_count = count($trash_orders);
         return view('admin.orders.index', compact('orders', 'trash_count'));
-
     }
 
     public function show(string $id)
@@ -45,6 +44,8 @@ class OrderController extends Controller
         }
 
         $plates = $order->plates;
+
+        $quantity = null;
 
         foreach ($plates as $plate) {
             $quantity = $plate ? $plate->pivot->quantity : null;
