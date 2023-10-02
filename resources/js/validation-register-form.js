@@ -1,15 +1,10 @@
-        
 
         //form button
         const registerButton = document.getElementById('register-button');
         registerButton.addEventListener('click', function(event){
             //errors flag
             let hasErrors = false
-            //stop default event
-            event.preventDefault();
-            //clear errors
-            clearErrors()
-            //name
+             //name
             const nameField = document.getElementById('name');
             const nameFieldValue = nameField.value;
             //check
@@ -36,27 +31,36 @@
             // vat number
             const vatNumberField = document.getElementById('vat-number')
             const vatNumberFieldValue = vatNumberField.value
-            
+            //stop default event
+            event.preventDefault();
+            //clear errors
+            clearErrors()
+           
             //validation user
             //--------------//
             //name
+            nameField.classList.remove('is-invalid')
             if(nameFieldValue === null || nameFieldValue === ''){
                 nameField.classList.add('is-invalid')
                 document.getElementById('name-error').textContent = 'name is required'
                 hasErrors = true
             }
             //email
+            emailField.classList.remove('is-invalid')
             if(emailFieldValue === null || emailFieldValue === ''){
                 emailField.classList.add('is-invalid')
                 document.getElementById('email-error').textContent = 'email is required '
                 hasErrors = true
             }
+            emailField.classList.remove('is-invalid')
             if(!containsAtSymbol){
                 emailField.classList.add('is-invalid')
                 document.getElementById('email-error-text').textContent = ' email required "@"'
                 hasErrors = true
             }
             //password
+            passwordField.classList.remove('is-invalid')
+            confirmPasswordField.classList.remove('is-invalid')
             if(passwordFieldValue === null || passwordFieldValue === '' ){
                 passwordField.classList.add('is-invalid')
                 confirmPasswordField.classList.add('is-invalid')
@@ -64,7 +68,8 @@
                 document.getElementById('password-error').textContent = 'password is required'
                 hasErrors = true
             }
-
+            passwordField.classList.remove('is-invalid')
+            confirmPasswordField.classList.remove('is-invalid')
             if(passwordFieldValue.length < 8){
                 passwordField.classList.add('is-invalid')
                 confirmPasswordField.classList.add('is-invalid')
@@ -83,12 +88,14 @@
             // validation restaurant
 
             //name
+            restaurantNameField.classList.remove('is-invalid')
             if(restaurantNameFieldValue === null || restaurantNameFieldValue === ''){
                 restaurantNameField.classList.add('is-invalid')
                 document.getElementById('restaurant-name-error').textContent = 'restaurant name is required'
                 hasErrors = true
             }
             //address
+            addressField.classList.remove('is-invalid')
             if(addressFieldValue === null || addressFieldValue === ''){
                 addressField.classList.add('is-invalid')
                 document.getElementById('restaurant-address-error').textContent = 'restaurant address is required'
@@ -96,17 +103,19 @@
 
             }
             //vat-number
+            vatNumberField.classList.remove('is-invalid')
             if(vatNumberFieldValue === null || vatNumberFieldValue === ''){
                 vatNumberField.classList.add('is-invalid')
                 document.getElementById('restaurant-vat-number-error').textContent = 'restaurant vat-number is required'
                 hasErrors = true
             }
+            vatNumberField.classList.remove('is-invalid')
             if(vatNumberFieldValue.length < 13){
                 vatNumberField.classList.add('is-invalid')
                 document.getElementById('restaurant-vat-number-error-length').textContent = 'restaurant vat-number must be 13 characters'
                 hasErrors = true
             }
-
+            //type
             if(!selectedTypeIds.length){
                 document.getElementById('type-error').textContent = 'Choosing at least one type is mandatory'
                 hasErrors = true
