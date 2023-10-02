@@ -56,11 +56,9 @@ class RestaurantController extends Controller
 
         $restaurant->update($data);
 
-        $plates = Plate::where('restaurant_id', $restaurant->id)->get();
-
         if (!Arr::exists($data, 'types') && count($restaurant->types)) $restaurant->types()->detach();
         elseif (Arr::exists($data, 'types')) $restaurant->types()->sync($data['types']);
 
-        return view('admin.plates.index', compact('restaurant', 'plates'));
+        return to_route('admin.plates.index');
     }
 }
