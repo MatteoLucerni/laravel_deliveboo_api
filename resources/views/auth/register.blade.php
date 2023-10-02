@@ -194,18 +194,24 @@
 
                 document.getElementById('password-error').textContent = 'password is required'
             }
-            if( confirmPasswordField != passwordField){
+            if( confirmPasswordFieldValue != passwordFieldValue){
                 document.getElementById('password-error-match').textContent = 'password didn\'t match'
                 document.getElementById('confirm-password-error-match').textContent = 'password didn\'t match'
             }
 
             // validation restaurant
-            if(passwordFieldValue === null || passwordFieldValue === '' || confirmPasswordField != passwordField){
-                passwordField.classList.add('is-invalid')
-                confirmPasswordField.classList.add('is-invalid')
 
-                document.getElementById('confirm-password-error').textContent = 'confirm password is required'
-
+            //name
+            if(restaurantNameFieldValue === null || restaurantNameFieldValue === ''){
+                restaurantNameField.classList.add('is-invalid')
+            }
+            //address
+            if(addressFieldValue === null || addressFieldValue === ''){
+                addressField.classList.add('is-invalid')
+            }
+            //vat-number
+            if(vatNumberFieldValue == null || vatNumberFieldValue == '' || vatNumberFieldValue < 13){
+                vatNumberField.classList.add('is-invalid')
             }
         })
     </script>
