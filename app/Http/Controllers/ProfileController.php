@@ -53,8 +53,6 @@ class ProfileController extends Controller
         if ($restaurant) {
             $restaurant->plates()->forceDelete();
 
-
-
             $restaurant->orders()->forceDelete();
 
             $restaurant->forceDelete();
