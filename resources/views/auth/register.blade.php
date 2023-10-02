@@ -20,7 +20,7 @@
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
                                         value="{{ old('name') }}" required autocomplete="name" autofocus >
-                                    <span class="text-danger" id="name-error"></span>
+                                    <small class="text-danger" id="name-error"></small>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -37,8 +37,8 @@
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" >
-                                        <span class="text-danger" id="email-error"></span>
-                                        <span class="text-danger" id="email-error-text"></span>
+                                        <small class="text-danger" id="email-error"></small>
+                                        <small class="text-danger" id="email-error-text"></small>
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -55,8 +55,9 @@
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="new-password">
-                                    <span class="text-danger" id="password-error"></span>
-                                    <span class="text-danger" id="password-error-match"></span>
+                                    <small class="text-danger" id="password-error"></small>
+                                    <small class="text-danger" id="password-error-match"></small>
+                                    <small class="text-danger" id="password-error-length"></small>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -71,8 +72,9 @@
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password" >
-                                        <span class="text-danger" id="confirm-password-error"></span>
-                                        <span class="text-danger" id="confirm-password-error-match"></span>
+                                        <small class="text-danger" id="confirm-password-error"></small>
+                                        <small class="text-danger" id="confirm-password-error-match"></small>
+                                        <small class="text-danger" id="confirm-password-error-length"></small>
                                 </div>
                             </div>
 
@@ -85,6 +87,7 @@
                                 <div class="col-md-6">
                                     <input id="restaurant-name" type="text" class="form-control" name="restaurantName"
                                         required >
+                                    <small class="text-danger" id="restaurant-name-error"></small>
                                 </div>
                             </div>
 
@@ -93,6 +96,7 @@
 
                                 <div class="col-md-6">
                                     <input id="address" type="text" class="form-control" name="address" required >
+                                    <small class="text-danger" id="restaurant-address-error"></small>
                                 </div>
                             </div>
 
@@ -101,6 +105,8 @@
 
                                 <div class="col-md-6">
                                     <input id="vat-number" type="text" class="form-control" name="vatNumber" required >
+                                    <small class="text-danger" id="restaurant-vat-number-error"></small>
+                                    <small class="text-danger" id="restaurant-vat-number-error-length"></small>
                                 </div>
                             </div>
 
@@ -194,6 +200,15 @@
 
                 document.getElementById('password-error').textContent = 'password is required'
             }
+
+            if(passwordFieldValue.length < 8){
+                passwordField.classList.add('is-invalid')
+                confirmPasswordField.classList.add('is-invalid')
+
+                document.getElementById('password-error-length').textContent = 'password must be 8 characters'
+                document.getElementById('confirm-password-error-length').textContent = 'password must be 8 characters'
+            }
+
             if( confirmPasswordFieldValue != passwordFieldValue){
                 document.getElementById('password-error-match').textContent = 'password didn\'t match'
                 document.getElementById('confirm-password-error-match').textContent = 'password didn\'t match'
@@ -204,14 +219,23 @@
             //name
             if(restaurantNameFieldValue === null || restaurantNameFieldValue === ''){
                 restaurantNameField.classList.add('is-invalid')
+                document.getElementById('restaurant-name-error').textContent = 'restaurant name is required'
             }
             //address
             if(addressFieldValue === null || addressFieldValue === ''){
                 addressField.classList.add('is-invalid')
+                document.getElementById('restaurant-address-error').textContent = 'restaurant address is required'
+
             }
             //vat-number
-            if(vatNumberFieldValue == null || vatNumberFieldValue == '' || vatNumberFieldValue < 13){
+            if(vatNumberFieldValue === null || vatNumberFieldValue === ''){
                 vatNumberField.classList.add('is-invalid')
+                document.getElementById('restaurant-vat-number-error').textContent = 'restaurant vat-number is required'
+            }
+
+            if(vatNumberFieldValue.length < 13){
+                vatNumberField.classList.add('is-invalid')
+                document.getElementById('restaurant-vat-number-error-length').textContent = 'restaurant vat-number must be 13 characters'
             }
         })
     </script>
