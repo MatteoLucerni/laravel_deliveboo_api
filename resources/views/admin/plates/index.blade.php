@@ -41,7 +41,7 @@
 
     <div class="content">
         <div class="container">
-            <h2>Plates list</h2>
+            <h2>Dishes list</h2>
             <a class="btn btn-success my-3" href="{{ route('admin.plates.create') }}">Create a new plate</a>
             <a class="btn btn-secondary my-3" href="{{ route('admin.plates.trash') }}">Go to trash</a>
             <table class="table table-dark table-striped">
@@ -79,9 +79,9 @@
                             </td>
                             <td>
                                 @if ($plate->is_visible)
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-solid fa-eye"></i>
                                 @else
-                                    <i class="fa-regular fa-eye-slash"></i>
+                                    <i class="fa-solid fa-eye-slash"></i>
                                 @endif
                             </td>
                             <td>
