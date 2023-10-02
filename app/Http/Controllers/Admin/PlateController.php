@@ -13,9 +13,20 @@ class PlateController extends Controller
 {
     public function index()
     {
+        $userId = Auth::id();
+
         $restaurant = Restaurant::where('user_id', auth()->user()->id)->first();
         $plates = Plate::where('restaurant_id', $restaurant->id)->get();
-        return view('admin.plates.index', compact('restaurant', 'plates'));
+
+        $trash_plates = Plate::onlyTrashed()
+            ->whereHas('restaurant', function ($query) use ($userId) {
+                $query->where('user_id', $userId);
+            })
+            ->get();
+
+        $trash_count = count($trash_plates);
+
+        return view('admin.plates.index', compact('restaurant', 'plates', 'trash_count'));
     }
 
     public function show(string $id)

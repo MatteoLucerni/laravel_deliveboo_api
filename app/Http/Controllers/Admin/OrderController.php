@@ -12,8 +12,18 @@ class OrderController extends Controller
 {
     public function index()
     {
+        $userId = Auth::id();
+
         $orders = Order::where('restaurant_id', auth()->user()->restaurant->id)->orderBy('created_at', 'ASC')->get();
-        return view('admin.orders.index', compact('orders'));
+
+        $trash_orders = Order::onlyTrashed()
+            ->whereHas('restaurant', function ($query) use ($userId) {
+                $query->where('user_id', $userId);
+            })
+            ->get();
+
+        $trash_count = count($trash_orders);
+        return view('admin.orders.index', compact('orders', 'trash_count'));
     }
 
     public function show(string $id)
