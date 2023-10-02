@@ -116,8 +116,8 @@
                                     @foreach ($types as $type)
                                         <div class="form-check form-check-inline">
                                             <input @if (in_array($type->id, old('type', $restaurant_type_ids ?? []))) checked @endif class="form-check-input type-input"
-                                                type="checkbox" id="tech-{{ $type->id }}" value="{{ $type->id }}"
-                                                name="types[]">
+                                                type="checkbox" id="tech-{{ $type->id }}" value="{{ $type->id }}" 
+                                                name="types[]" data-id="{{ $type->id }}">
                                                 <label class="form-check-label"
                                                 for="tech-{{ $type->id }}">{{ $type->name }}</label>
                                         </div>
@@ -146,6 +146,9 @@
     </div>
     
     
+    @endsection
+    
     {{-- script --}}
+    @section('scripts')
     @vite('resources/js/validation-register-form.js')
     @endsection

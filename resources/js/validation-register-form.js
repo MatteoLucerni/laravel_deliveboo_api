@@ -1,3 +1,5 @@
+        
+
         //form button
         const registerButton = document.getElementById('register-button');
         registerButton.addEventListener('click', function(event){
@@ -10,7 +12,9 @@
             //name
             const nameField = document.getElementById('name');
             const nameFieldValue = nameField.value;
-
+            //check
+            const typeCheckboxes = document.querySelectorAll('.type-input[type="checkbox"]:checked');
+            const selectedTypeIds = Array.from(typeCheckboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
             //email
             const emailField = document.getElementById('email');
             const emailFieldValue = emailField.value;
@@ -102,13 +106,19 @@
                 document.getElementById('restaurant-vat-number-error-length').textContent = 'restaurant vat-number must be 13 characters'
                 hasErrors = true
             }
-          
+
+            if(!selectedTypeIds.length){
+                document.getElementById('type-error').textContent = 'Choosing at least one type is mandatory'
+                hasErrors = true
+            }
+
             //send form to db
             if(hasErrors){
                 return
             }
     
             const submitForm = document.getElementById('submit-form')
+
             submitForm.submit()
             console.log('form inviato')    
         })
