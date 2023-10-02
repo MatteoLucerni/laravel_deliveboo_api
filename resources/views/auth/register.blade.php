@@ -20,7 +20,7 @@
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
                                         value="{{ old('name') }}" required autocomplete="name" autofocus >
-
+                                    <span class="text-danger" id="name-error"></span>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -37,7 +37,8 @@
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" >
-
+                                        <span class="text-danger" id="email-error"></span>
+                                        <span class="text-danger" id="email-error-text"></span>
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -54,7 +55,8 @@
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="new-password">
-
+                                    <span class="text-danger" id="password-error"></span>
+                                    <span class="text-danger" id="password-error-match"></span>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -66,10 +68,11 @@
                             <div class="mb-4 row">
                                 <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
+                                    <div class="col-md-6">
+                                        <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password" >
+                                        <span class="text-danger" id="confirm-password-error"></span>
+                                        <span class="text-danger" id="confirm-password-error-match"></span>
                                 </div>
                             </div>
 
@@ -138,11 +141,10 @@
     {{-- script --}}
     <script>
         const registerButton = document.getElementById('register-button');
-        
         registerButton.addEventListener('click', function(event){
             //stop default event
             event.preventDefault();
-            console.log('eseguito')
+
             //name
             const nameField = document.getElementById('name');
             const nameFieldValue = nameField.value;
@@ -168,23 +170,42 @@
             // vat number
             const vatNumberField = document.getElementById('vat-number')
             const vatNumberFieldValue = vatNumberField.value
-            
+
             //validation user
+            //--------------//
+            //name
             if(nameFieldValue === null || nameFieldValue === ''){
                 nameField.classList.add('is-invalid')
+                document.getElementById('name-error').textContent = 'name is required'
             }
-            if(emailFieldValue === null || emailFieldValue === '' || !containsAtSymbol){
+            //email
+            if(emailFieldValue === null || emailFieldValue === ''){
                 emailField.classList.add('is-invalid')
+                document.getElementById('email-error').textContent = 'email is required '
             }
-            if(passwordFieldValue === null || passwordFieldValue === '' || confirmPasswordField != passwordField){
+            if(!containsAtSymbol){
+                emailField.classList.add('is-invalid')
+                document.getElementById('email-error-text').textContent = ' email required "@"'
+            }
+            //password
+            if(passwordFieldValue === null || passwordFieldValue === '' ){
                 passwordField.classList.add('is-invalid')
                 confirmPasswordField.classList.add('is-invalid')
+
+                document.getElementById('password-error').textContent = 'password is required'
+            }
+            if( confirmPasswordField != passwordField){
+                document.getElementById('password-error-match').textContent = 'password didn\'t match'
+                document.getElementById('confirm-password-error-match').textContent = 'password didn\'t match'
             }
 
             // validation restaurant
             if(passwordFieldValue === null || passwordFieldValue === '' || confirmPasswordField != passwordField){
                 passwordField.classList.add('is-invalid')
                 confirmPasswordField.classList.add('is-invalid')
+
+                document.getElementById('confirm-password-error').textContent = 'confirm password is required'
+
             }
         })
     </script>
