@@ -107,7 +107,7 @@
                 <!-- Plate visibility -->
                 <div class="mb-3">
                     <label for="is_visible" class="form-label">Visible?</label>
-                    <input value="1" type="checkbox" name="is_visible" id="is_visible" checked
+                    <input value="1" type="checkbox" name="is_visible" id="is_visible"
                         {{ old('is_visible', $plate->is_visible) ? 'checked' : '' }}>
                 </div>
 
