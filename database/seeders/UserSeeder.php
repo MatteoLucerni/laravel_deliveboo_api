@@ -13,10 +13,42 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = new User();
-        $user->name = 'admin';
-        $user->email = 'admin@boolean.it';
-        $user->password = bcrypt('password');
-        $user->save();
+        $users = [
+            [
+                'name' => 'admin',
+                'email' => 'admin@boolean.it',
+                'password' => bcrypt('password'),
+            ],
+            [
+                'name' => 'john_doe',
+                'email' => 'john.doe@example.com',
+                'password' => bcrypt('password'),
+            ],
+            [
+                'name' => 'jane_smith',
+                'email' => 'jane.smith@example.com',
+                'password' => bcrypt('password'),
+            ],
+            [
+                'name' => 'user123',
+                'email' => 'user123@example.com',
+                'password' => bcrypt('password'),
+            ],
+            [
+                'name' => 'test_user',
+                'email' => 'test.user@example.com',
+                'password' => bcrypt('password'),
+            ],
+        ];
+
+
+
+        foreach ($users as $user) {
+            $new_user = new User();
+            $new_user->name = $user['name'];
+            $new_user->email = $user['email'];
+            $new_user->password = $user['password'];
+            $new_user->save();
+        }
     }
 }
