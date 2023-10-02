@@ -14,10 +14,12 @@ class RestaurantTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        $restaurant = Restaurant::find(1);
-        $type = Type::find(1);
+        for ($i = 1; $i <= 5; $i++) {
+            $restaurant = Restaurant::find($i);
+            $type = Type::find($i);
 
-        $restaurant->types()->attach($type);
-        $restaurant->save();
+            $restaurant->types()->attach($type);
+            $restaurant->save();
+        }
     }
 }
