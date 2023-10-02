@@ -10,7 +10,8 @@
     </div>
     <div class="container">
         <div class="buttons">
-            <a href="{{ route('admin.orders.trash') }}" class="btn btn-secondary my-3">Go to trash bin</a>
+            <a href="{{ route('admin.orders.trash') }}" class="btn btn-secondary my-3">Go to trash ({{ $trash_count }}
+                items)</a>
         </div>
         <table class="table table-dark table-striped">
             <thead>

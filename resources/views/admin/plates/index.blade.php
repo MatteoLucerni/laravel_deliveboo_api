@@ -43,7 +43,8 @@
         <div class="container">
             <h2>Plates list</h2>
             <a class="btn btn-success my-3" href="{{ route('admin.plates.create') }}">Create a new plate</a>
-            <a class="btn btn-secondary my-3" href="{{ route('admin.plates.trash') }}">Go to trash</a>
+            <a class="btn btn-secondary my-3" href="{{ route('admin.plates.trash') }}">Go to trash ({{ $trash_count }}
+                items)</a>
             <table class="table table-dark table-striped">
                 <thead>
                     <tr>
