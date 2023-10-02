@@ -19,6 +19,8 @@ class OrderSeeder extends Seeder
         $order->order_date = Carbon::now()->toDateString();
         $order->name = 'Guglielmo';
         $order->surname = 'Arcangeli';
+        $order->tel = '3473484965';
+        $order->email = 'guest@email.com';
         $order->status = true;
         $order->address = 'via pippo 2';
         $order->note = 'sono allergico al pomodoro, alla mozzarella, alla farina, all\'olio, e sono intollerante al glutine, grazie';

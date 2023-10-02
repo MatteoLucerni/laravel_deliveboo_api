@@ -17,6 +17,8 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Customer</th>
+                    <th scope="col">Tel</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Status</th>
                     <th scope="col">Address</th>
                     <th scope="col">Total</th>
@@ -29,6 +31,8 @@
                     <tr>
                         <th scope="row">{{ $order->id }}</th>
                         <td class="text-capitalize">{{ $order->name }} {{ $order->surname }}</td>
+                        <td>{{ $order->tel }}</td>
+                        <td>{{ $order->email }}</td>
                         <td>{{ $order->status }}</td>
                         <td>{{ $order->address }}</td>
                         <td>{{ $order->total_price }}€</td>
