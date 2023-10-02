@@ -60,8 +60,8 @@ const registerButton = document.getElementById('register-button');
                 passwordField.classList.add('is-invalid')
                 confirmPasswordField.classList.add('is-invalid')
 
-                document.getElementById('password-error-length').textContent = 'password must be 8 characters'
-                document.getElementById('confirm-password-error-length').textContent = 'password must be 8 characters'
+                document.getElementById('password-error-length').textContent = 'password must be at least 8 characters'
+                document.getElementById('confirm-password-error-length').textContent = 'password must be at least 8 characters'
             }
 
             if( confirmPasswordFieldValue != passwordFieldValue){
@@ -87,13 +87,14 @@ const registerButton = document.getElementById('register-button');
                 vatNumberField.classList.add('is-invalid')
                 document.getElementById('restaurant-vat-number-error').textContent = 'restaurant vat-number is required'
             }
-            //types
             if(vatNumberFieldValue.length < 13){
                 vatNumberField.classList.add('is-invalid')
                 document.getElementById('restaurant-vat-number-error-length').textContent = 'restaurant vat-number must be 13 characters'
             }
+            //types
 
-            if (selectedTypes.length === 0) {
-                document.getElementById('type-error').textContent = 'Choosing at least one type is mandatory'; 
-            }
+            
+            //send form to db
+            const submitForm = document.getElementById('submit-form')
+            submitForm.submit()
         })
