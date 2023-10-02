@@ -39,9 +39,15 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'restaurantName' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'vatNumber' => ['required', 'string', 'max:255'],
+            'types' => [
+                'required',
+                'array',
+                Rule::exists('types', 'id')
+            ],
         ]);
-
-        $data = $request->all();
 
         $user = User::create([
             'name' => $request->name,
@@ -49,21 +55,17 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-
         $restaurant = Restaurant::create([
-
             'name' => $request->restaurantName,
             'address' => $request->address,
             'vat_number' => $request->vatNumber,
-            'types' => [
-                'nullable',
-                'array',
-                Rule::exists('types', 'id')
-            ],
         ]);
+
         $user->restaurant()->save($restaurant);
 
-        if (array_key_exists('types', $data)) $restaurant->types()->attach($data['types']);
+        if (array_key_exists('types', $request->all())) {
+            $restaurant->types()->attach($request->types);
+        }
 
         Auth::login($user);
 

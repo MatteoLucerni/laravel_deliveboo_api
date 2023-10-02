@@ -6,15 +6,6 @@
 @section('content')
     <div class="container">
         <h1 class="text-center mt-5">Order trash</h1>
-        <div class="d-flex justify-content-end mt-5">
-            <form class="delete-form" action="{{ route('admin.orders.dropAll') }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-danger">
-                    <i class="fas fa-trash me-2"></i>Delete all
-                </button>
-            </form>
-        </div>
         <ul class="list-unstyled">
             @forelse ($orders as $order)
                 <li class="my-5">
@@ -37,14 +28,6 @@
                                     @method('PATCH')
                                     <button class="btn btn-success">
                                         <i class="fas fa-arrow-rotate-left me-2"></i>Restore order
-                                    </button>
-                                </form>
-                                <form class="delete-form" action="{{ route('admin.orders.drop', $order) }}" method="POST"
-                                    data-name="{{ $order->name }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash me-2"></i>Delete order
                                     </button>
                                 </form>
                             </div>

@@ -14,6 +14,8 @@ class PlateController extends Controller
 {
     public function index()
     {
+        $userId = Auth::id();
+
         $restaurant = Restaurant::where('user_id', auth()->user()->id)->first();
         $plates = Plate::where('restaurant_id', $restaurant->id)->get();
 
@@ -29,7 +31,16 @@ class PlateController extends Controller
             $restaurant->formatted_updated_at = Carbon::parse($restaurant->updated_at)->format('d/m/Y');
         }
 
-        return view('admin.plates.index', compact('restaurant', 'plates'));
+        $trash_plates = Plate::onlyTrashed()
+            ->whereHas('restaurant', function ($query) use ($userId) {
+                $query->where('user_id', $userId);
+            })
+            ->get();
+
+        $trash_count = count($trash_plates);
+
+        return view('admin.plates.index', compact('restaurant', 'plates', 'trash_count'));
+
     }
 
     public function show(string $id)
@@ -81,8 +92,7 @@ class PlateController extends Controller
 
         $plate = new Plate();
         $plate->fill($data);
-
-        if (isset($plate->is_visible) || $plate->is_visible != '1') {
+        if ($plate->is_visible != 1) {
             $plate->is_visible = 0;
         };
         $plate->category_id = $data['category_id'];

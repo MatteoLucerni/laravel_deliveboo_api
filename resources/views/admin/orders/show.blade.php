@@ -6,6 +6,8 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $order->name }} {{ $order->surname }}</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{ $order->order_date }}</h6>
+                <h5>{{ $order->tel }}</h5>
+                <h5>{{ $order->email }}</h5>
                 <p class="card-text">{{ $order->status ? 'in process' : 'delivered' }}</p>
                 <p class="card-text">{{ $order->address }}</p>
                 <p class="card-text">{{ $order->note }}</p>
