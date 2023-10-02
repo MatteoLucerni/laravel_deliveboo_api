@@ -144,8 +144,8 @@
             </div>
         </div>
     </div>
-
-    @endsection
+    
     
     {{-- script --}}
-@vite('resources/js/validation-register-form.js')
+    @vite('resources/js/validation-register-form.js')
+    @endsection
