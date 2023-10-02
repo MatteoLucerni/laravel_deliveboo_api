@@ -10,7 +10,8 @@
     </div>
     <div class="container">
         <div class="buttons">
-            <a href="{{ route('admin.orders.trash') }}" class="btn btn-secondary my-3">Go to trash bin</a>
+            <a href="{{ route('admin.orders.trash') }}" class="btn btn-secondary my-3">Go to trash ({{ $trash_count }}
+                items)</a>
         </div>
         <table class="table table-dark table-striped">
             <thead>
@@ -37,7 +38,8 @@
                             <a class="btn btn-primary" href="{{ route('admin.orders.show', $order->id) }}"><i
                                     class="fas fa-eye me-2"></i>Details</a>
 
-                            <form class="d-inline-block ms-2 delete-form"
+                            <form data-name="{{ $order->name }} {{ $order->surname }}"
+                                class="d-inline-block ms-2 delete-form"
                                 action="{{ route('admin.orders.destroy', $order->id) }}" method="POST"
                                 data-name="{{ $order->name }}">
                                 @csrf
