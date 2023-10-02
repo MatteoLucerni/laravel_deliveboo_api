@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" novalidate>
                             @csrf
 
                             <h3>Profile info</h3>
@@ -19,7 +19,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus >
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email">
+                                        value="{{ old('email') }}" required autocomplete="email" >
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -69,7 +69,7 @@
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                        name="password_confirmation" required autocomplete="new-password" >
                                 </div>
                             </div>
 
@@ -81,7 +81,7 @@
 
                                 <div class="col-md-6">
                                     <input id="restaurant-name" type="text" class="form-control" name="restaurantName"
-                                        required>
+                                        required >
                                 </div>
                             </div>
 
@@ -89,7 +89,7 @@
                                 <label for="address" class="col-md-4 col-form-label text-md-right">Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="address" type="text" class="form-control" name="address" required>
+                                    <input id="address" type="text" class="form-control" name="address" required >
                                 </div>
                             </div>
 
@@ -97,7 +97,7 @@
                                 <label for="vat-number" class="col-md-4 col-form-label text-md-right">Vat number</label>
 
                                 <div class="col-md-6">
-                                    <input id="vat-number" type="text" class="form-control" name="vatNumber" required>
+                                    <input id="vat-number" type="text" class="form-control" name="vatNumber" required >
                                 </div>
                             </div>
 
@@ -123,7 +123,7 @@
 
                             <div class="mb-4 row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" id="register-button">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
@@ -134,4 +134,60 @@
             </div>
         </div>
     </div>
+
+    {{-- script --}}
+    <script>
+        const registerButton = document.getElementById('register-button');
+        
+        registerButton.addEventListener('click', function(event){
+            //stop default event
+            event.preventDefault();
+            console.log('eseguito')
+            //name
+            const nameField = document.getElementById('name');
+            const nameFieldValue = nameField.value;
+
+            //email
+            const emailField = document.getElementById('email');
+            const emailFieldValue = emailField.value;
+            // check @ are in email
+            const containsAtSymbol = /@/.test(emailFieldValue);
+
+            //password and confirm password
+            const passwordField = document.getElementById('password');
+            const passwordFieldValue = passwordField.value;
+            const confirmPasswordField = document.getElementById('password-confirm');
+            const confirmPasswordFieldValue = confirmPasswordField.value;
+
+            //restaurant name
+            const restaurantNameField = document.getElementById('restaurant-name')
+            const restaurantNameFieldValue = restaurantNameField.value
+            // restaurant adddress
+            const addressField = document.getElementById('address')
+            const addressFieldValue = addressField.value
+            // vat number
+            const vatNumberField = document.getElementById('vat-number')
+            const vatNumberFieldValue = vatNumberField.value
+            
+            //validation user
+            if(nameFieldValue === null || nameFieldValue === ''){
+                nameField.classList.add('is-invalid')
+            }
+            if(emailFieldValue === null || emailFieldValue === '' || !containsAtSymbol){
+                emailField.classList.add('is-invalid')
+            }
+            if(passwordFieldValue === null || passwordFieldValue === '' || confirmPasswordField != passwordField){
+                passwordField.classList.add('is-invalid')
+                confirmPasswordField.classList.add('is-invalid')
+            }
+
+            // validation restaurant
+            if(passwordFieldValue === null || passwordFieldValue === '' || confirmPasswordField != passwordField){
+                passwordField.classList.add('is-invalid')
+                confirmPasswordField.classList.add('is-invalid')
+            }
+        })
+    </script>
 @endsection
+
+
