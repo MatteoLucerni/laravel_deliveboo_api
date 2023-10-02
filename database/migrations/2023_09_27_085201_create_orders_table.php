@@ -16,6 +16,8 @@ return new class extends Migration
             $table->date('order_date');
             $table->string('name');
             $table->string('surname');
+            $table->char('tel', 10);
+            $table->string('email');
             $table->boolean('status')->nullable();
             $table->string('address');
             $table->text('note')->nullable();
