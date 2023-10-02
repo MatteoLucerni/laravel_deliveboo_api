@@ -14,7 +14,7 @@
                             <h3>Profile info</h3>
                             <div class="mb-4 row">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Name') }} *</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -31,7 +31,7 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }} *</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -49,7 +49,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Password ') }} *</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -68,7 +68,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }} *</label>
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password" >
@@ -82,7 +82,7 @@
 
                             <div class="mb-4 row">
                                 <label for="restaurant-name" class="col-md-4 col-form-label text-md-right">Restaurant
-                                    name</label>
+                                    name *</label>
 
                                 <div class="col-md-6">
                                     <input id="restaurant-name" type="text" class="form-control" name="restaurantName"
@@ -92,7 +92,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="address" class="col-md-4 col-form-label text-md-right">Address</label>
+                                <label for="address" class="col-md-4 col-form-label text-md-right">Address *</label>
 
                                 <div class="col-md-6">
                                     <input id="address" type="text" class="form-control" name="address" required >
@@ -101,7 +101,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="vat-number" class="col-md-4 col-form-label text-md-right">Vat number</label>
+                                <label for="vat-number" class="col-md-4 col-form-label text-md-right">Vat number *</label>
 
                                 <div class="col-md-6">
                                     <input id="vat-number" type="text" class="form-control" name="vatNumber" required >
@@ -111,23 +111,24 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label class="form-label">Types</label>
+                                <label class="form-label">Types *</label>
                                 <div>
                                     @foreach ($types as $type)
                                         <div class="form-check form-check-inline">
-                                            <input @if (in_array($type->id, old('type', $restaurant_type_ids ?? []))) checked @endif class="form-check-input"
+                                            <input @if (in_array($type->id, old('type', $restaurant_type_ids ?? []))) checked @endif class="form-check-input type-input"
                                                 type="checkbox" id="tech-{{ $type->id }}" value="{{ $type->id }}"
                                                 name="types[]">
-                                            <label class="form-check-label"
+                                                <label class="form-check-label"
                                                 for="tech-{{ $type->id }}">{{ $type->name }}</label>
                                         </div>
-                                    @endforeach
-                                    @error('types')
+                                        @endforeach
+                                        @error('types')
                                         <div class="text-danger">
                                             {{ $message }}
                                         </div>
-                                    @enderror
+                                        @enderror
                                 </div>
+                                    <small class="text-danger" id="type-error"></small>
                             </div>
 
                             <div class="mb-4 row mb-0">
@@ -176,6 +177,9 @@
             // vat number
             const vatNumberField = document.getElementById('vat-number')
             const vatNumberFieldValue = vatNumberField.value
+            // type 
+            const typeCheckboxes = document.querySelectorAll('.type-input input[type="checkbox"]');
+            const selectedTypes = Array.from(typeCheckboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
 
             //validation user
             //--------------//
@@ -232,10 +236,14 @@
                 vatNumberField.classList.add('is-invalid')
                 document.getElementById('restaurant-vat-number-error').textContent = 'restaurant vat-number is required'
             }
-
+            //types
             if(vatNumberFieldValue.length < 13){
                 vatNumberField.classList.add('is-invalid')
                 document.getElementById('restaurant-vat-number-error-length').textContent = 'restaurant vat-number must be 13 characters'
+            }
+
+            if (selectedTypes.length === 0) {
+                document.getElementById('type-error').textContent = 'Choosing at least one type is mandatory'; 
             }
         })
     </script>
