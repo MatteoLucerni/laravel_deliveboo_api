@@ -25,8 +25,8 @@
                     </div>
                     <div class="buttons">
                         <div class="mb-2">
-                            <small>On platform since: {{ $restaurant->created_at }}</small> <br>
-                            <small>Last edit date: {{ $restaurant->updated_at }}</small>
+                            <small>On platform since: {{ $restaurant->formatted_created_at }}</small> <br>
+                            <small>Last edit date: {{ $restaurant->formatted_updated_at }}</small>
                         </div>
                         <a class="btn btn-warning" href="{{ route('admin.restaurants.edit', $restaurant->id) }}"><i
                                 class="fas fa-pen me-2"></i>Edit resturant's info</a>
@@ -101,8 +101,8 @@
                                 </form>
 
                             </td>
-                            <td>Created: {{ $plate->created_at }} <br>
-                                Edited: {{ $plate->updated_at }}</td>
+                            <td>Created: {{ $plate->formatted_created_at }} <br>
+                                Edited: {{ $plate->formatted_updated_at }}</td>
 
                         </tr>
                     @empty

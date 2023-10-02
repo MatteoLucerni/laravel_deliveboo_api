@@ -32,7 +32,7 @@
                         <td>{{ $order->status }}</td>
                         <td>{{ $order->address }}</td>
                         <td>{{ $order->total_price }}€</td>
-                        <td>{{ $order->created_at }}</td>
+                        <td>{{ $order->formatted_created_at }}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('admin.orders.show', $order->id) }}"><i
                                     class="fas fa-eye me-2"></i>Details</a>
