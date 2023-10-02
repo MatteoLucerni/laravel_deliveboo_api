@@ -10,7 +10,7 @@ class RestaurantController extends Controller
 {
     public function index()
     {
-        $restaurants = Restaurant::whereNull('deleted_at')->get();
+        $restaurants = Restaurant::all();
 
         return response()->json(compact('restaurants'));
     }
