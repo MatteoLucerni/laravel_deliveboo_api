@@ -38,7 +38,8 @@
                             <a class="btn btn-primary" href="{{ route('admin.orders.show', $order->id) }}"><i
                                     class="fas fa-eye me-2"></i>Details</a>
 
-                            <form class="d-inline-block ms-2 delete-form"
+                            <form data-name="{{ $order->name }} {{ $order->surname }}"
+                                class="d-inline-block ms-2 delete-form"
                                 action="{{ route('admin.orders.destroy', $order->id) }}" method="POST"
                                 data-name="{{ $order->name }}">
                                 @csrf

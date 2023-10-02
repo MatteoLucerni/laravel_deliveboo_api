@@ -92,8 +92,8 @@
                                 <a class="btn btn-warning" href="{{ route('admin.plates.edit', $plate->id) }}"><i
                                         class="fas fa-pen me-2"></i>Edit</a>
 
-                                <form class="d-inline-block" action="{{ route('admin.plates.destroy', $plate) }}"
-                                    method="POST">
+                                <form data-name="{{ $plate->name }}" class="d-inline-block delete-form"
+                                    action="{{ route('admin.plates.destroy', $plate) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger">
