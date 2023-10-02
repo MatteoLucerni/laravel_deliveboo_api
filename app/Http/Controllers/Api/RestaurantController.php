@@ -14,9 +14,7 @@ class RestaurantController extends Controller
         $filter = $request->input('filter', []);
 
         $restaurants = Restaurant::with('types')->whereHas('types', function ($query) use ($filter) {
-            foreach ($filter as $f) {
-                $query->where('name', $f);
-            }
+            $query->where('name', $filter);
         })->get();
 
         $types = Type::all();
