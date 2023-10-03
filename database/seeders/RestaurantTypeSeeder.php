@@ -21,5 +21,10 @@ class RestaurantTypeSeeder extends Seeder
             $restaurant->types()->attach($type);
             $restaurant->save();
         }
+
+        $restaurant = Restaurant::find(1);
+        $type = Type::find(2);
+        $restaurant->types()->attach($type);
+        $restaurant->save();
     }
 }
