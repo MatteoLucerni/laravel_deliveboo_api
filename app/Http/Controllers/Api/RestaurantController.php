@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Plate;
 use App\Models\Restaurant;
 use App\Models\Type;
 use Illuminate\Http\Request;
@@ -33,8 +35,10 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::find($id);
 
+        $plates = Plate::with('category')->orderBy('category_id', 'ASC')->get();
+
         if (!$restaurant) return response(null, 404);
 
-        return response()->json($restaurant);
+        return response()->json(compact('restaurant', 'plates'));
     }
 }
