@@ -11,16 +11,23 @@ class RestaurantController extends Controller
 {
     public function index(Request $request)
     {
-        $filter = $request->input('filter', []);
+        $filters = $request->input('filter', []);
 
-        $restaurants = Restaurant::with('types')->whereHas('types', function ($query) use ($filter) {
-            $query->where('name', $filter);
-        })->get();
+        $restaurants = Restaurant::with('types');
+
+        foreach ($filters as $filter) {
+            $restaurants->whereHas('types', function ($query) use ($filter) {
+                $query->where('name', $filter);
+            });
+        }
+
+        $restaurants = $restaurants->get();
 
         $types = Type::all();
 
-        return response()->json(compact('restaurants', 'types', 'filter'));
+        return response()->json(compact('restaurants', 'types', 'filters'));
     }
+
 
     public function show(string $id)
     {
