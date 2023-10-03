@@ -12,21 +12,27 @@ class RestaurantController extends Controller
     public function index(Request $request)
     {
         $filters = $request->input('filter', []);
+        $keyword = $request->input('keyword', '');
 
         $restaurants = Restaurant::with('types');
 
-        foreach ($filters as $filter) {
-            $restaurants->whereHas('types', function ($query) use ($filter) {
-                $query->where('name', $filter);
-            });
+        if (!empty($filters)) {
+            $restaurants->whereHas('types', function ($query) use ($filters) {
+                $query->whereIn('name', $filters);
+            }, '=', count($filters));
+        }
+
+        if (!empty($keyword)) {
+            $restaurants->where('name', 'LIKE', '%' . $keyword . '%');
         }
 
         $restaurants = $restaurants->get();
-
         $types = Type::all();
 
-        return response()->json(compact('restaurants', 'types', 'filters'));
+        return response()->json(compact('restaurants', 'types'));
     }
+
+
 
 
     public function show(string $id)
