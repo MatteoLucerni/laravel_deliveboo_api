@@ -52,6 +52,19 @@
                     @enderror
                 </div>
 
+                <!-- Description -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Restaurant Description</label>
+                    <textarea value="" name="description" type="text"
+                        class="form-control @error('description') is-invalid @enderror" id="description">{{ old('description', $restaurant->description) }}
+                    </textarea>
+                    @error('description')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
                 <!-- Plate image -->
                 <div class="mb-3">
                     <label for="image" class="form-label">Restaurant image</label>
