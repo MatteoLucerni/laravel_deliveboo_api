@@ -86,7 +86,7 @@
 
                                 <div class="col-md-6">
                                     <input id="restaurant-name" type="text" class="form-control" name="restaurantName"
-                                        required>
+                                        value="{{ old('restaurantName') }}" required>
                                     <small class="text-danger" id="restaurant-name-error"></small>
                                 </div>
                             </div>
@@ -95,7 +95,8 @@
                                 <label for="address" class="col-md-4 col-form-label text-md-right">Address *</label>
 
                                 <div class="col-md-6">
-                                    <input id="address" type="text" class="form-control" name="address" required>
+                                    <input id="address" type="text" class="form-control" name="address" required
+                                        value="{{ old('address') }}">
                                     <small class="text-danger" id="restaurant-address-error"></small>
                                 </div>
                             </div>
@@ -104,7 +105,8 @@
                                 <label for="vat-number" class="col-md-4 col-form-label text-md-right">Vat number *</label>
 
                                 <div class="col-md-6">
-                                    <input id="vat-number" type="text" class="form-control" name="vatNumber" required>
+                                    <input id="vat-number" value="{{ old('vatNumber') }}" type="text"
+                                        class="form-control" name="vatNumber" required>
                                     <small class="text-danger" id="restaurant-vat-number-error"></small>
                                     <small class="text-danger" id="restaurant-vat-number-error-length"></small>
                                 </div>
@@ -115,8 +117,8 @@
                                     number *</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone-number" type="text" class="form-control" name="phoneNumber"
-                                        required>
+                                    <input id="phone-number" value="{{ old('phoneNumber') }}" type="text"
+                                        class="form-control" name="phoneNumber" required>
                                     <small class="text-danger" id="restaurant-phone-number-error"></small>
                                     <small class="text-danger" id="restaurant-phone-number-error-length"></small>
                                 </div>
@@ -126,7 +128,7 @@
                                 <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
 
                                 <div class="col-md-6">
-                                    <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+                                    <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{ old('description') }}</textarea>
                                     <small class="text-danger" id="restaurant-description-error"></small>
                                     <small class="text-danger" id="restaurant-description-error-length"></small>
                                 </div>
