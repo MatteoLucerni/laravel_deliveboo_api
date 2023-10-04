@@ -28,7 +28,7 @@ class RestaurantController extends Controller
             $restaurants->where('name', 'LIKE', '%' . $keyword . '%');
         }
 
-        $restaurants = $restaurants->get();
+        $restaurants = $restaurants->paginate(5);
         $types = Type::all();
 
         return response()->json(compact('restaurants', 'types'));
