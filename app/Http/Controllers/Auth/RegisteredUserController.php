@@ -41,10 +41,10 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'restaurantName' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'vatNumber' => ['required', 'string', 'size:13'],
             'phoneNumber' => ['required', 'string', 'size:10'],
             'description' => ['nullable', 'string'],
             'image' => ['nullable', 'string'],
+            'vatNumber' => ['required', 'string', 'size:13'],
             'types' => [
                 'required',
                 'array',
@@ -61,10 +61,10 @@ class RegisteredUserController extends Controller
         $restaurant = Restaurant::create([
             'name' => $request->restaurantName,
             'address' => $request->address,
-            'vat_number' => $request->vatNumber,
             'phone_number' => $request->phoneNumber,
+            'description' => $request->description,
             'image' => $request->image,
-            'description' => $request->description
+            'vat_number' => $request->vatNumber,
         ]);
 
         $user->restaurant()->save($restaurant);

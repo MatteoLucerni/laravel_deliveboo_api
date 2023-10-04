@@ -37,9 +37,6 @@ registerButton.addEventListener("click", function (event) {
     // phone number
     const phoneNumberField = document.getElementById("phone-number");
     const phoneNumberFieldValue = phoneNumberField.value;
-    // description
-    const descriptionField = document.getElementById("description");
-    const descriptionFieldValue = descriptionField.value;
     //stop default event
     event.preventDefault();
     //clear errors
@@ -181,7 +178,6 @@ function clearErrors() {
     document.getElementById("restaurant-address-error").textContent = "";
     document.getElementById("restaurant-vat-number-error").textContent = "";
     document.getElementById("restaurant-phone-number-error").textContent = "";
-    document.getElementById("restaurant-description-error").textContent = "";
     document.getElementById("confirm-password-error-match").textContent = "";
     const typeError = document.getElementById("type-error");
     typeError.textContent = "";
