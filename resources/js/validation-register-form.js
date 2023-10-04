@@ -132,7 +132,7 @@ registerButton.addEventListener("click", function (event) {
         vatNumberField.classList.add("is-invalid");
         document.getElementById(
             "restaurant-vat-number-error-length"
-        ).textContent = "restaurant vat-number must be 13 characters";
+        ).textContent = " / restaurant vat-number must be 13 characters";
         hasErrors = true;
     }
     //phone-number
@@ -148,7 +148,7 @@ registerButton.addEventListener("click", function (event) {
         phoneNumberField.classList.add("is-invalid");
         document.getElementById(
             "restaurant-phone-number-error-length"
-        ).textContent = "restaurant phone-number must be 10 characters";
+        ).textContent = " / restaurant phone-number must be 10 characters";
         hasErrors = true;
     }
     //type
