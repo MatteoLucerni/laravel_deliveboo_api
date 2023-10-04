@@ -44,6 +44,7 @@ class RegisteredUserController extends Controller
             'vatNumber' => ['required', 'string', 'size:13'],
             'phoneNumber' => ['required', 'string', 'size:10'],
             'description' => ['nullable', 'string'],
+            'image' => ['nullable', 'string'],
             'types' => [
                 'required',
                 'array',
@@ -62,6 +63,7 @@ class RegisteredUserController extends Controller
             'address' => $request->address,
             'vat_number' => $request->vatNumber,
             'phone_number' => $request->phoneNumber,
+            'image' => $request->image,
             'description' => $request->description
         ]);
 
