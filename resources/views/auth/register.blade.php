@@ -125,6 +125,17 @@
                             </div>
 
                             <div class="mb-4 row">
+                                <label for="image" class="col-md-4 col-form-label text-md-right">Image</label>
+
+                                <div class="col-md-6">
+                                    <input id="image" value="{{ old('image') }}" type="url"
+                                        class="form-control" name="image" required>
+                                    <small class="text-danger" id="restaurant-image-error"></small>
+                                    <small class="text-danger" id="restaurant-image-error-length"></small>
+                                </div>
+                            </div>
+
+                            <div class="mb-4 row">
                                 <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
 
                                 <div class="col-md-6">
