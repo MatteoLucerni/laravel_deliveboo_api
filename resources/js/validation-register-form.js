@@ -177,6 +177,11 @@ function clearErrors() {
     document.getElementById("password-error-length").textContent = "";
     document.getElementById("confirm-password-error-length").textContent = "";
     document.getElementById("password-error-match").textContent = "";
+    document.getElementById("restaurant-name-error").textContent = "";
+    document.getElementById("restaurant-address-error").textContent = "";
+    document.getElementById("restaurant-vat-number-error").textContent = "";
+    document.getElementById("restaurant-phone-number-error").textContent = "";
+    document.getElementById("restaurant-description-error").textContent = "";
     document.getElementById("confirm-password-error-match").textContent = "";
     const typeError = document.getElementById("type-error");
     typeError.textContent = "";
