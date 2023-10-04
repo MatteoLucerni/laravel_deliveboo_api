@@ -112,7 +112,7 @@
 
                             <div class="mb-4 row">
                                 <label for="phone-number" class="col-md-4 col-form-label text-md-right">Phone
-                                    number</label>
+                                    number *</label>
 
                                 <div class="col-md-6">
                                     <input id="phone-number" type="text" class="form-control" name="phoneNumber"
