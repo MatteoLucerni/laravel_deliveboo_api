@@ -22,7 +22,7 @@ class RestaurantSeeder extends Seeder
                 'address' => 'Via della Repubblica 13',
                 'phone_number' => '3345653425',
                 'description' => 'Un grand bel ristorante di cibo!. Location favolosa e stuzzicante, servizio a disposizione di ogni vostra richiesta. Cosa aspetti a prenotare un tavolo da noi? Chiamaci!',
-                'image' => 'https://www.081pizzeria.it/app/uploads/081-pizzeria-interno-1-scaled.jpg',
+                'image' => 'restaurant_images/rest-1.jpg',
                 'vat_number' => 'IT98746784967',
             ],
             [
@@ -31,7 +31,7 @@ class RestaurantSeeder extends Seeder
                 'address' => 'Via Roma 25',
                 'phone_number' => '3345653425',
                 'description' => 'Un grand bel ristorante di cibo!. Location favolosa e stuzzicante, servizio a disposizione di ogni vostra richiesta. Cosa aspetti a prenotare un tavolo da noi? Chiamaci!',
-                'image' => 'https://images.squarespace-cdn.com/content/v1/5e484ab628c78d6f7e602d73/eae06316-cfce-4337-a4fb-0e66da934027/osteria-trattoria.jpg',
+                'image' => 'restaurant_images/rest-2.jpg',
                 'vat_number' => 'IT78945612345',
             ],
             [
@@ -40,7 +40,7 @@ class RestaurantSeeder extends Seeder
                 'address' => 'Via Tokyo 8',
                 'phone_number' => '3345653425',
                 'description' => 'Un grand bel ristorante di cibo!. Location favolosa e stuzzicante, servizio a disposizione di ogni vostra richiesta. Cosa aspetti a prenotare un tavolo da noi? Chiamaci!',
-                'image' => 'https://res.cloudinary.com/tf-lab/image/upload/restaurant/473d413e-c33e-408f-8adb-98e1503f9c32/b1af07b7-425e-4f3a-8199-5c2883323993.jpg',
+                'image' => 'restaurant_images/rest-3.jpg',
                 'vat_number' => 'IT65432198765',
             ],
             [
@@ -49,7 +49,7 @@ class RestaurantSeeder extends Seeder
                 'address' => 'Calle del Sol 42',
                 'phone_number' => '3345653425',
                 'description' => 'Un grand bel ristorante di cibo!. Location favolosa e stuzzicante, servizio a disposizione di ogni vostra richiesta. Cosa aspetti a prenotare un tavolo da noi? Chiamaci!',
-                'image' => 'https://popmenucloud.com/xrpblwcd/85ba676e-8969-4793-ba64-46c7724547be.jpg',
+                'image' => 'restaurant_images/rest-4.jpg',
                 'vat_number' => 'IT32165498732',
             ],
             [
@@ -58,7 +58,7 @@ class RestaurantSeeder extends Seeder
                 'address' => 'Main Street 7',
                 'phone_number' => '3345653425',
                 'description' => 'Un grand bel ristorante di cibo!. Location favolosa e stuzzicante, servizio a disposizione di ogni vostra richiesta. Cosa aspetti a prenotare un tavolo da noi? Chiamaci!',
-                'image' => 'https://res.cloudinary.com/tf-lab/image/upload/restaurant/ebacd4a1-538e-4c6b-9474-d8cb71bf6666/2759e504-461e-4bbd-9073-a11b1933b1cd.jpg',
+                'image' => 'restaurant_images/rest-5.jpg',
                 'vat_number' => 'IT78901234567',
             ],
         ];
