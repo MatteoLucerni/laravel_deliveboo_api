@@ -117,13 +117,7 @@ registerButton.addEventListener("click", function (event) {
         hasErrors = true;
     }
     //vat-number
-    vatNumberField.classList.remove("is-invalid");
-    if (vatNumberFieldValue === null || vatNumberFieldValue === "") {
-        vatNumberField.classList.add("is-invalid");
-        document.getElementById("restaurant-vat-number-error").textContent =
-            "restaurant vat-number is required";
-        hasErrors = true;
-    }
+    
     vatNumberField.classList.remove("is-invalid");
     if (vatNumberFieldValue.length != 13) {
         vatNumberField.classList.add("is-invalid");
@@ -172,7 +166,7 @@ function clearErrors() {
     document.getElementById("email-error-text").textContent = "";
     document.getElementById("password-error").textContent = "";
     document.getElementById("password-error-length").textContent = "";
-    document.getElementById("confirm-password-error-length").textContent = "";
+    document.getElementById("restaurant-vat-number-error-length").textContent = "";
     document.getElementById("password-error-match").textContent = "";
     document.getElementById("restaurant-name-error").textContent = "";
     document.getElementById("restaurant-address-error").textContent = "";
