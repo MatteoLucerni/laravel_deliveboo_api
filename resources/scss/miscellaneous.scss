@@ -1,0 +1,36 @@
+.divider-horizontal {
+  height: 2px;
+  background-color: #c1c1c1;
+  border-radius: 2px;
+}
+
+.redirect-icon {
+  font-size: 0.8rem;
+}
+
+.page-link.active,
+.active > .page-link {
+  z-index: 0;
+}
+
+.page-item:last-child .page-link {
+  z-index: 0;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  padding: 0, 3px;
+  margin: 0;
+}
+
+.cart{
+  font-size: 25px;
+}
+
+.back-icon{
+  padding: 10px;
+  background-color: $primary-color;
+  border-radius: 50%;
+}
