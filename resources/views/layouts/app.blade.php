@@ -29,13 +29,26 @@
     body {
         visibility: hidden;
     }
+    nav {
+    box-shadow: 11 11px 11px rgb(43, 43, 43);
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: rgba(212, 212, 212, 0.59);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15.5px);
+    -webkit-backdrop-filter: blur(15.5px);
+    border: 1px solid rgba(212, 212, 212, 0.3);
+}
 </style>
 
 <body>
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar sticky-top navbar-expand-md">
             <div class="container">
                 <div class="container d-flex align-items-center ">
                     <img class="logo" src="{{ asset('Yummy_Food.svg') }}" alt="DeliveBoo Logo">
