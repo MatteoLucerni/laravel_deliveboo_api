@@ -57,7 +57,7 @@ class RegisteredUserController extends Controller
         // Saving file's storage path on db
 
         if (isset($request->image)) {
-            $image_url = Storage::putFile('restaurant_images', $request->image);
+            $image_url = Storage::put('restaurant_images', $request->image);
         }
 
         $user = User::create([
