@@ -32,9 +32,7 @@
                                 class="fas fa-pen me-2"></i>Edit resturant's info</a>
                     </div>
                 </div>
-                <img class="w-50"
-                    src="@if ($restaurant->image) {{ $restaurant->image }} @else https://marcolanci.it/utils/placeholder.jpg @endif"
-                    alt="{{ $restaurant->name }}">
+                <img class="w-50" src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}">
             </div>
         </div>
     </div>
@@ -72,7 +70,7 @@
                                 {{ $plate->price }}€
                             </td>
                             <td>
-                                @if ($plate->image != null)
+                                @if ($plate->image != null && $plate->image != 'placeholder.jpg')
                                     Yes
                                 @else
                                     No
