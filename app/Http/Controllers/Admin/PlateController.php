@@ -99,6 +99,8 @@ class PlateController extends Controller
         if (array_key_exists('image', $data)) {
             $image_url = Storage::put('plate_images', $data['image']);
             $data['image'] = $image_url;
+        } else {
+            $data['image'] = 'placeholder.jpg';
         }
 
         $plate = new Plate();
@@ -158,6 +160,8 @@ class PlateController extends Controller
         if (array_key_exists('image', $data)) {
             $image_url = Storage::put('plate_images', $data['image']);
             $data['image'] = $image_url;
+        } else {
+            $data['image'] = 'placeholder.jpg';
         }
 
         if (isset($plate->is_visible) || $plate->is_visible != '1') {
