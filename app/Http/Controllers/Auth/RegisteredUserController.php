@@ -71,7 +71,7 @@ class RegisteredUserController extends Controller
             'address' => $request->address,
             'phone_number' => $request->phoneNumber,
             'description' => $request->description,
-            'image' => $image_url ?? 'https://marcolanci.it/utils/placeholder.jpg',
+            'image' => $image_url ?? 'placeholder.jpg',
             'vat_number' => $request->vatNumber,
         ]);
 
