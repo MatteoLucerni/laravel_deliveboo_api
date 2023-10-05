@@ -23,8 +23,9 @@
                         </div>
                         <div class="card-footer d-flex justify-content-between mt-3 align-items-center border-0 bg-light">
                             <div class="buttons d-flex">
-                                <button class="btn btn-success restore-button" data-bs-toggle="modal" data-bs-target="#restoreModal"
-                                    data-route="plates" data-id="{{ $plate->id }}">Restore plate</button>
+                                <button class="btn btn-success restore-button" data-bs-toggle="modal"
+                                    data-bs-target="#restoreModal" data-route="plates" data-id="{{ $plate->id }}">Restore
+                                    plate</button>
                             </div>
                             <div class="text-end">
                                 Created: {{ $plate->created_at }} <br>
@@ -42,8 +43,8 @@
             <a href="{{ route('admin.plates.index') }}" class="btn btn-secondary mx-2 mt-5">Go back to the plates list</a>
         </footer>
     </div>
-@endsection
+    @section('scripts')
+        @vite('resources/js/restore-confirm.js')
+    @endsection
 
-@section('scripts')
-    <script src="{{ asset('js/restore-confirm.js') }}"></script>
 @endsection
