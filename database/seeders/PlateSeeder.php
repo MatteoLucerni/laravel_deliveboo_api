@@ -27,5 +27,16 @@ class PlateSeeder extends Seeder
             $food->is_visible = $plate['is_visible'];
             $food->save();
         }
+
+        $food = new Plate();
+        $food->restaurant_id = 2;
+        $food->category_id = random_int(1, 5);
+        $food->name = 'Spaghetti allo Scoglio';
+        $food->price = 18.99;
+        $food->image = 'plate_images/plate-1.jpg';
+        $food->ingredients = 'Cozze, spaghetti, aglio, gamberi, vongole, pomodoro';
+        $food->description = "Una succulenta bistecca alla griglia servita con sale, pepe e olio d'oliva.";
+        $food->is_visible = true;
+        $food->save();
     }
 }
