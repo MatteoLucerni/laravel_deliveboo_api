@@ -56,7 +56,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td class="fw-bold text-danger text-center" colspan="7">
+                        <td class="fw-bold text-danger text-center" colspan="9">
                             <h3>No orders</h3>
                         </td>
                     </tr>
