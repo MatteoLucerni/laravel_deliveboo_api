@@ -1,11 +1,4 @@
-*
 !.gitignore
 !placeholder.jpg
-!restaurant_images/rest-1.jpg
-!restaurant_images/rest-2.jpg
-!restaurant_images/rest-3.jpg
-!restaurant_images/rest-4.jpg
-!restaurant_images/rest-5.jpg
-!plate_images/plate-1.jpg
-!plate_images/plate-2.jpg
-!plate_images/plate-3.jpg
+!plate_images/
+!restaurant_images/
