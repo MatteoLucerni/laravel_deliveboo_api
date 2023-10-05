@@ -54,7 +54,8 @@ class RestaurantController extends Controller
             'description.string' => 'Name field must be a string',
             'vat_number.required' => 'Vat number field is required',
             'vat_number.size' => 'Vat number must contain 13 charaters',
-            'types.required' => 'At least a type is required'
+            'types.required' => 'At least a type is required',
+            'image.image' => 'Image not valid'
         ]);
 
         $data = $request->all();
