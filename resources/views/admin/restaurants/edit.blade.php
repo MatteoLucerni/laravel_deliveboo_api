@@ -13,14 +13,15 @@
 
     <div class="content">
         <div class="container">
-            <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" class="needs-validation" method="POST">
+            <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" class="needs-validation" method="POST" novalidate id="submit-form">
                 @method('PATCH')
                 @csrf
-                <!-- Plate Name -->
+                <!-- Restaurant Name -->
                 <div class="mb-3">
                     <label for="name" class="form-label">Restaurant Name</label>
                     <input value="{{ old('name', $restaurant->name) }}" name="name" type="text"
                         class="form-control @error('name') is-invalid @enderror" id="name" required>
+                    <small id="restaurant-name-error" class="text-danger"></small>
                     @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -28,11 +29,12 @@
                     @enderror
                 </div>
 
-                <!-- Plate Address -->
+                <!-- Restaurant Address -->
                 <div class="mb-3">
                     <label for="address" class="form-label">Restaurant address</label>
                     <input value="{{ old('address', $restaurant->address) }}" name="address" type="text"
                         class="form-control @error('address') is-invalid @enderror" id="address" required>
+                        <small id="restaurant-address-error" class="text-danger"></small>
                     @error('address')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -45,6 +47,8 @@
                     <label for="phone_number" class="form-label">Restaurant phone number</label>
                     <input value="{{ old('phone_number', $restaurant->phone_number) }}" name="phone_number" type="text"
                         class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" required>
+                        <small id="restaurant-phone-number-error" class="text-danger"></small>
+                        <small id="restaurant-phone-number-error-length" class="text-danger"></small>
                     @error('phone_number')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -65,7 +69,7 @@
                     @enderror
                 </div>
 
-                <!-- Plate image -->
+                <!-- restaurant image -->
                 <div class="mb-3">
                     <label for="image" class="form-label">Restaurant image</label>
                     <input value="{{ old('image', $restaurant->image) }}" name="image" type="url"
@@ -77,11 +81,13 @@
                     @enderror
                 </div>
 
-                <!-- Plate vat_number -->
+                <!-- vat_number -->
                 <div class="mb-3">
                     <label for="vat_number" class="form-label">Restaurant Vat Number</label>
                     <input value="{{ old('vat_number', $restaurant->vat_number) }}" type="text" name="vat_number"
                         class="form-control @error('vat_number') is-invalid @enderror" id="vat_number" required>
+                    <small id="restaurant-vat-number-error-length" class="text-danger"></small>
+                    <small id="restaurant-vat-number-error" class="text-danger"></small>
                     @error('vat_number')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -97,18 +103,23 @@
                                 id="tech-{{ $type->id }}" value="{{ $type->id }}" name="types[]">
                             <label class="form-check-label" for="tech-{{ $type->id }}">{{ $type->name }}</label>
                         </div>
-                    @endforeach
-                    @error('types')
+                        @endforeach
+                        <small id="type-error" class="text-danger"></small>
+                        @error('types')
                         <div class="text-danger">
                             {{ $message }}
                         </div>
-                    @enderror
-                </div>
+                        @enderror
+                    </div>
 
                 <!-- Submit Button -->
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success" id="edit-button">Submit</button>
                 <a class="btn btn-secondary" href="{{ route('admin.plates.index') }}">Go back</a>
             </form>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    @vite('resources/js/edit-validation-restaurant-form.js')
 @endsection
