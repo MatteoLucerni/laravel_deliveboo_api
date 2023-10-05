@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
@@ -35,6 +36,13 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+        // Saving in storage the image file
+
+        if (isset($request->image)) {
+            $image_url = Storage::putFile('restaurant_images', $request->image);
+        }
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
@@ -63,7 +71,7 @@ class RegisteredUserController extends Controller
             'address' => $request->address,
             'phone_number' => $request->phoneNumber,
             'description' => $request->description,
-            'image' => $request->image,
+            'image' => $image_url ?? 'https://marcolanci.it/utils/placeholder.jpg',
             'vat_number' => $request->vatNumber,
         ]);
 
