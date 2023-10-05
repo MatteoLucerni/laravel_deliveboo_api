@@ -1,5 +1,5 @@
 //form button
-
+const registerButton = document.getElementById("register-button");
 registerButton.addEventListener("click", function (event) {
     //errors flag
     let hasErrors = false;
