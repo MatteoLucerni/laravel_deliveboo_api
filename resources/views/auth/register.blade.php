@@ -14,7 +14,7 @@
                             <h3>Profile info</h3>
                             <div class="mb-4 row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}
-                                    *</label>
+                                    <sup class="text-danger">*</sup></label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -31,7 +31,8 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }} *</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }} <sup
+                                        class="text-danger">*</sup></label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -49,7 +50,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password ') }}
-                                    *</label>
+                                    <sup class="text-danger">*</sup></label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -68,7 +69,8 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }} *</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }} <sup
+                                        class="text-danger">*</sup></label>
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password">
@@ -82,7 +84,7 @@
 
                             <div class="mb-4 row">
                                 <label for="restaurant-name" class="col-md-4 col-form-label text-md-right">Restaurant
-                                    name *</label>
+                                    name <sup class="text-danger">*</sup></label>
 
                                 <div class="col-md-6">
                                     <input id="restaurant-name" type="text" class="form-control" name="restaurantName"
@@ -92,7 +94,8 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="address" class="col-md-4 col-form-label text-md-right">Address *</label>
+                                <label for="address" class="col-md-4 col-form-label text-md-right">Address <sup
+                                        class="text-danger">*</sup></label>
 
                                 <div class="col-md-6">
                                     <input id="address" type="text" class="form-control" name="address" required
@@ -102,7 +105,8 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="vat-number" class="col-md-4 col-form-label text-md-right">Vat number *</label>
+                                <label for="vat-number" class="col-md-4 col-form-label text-md-right">Vat number <sup
+                                        class="text-danger">*</sup></label>
 
                                 <div class="col-md-6">
                                     <input id="vat-number" value="{{ old('vatNumber') }}" type="text"
@@ -114,7 +118,7 @@
 
                             <div class="mb-4 row">
                                 <label for="phone-number" class="col-md-4 col-form-label text-md-right">Phone
-                                    number *</label>
+                                    number <sup class="text-danger">*</sup></label>
 
                                 <div class="col-md-6">
                                     <input id="phone-number" value="{{ old('phoneNumber') }}" type="text"
@@ -146,7 +150,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label class="form-label">Types *</label>
+                                <label class="form-label">Types <sup class="text-danger">*</sup></label>
                                 <div>
                                     @foreach ($types as $type)
                                         <div class="form-check form-check-inline">
