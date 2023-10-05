@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const deleteForm = document.getElementById('deleteForm');
   
   
-    deleteModal.addEventListener('show.bs.modal', (event) => {
+    deleteModal.addEventListener('show.bs.modal', (event) => {      
       const button = event.relatedTarget;
       const plateId = button.getAttribute('data-id');
       const route = button.getAttribute('data-route');

@@ -2,9 +2,9 @@
 
 @section('title', 'Trash')
 
-
 @section('content')
-@include('includes.restore')
+    @include('includes.restore')
+
     <div class="container">
         <h1 class="text-center mt-5">Plates trash</h1>
         <ul class="list-unstyled">
@@ -23,7 +23,7 @@
                         </div>
                         <div class="card-footer d-flex justify-content-between mt-3 align-items-center border-0 bg-light">
                             <div class="buttons d-flex">
-                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#restoreModal"
+                                <button class="btn btn-success restore-button" data-bs-toggle="modal" data-bs-target="#restoreModal"
                                     data-route="plates" data-id="{{ $plate->id }}">Restore plate</button>
                             </div>
                             <div class="text-end">
@@ -45,5 +45,5 @@
 @endsection
 
 @section('scripts')
-    @vite('resources/js/delete-confirm.js');
+    <script src="{{ asset('js/restore-confirm.js') }}"></script>
 @endsection

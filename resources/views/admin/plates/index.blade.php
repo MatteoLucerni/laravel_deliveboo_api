@@ -108,4 +108,8 @@
             </table>
         </div>
     </div>
+    @section('scripts')
+        @vite('resources/js/delete-confirm.js');
+    @endsection
+
 @endsection
