@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
             'address' => ['required', 'string', 'max:255'],
             'phoneNumber' => ['required', 'string', 'size:10'],
             'description' => ['nullable', 'string'],
-            'image' => ['nullable', 'string'],
+            'image' => ['nullable', 'image'],
             'vatNumber' => ['required', 'string', 'size:13'],
             'types' => [
                 'required',
