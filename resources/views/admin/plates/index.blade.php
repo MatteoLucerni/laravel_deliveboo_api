@@ -93,7 +93,7 @@
 
                                     <a class="button-main-db" href="{{ route('admin.plates.show', $plate->id) }}"><i
                                             class="fas fa-eye me-2"></i>Details</a>
-                                    <a class="button-warning-db" href="{{ route('admin.plates.edit', $plate->id) }}"><i
+                                    <a class="button-warning-db mx-4" href="{{ route('admin.plates.edit', $plate->id) }}"><i
                                             class="fas fa-pen me-2"></i>Edit</a>
 
                                     <button class="button-danger-db" data-bs-toggle="modal" data-bs-target="#deleteModal"
