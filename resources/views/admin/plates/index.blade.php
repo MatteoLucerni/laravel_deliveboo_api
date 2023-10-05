@@ -25,11 +25,11 @@
                         </ul>
                     </div>
                     <div class="buttons">
-                        <div class="mb-2">
+                        <div class="mb-4">
                             <small>On platform since: {{ $restaurant->formatted_created_at }}</small> <br>
                             <small>Last edit date: {{ $restaurant->formatted_updated_at }}</small>
                         </div>
-                        <a class="btn btn-warning" href="{{ route('admin.restaurants.edit', $restaurant->id) }}"><i
+                        <a class="button-warning-db" href="{{ route('admin.restaurants.edit', $restaurant->id) }}"><i
                                 class="fas fa-pen me-2"></i>Edit resturant's info</a>
                     </div>
                 </div>
@@ -40,10 +40,13 @@
 
     <div class="content">
         <div class="container">
-            <h2>Dishes list</h2>
-            <a class="btn btn-success my-3" href="{{ route('admin.plates.create') }}">Create a new plate</a>
-            <a class="btn btn-secondary my-3" href="{{ route('admin.plates.trash') }}">Go to trash ({{ $trash_count }}
-                items)</a>
+            <h2 class="py-2">Dishes list</h2>
+            <div class="py-5 d-flex gap-3">
+                <a class="button-main-db my-3" href="{{ route('admin.plates.create') }}">Create a new plate</a>
+                <a class="button-secondary-db my-3" href="{{ route('admin.plates.trash') }}">Go to trash
+                    ({{ $trash_count }}
+                    items)</a>
+            </div>
             <table class="table table-dark table-striped">
                 <thead>
                     <tr>
@@ -86,12 +89,12 @@
                             </td>
                             <td>
 
-                                <a class="btn btn-primary" href="{{ route('admin.plates.show', $plate->id) }}"><i
+                                <a class="button-main-db" href="{{ route('admin.plates.show', $plate->id) }}"><i
                                         class="fas fa-eye me-2"></i>Details</a>
-                                <a class="btn btn-warning" href="{{ route('admin.plates.edit', $plate->id) }}"><i
+                                <a class="button-warning-db" href="{{ route('admin.plates.edit', $plate->id) }}"><i
                                         class="fas fa-pen me-2"></i>Edit</a>
 
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                <button class="button-danger-db" data-bs-toggle="modal" data-bs-target="#deleteModal"
                                     data-route="plates" data-id="{{ $plate->id }}">Delete</button>
 
                             </td>
