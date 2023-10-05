@@ -9,6 +9,7 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -53,12 +54,20 @@ class RestaurantController extends Controller
             'phone_number.size' => 'Phone number must contain 10 charaters',
             'description.string' => 'Name field must be a string',
             'vat_number.required' => 'Vat number field is required',
-            'vat_number.size' => 'Vat number must contain 13 charaters',
+            'vat_number.size' => 'Vat nupsmber must contain 13 charaters',
             'types.required' => 'At least a type is required',
             'image.image' => 'Image not valid'
         ]);
 
+
         $data = $request->all();
+
+        // Saving file's storage path on db
+
+        if (array_key_exists('image', $data)) {
+            $image_url = Storage::put('restaurant_images', $data['image']);
+            $data['image'] = $image_url;
+        }
 
         $restaurant->update($data);
 
