@@ -4,6 +4,7 @@
 
 
 @section('content')
+@include('includes.restore')
     <div class="container">
         <h1 class="text-center mt-5">Plates trash</h1>
         <ul class="list-unstyled">
@@ -22,14 +23,8 @@
                         </div>
                         <div class="card-footer d-flex justify-content-between mt-3 align-items-center border-0 bg-light">
                             <div class="buttons d-flex">
-                                <form class="me-2" action="{{ route('admin.plates.restore', $plate) }}" method="POST"
-                                    data-name="{{ $plate->name }}">
-                                    @csrf
-                                    @method('PATCH')
-                                    <button class="btn btn-success">
-                                        <i class="fas fa-arrow-rotate-left me-2"></i>Restore plate
-                                    </button>
-                                </form>
+                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#restoreModal"
+                                    data-route="plates" data-id="{{ $plate->id }}">Restore plate</button>
                             </div>
                             <div class="text-end">
                                 Created: {{ $plate->created_at }} <br>
