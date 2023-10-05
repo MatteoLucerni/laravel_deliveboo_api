@@ -52,9 +52,8 @@
                 <div class="row">
                     <div class="mb-3 col-11">
                         <label for="plateImage" class="form-label">Plate Image URL</label>
-                        <input name="image" type="url" class="@error('image') is-invalid @enderror form-control"
-                            id="plateImage" value="{{ old('image', $plate->image) }}" required>
-                            
+                        <input name="image" type="file" class="@error('image') is-invalid @enderror form-control"
+                            id="plateImage">
                         @error('image')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -63,10 +62,10 @@
                     </div>
                     <div class="mb-3 col-1">
                         @if (!$plate->image)
-                            <img src="https://marcolanci.it/utils/placeholder.jpg" class="img-fluid"
+                            <img src="{{ asset('storage/placeholder.jpg') }}" class="img-fluid"
                                 style="object-fit: cover ; height:85px ; width:85px" id="preview">
                         @elseif($plate->image)
-                            <img src="{{ $plate->image }}" class="img-fluid"
+                            <img src="{{ asset('storage/' . $plate->image) }}" class="img-fluid"
                                 style="object-fit: cover ; height:85px ; width:85px" id="preview">
                         @endif
                     </div>
@@ -142,5 +141,20 @@
 
 @section('scripts')
     @vite('resources/js/image-preview.js');
-    @vite('resources/js/edit-create-form-plates-validation.js');
+    <script>
+        document.getElementById('plateImage').addEventListener('change', function(e) {
+            var preview = document.getElementById('preview');
+            var fileInput = e.target;
+
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                }
+
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        });
+    </script>
 @endsection

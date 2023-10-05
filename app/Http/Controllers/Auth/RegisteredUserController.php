@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
@@ -35,6 +36,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
@@ -43,7 +45,7 @@ class RegisteredUserController extends Controller
             'address' => ['required', 'string', 'max:255'],
             'phoneNumber' => ['required', 'string', 'size:10'],
             'description' => ['nullable', 'string'],
-            'image' => ['nullable', 'string'],
+            'image' => ['nullable', 'image'],
             'vatNumber' => ['required', 'string', 'size:13'],
             'types' => [
                 'required',
@@ -51,6 +53,12 @@ class RegisteredUserController extends Controller
                 Rule::exists('types', 'id')
             ],
         ]);
+
+        // Saving file's storage path on db
+
+        if (isset($request->image)) {
+            $image_url = Storage::put('restaurant_images', $request->image);
+        }
 
         $user = User::create([
             'name' => $request->name,
@@ -63,7 +71,7 @@ class RegisteredUserController extends Controller
             'address' => $request->address,
             'phone_number' => $request->phoneNumber,
             'description' => $request->description,
-            'image' => $request->image,
+            'image' => $image_url ?? 'placeholder.jpg',
             'vat_number' => $request->vatNumber,
         ]);
 

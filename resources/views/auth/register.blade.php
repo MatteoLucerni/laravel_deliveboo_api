@@ -8,7 +8,8 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" novalidate id="submit-form">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" novalidate
+                            id="submit-form">
                             @csrf
 
                             <h3>Profile info</h3>
@@ -132,8 +133,7 @@
                                 <label for="image" class="col-md-4 col-form-label text-md-right">Image</label>
 
                                 <div class="col-md-6">
-                                    <input id="image" value="{{ old('image') }}" type="url"
-                                        class="form-control" name="image" required>
+                                    <input id="image" type="file" class="form-control" name="image" required>
                                     <small class="text-danger" id="restaurant-image-error"></small>
                                     <small class="text-danger" id="restaurant-image-error-length"></small>
                                 </div>

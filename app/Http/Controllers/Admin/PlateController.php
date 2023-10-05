@@ -9,6 +9,7 @@ use App\Models\Restaurant;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PlateController extends Controller
 {
@@ -75,7 +76,7 @@ class PlateController extends Controller
             [
                 'name' => 'required|string',
                 'price' => 'required|numeric',
-                'image' => 'nullable|url',
+                'image' => 'nullable|file',
                 'ingredients' => 'required|string',
                 'description' => 'nullable|string',
             ],
@@ -84,7 +85,7 @@ class PlateController extends Controller
                 'name.string' => 'Name field must me a string',
                 'price.required' => 'Price field is required',
                 'price.numeric' => 'Price field must me a number',
-                'image.url' => 'Image url is not valid',
+                'image.file' => 'Image is not valid',
                 'ingredients.required' => 'Ingredients field is required',
                 'ingredients.string' => 'Ingredients field must be a string',
                 'description.string' => 'Description field must me a string',
@@ -92,6 +93,15 @@ class PlateController extends Controller
         );
 
         $data = $request->all();
+
+        // Saving file's storage path on db
+
+        if (array_key_exists('image', $data)) {
+            $image_url = Storage::put('plate_images', $data['image']);
+            $data['image'] = $image_url;
+        } else {
+            $data['image'] = 'placeholder.jpg';
+        }
 
         $plate = new Plate();
         $plate->fill($data);
@@ -129,7 +139,7 @@ class PlateController extends Controller
         $request->validate([
             'name' => 'required|string',
             'price' => 'required|numeric',
-            'image' => 'nullable|string',
+            'image' => 'nullable|file',
             'ingredients' => 'required|string',
             'description' => 'nullable|string'
         ], [
@@ -137,13 +147,22 @@ class PlateController extends Controller
             'name.string' => 'Name field must me a string',
             'price.required' => 'Price field is required',
             'price.numeric' => 'Price field must me a number',
-            'image.url' => 'Image url is not valid',
+            'image.image' => 'Image is not valid',
             'ingredients.required' => 'Ingredients field is required',
             'ingredients.string' => 'Ingredients field must be a string',
             'description.string' => 'Description field must me a string',
         ]);
 
         $data = $request->all();
+
+        // Saving file's storage path on db
+
+        if (array_key_exists('image', $data)) {
+            $image_url = Storage::put('plate_images', $data['image']);
+            $data['image'] = $image_url;
+        } else {
+            $data['image'] = 'placeholder.jpg';
+        }
 
         if (isset($plate->is_visible) || $plate->is_visible != '1') {
             $plate->is_visible = 0;
