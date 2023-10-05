@@ -37,7 +37,7 @@
 
                 <!-- Plate Name -->
                 <div class="mb-3">
-                    <label for="plateName" class="form-label">Plate Name</label>
+                    <label for="plateName" class="form-label">Plate Name <sup class="text-danger">*</sup></label>
                     <input name="name" type="text" class="@error('name') is-invalid @enderror form-control"
                         id="plateName" value="{{ old('name', $plate->name) }}" required>
                     @error('name')
@@ -72,7 +72,7 @@
 
                 <!-- Plate Price -->
                 <div class="mb-3 me-3">
-                    <label for="platePrice" class="form-label">Plate Price</label>
+                    <label for="platePrice" class="form-label">Plate Price <sup class="text-danger">*</sup></label>
                     <input name="price" type="number" class="@error('price') is-invalid @enderror form-control"
                         id="platePrice" value="{{ old('price', $plate->price) }}" required>
                     @error('price')
@@ -84,7 +84,8 @@
 
                 <!-- Plate Ingredients -->
                 <div class="mb-3">
-                    <label for="plateIngredients" class="form-label">Plate Ingredients</label>
+                    <label for="plateIngredients" class="form-label">Plate Ingredients <sup
+                            class="text-danger">*</sup></label>
                     <textarea name="ingredients" class="@error('ingredients') is-invalid @enderror form-control" id="plateIngredients"
                         required>{{ old('ingredients', $plate->ingredients) }}</textarea>
                     @error('ingredients')
@@ -113,7 +114,7 @@
 
                 <!-- Plate Category -->
                 <div class="mb-3">
-                    <label for="is_visible" class="form-label">Category</label>
+                    <label for="is_visible" class="form-label">Category <sup class="text-danger">*</sup></label>
                     <select name="category_id" class="form-select form-select-lg mb-3" aria-label="Large select example">
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>

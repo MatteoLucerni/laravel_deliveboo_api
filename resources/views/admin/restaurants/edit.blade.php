@@ -18,7 +18,7 @@
                 @csrf
                 <!-- Plate Name -->
                 <div class="mb-3">
-                    <label for="name" class="form-label">Restaurant Name</label>
+                    <label for="name" class="form-label">Restaurant Name <sup class="text-danger">*</sup></label>
                     <input value="{{ old('name', $restaurant->name) }}" name="name" type="text"
                         class="form-control @error('name') is-invalid @enderror" id="name" required>
                     @error('name')
@@ -30,7 +30,7 @@
 
                 <!-- Plate Address -->
                 <div class="mb-3">
-                    <label for="address" class="form-label">Restaurant address</label>
+                    <label for="address" class="form-label">Restaurant address <sup class="text-danger">*</sup></label>
                     <input value="{{ old('address', $restaurant->address) }}" name="address" type="text"
                         class="form-control @error('address') is-invalid @enderror" id="address" required>
                     @error('address')
@@ -42,7 +42,8 @@
 
                 <!-- phone number -->
                 <div class="mb-3">
-                    <label for="phone_number" class="form-label">Restaurant phone number</label>
+                    <label for="phone_number" class="form-label">Restaurant phone number <sup
+                            class="text-danger">*</sup></label>
                     <input value="{{ old('phone_number', $restaurant->phone_number) }}" name="phone_number" type="text"
                         class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" required>
                     @error('phone_number')
@@ -79,7 +80,8 @@
 
                 <!-- Plate vat_number -->
                 <div class="mb-3">
-                    <label for="vat_number" class="form-label">Restaurant Vat Number</label>
+                    <label for="vat_number" class="form-label">Restaurant Vat Number <sup
+                            class="text-danger">*</sup></label>
                     <input value="{{ old('vat_number', $restaurant->vat_number) }}" type="text" name="vat_number"
                         class="form-control @error('vat_number') is-invalid @enderror" id="vat_number" required>
                     @error('vat_number')
@@ -89,7 +91,7 @@
                     @enderror
                 </div>
 
-                <label class="form-label">Types</label>
+                <label class="form-label">Types <sup class="text-danger">*</sup></label>
                 <div class="mb-3">
                     @foreach ($types as $type)
                         <div class="form-check form-check-inline">
