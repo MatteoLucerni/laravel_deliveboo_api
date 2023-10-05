@@ -27,7 +27,7 @@ return [
     [
         "name" => "Bistecca alla Griglia",
         "price" => 24.99,
-        "image" => "plate_images/plate-3.jpg",
+        "image" => "placeholder.jpg",
         "ingredients" => "Bistecca di manzo, sale, pepe, olio d'oliva",
         "description" => "Una succulenta bistecca alla griglia servita con sale, pepe e olio d'oliva.",
         "is_visible" => true
@@ -35,7 +35,7 @@ return [
     [
         "name" => "Insalata Caprese",
         "price" => 8.99,
-        "image" => 'plate_images/plate-2.jpg',
+        "image" => 'placeholder.jpg',
         "ingredients" => "Pomodoro, mozzarella di bufala, basilico, olio d'oliva",
         "description" => "Un'insalata fresca e leggera con pomodoro, mozzarella di bufala, basilico e olio d'oliva extravergine.",
         "is_visible" => true
@@ -43,7 +43,7 @@ return [
     [
         "name" => "Lasagna alla Bolognese",
         "price" => 14.99,
-        "image" => "plate_images/plate-2.jpg",
+        "image" => "placeholder.jpg",
         "ingredients" => "Fogli di pasta, carne macinata, besciamella, parmigiano",
         "description" => "Una deliziosa lasagna alla bolognese con strati di pasta, carne macinata, besciamella e parmigiano.",
         "is_visible" => true
@@ -59,7 +59,7 @@ return [
     [
         "name" => "Tagliata di Manzo",
         "price" => 26.99,
-        "image" => "plate_images/plate-2.jpg",
+        "image" => "placeholder.jpg",
         "ingredients" => "Bistecca di manzo, rucola, pomodorini, aceto balsamico",
         "description" => "Una succulenta tagliata di manzo servita con rucola, pomodorini e aceto balsamico.",
         "is_visible" => true
@@ -75,7 +75,7 @@ return [
     [
         "name" => "Tiramisù",
         "price" => 6.99,
-        "image" => "plate_images/plate-2.jpg",
+        "image" => "placeholder.jpg",
         "ingredients" => "Savoiardi, mascarpone, caffè, cacao",
         "description" => "Un classico tiramisù italiano con savoiardi inzuppati nel caffè, mascarpone e cacao in polvere.",
         "is_visible" => true
