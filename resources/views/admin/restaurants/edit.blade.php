@@ -13,7 +13,8 @@
 
     <div class="content">
         <div class="container">
-            <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" class="needs-validation" method="POST">
+            <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" class="needs-validation"
+                enctype="multipart/form-data" method="POST">
                 @method('PATCH')
                 @csrf
                 <!-- Plate Name -->
@@ -69,8 +70,8 @@
                 <!-- Plate image -->
                 <div class="mb-3">
                     <label for="image" class="form-label">Restaurant image</label>
-                    <input value="{{ old('image', $restaurant->image) }}" name="image" type="url"
-                        class="form-control @error('image') is-invalid @enderror" id="image">
+                    <input name="image" type="file" class="form-control @error('image') is-invalid @enderror"
+                        id="image">
                     @error('image')
                         <div class="invalid-feedback">
                             {{ $message }}

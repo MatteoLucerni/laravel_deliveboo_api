@@ -12,9 +12,7 @@
         <a href="{{ route('admin.plates.index') }}" class="btn btn-secondary">Go back to plates list</a>
         <div class="d-flex justify-content-center align-items-center text-center">
             <div class="card my-4" style="width: 35rem;">
-                <img class="img-fluid rounded-1"
-                    src="@if ($plate->image) {{ $plate->image }} @else https://marcolanci.it/utils/placeholder.jpg @endif"
-                    alt="{{ $plate->name }}">
+                <img class="img-fluid rounded-1" src="{{ asset('storage/' . $plate->image) }}" alt="{{ $plate->name }}">
                 <div class="card-body">
                     <h3 class="card-title">{{ $plate->name }}</h3>
                     <div class="badge rounded-pill mb-1" style="background-color: {{ $plate->category->color }}">
