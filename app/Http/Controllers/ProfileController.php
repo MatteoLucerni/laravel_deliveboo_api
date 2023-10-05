@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -50,6 +51,13 @@ class ProfileController extends Controller
 
         $restaurant = $user->restaurant;
 
+        //delete img from storage
+        if ($restaurant && $restaurant->image) Storage::delete($restaurant->image);
+        
+        foreach($restaurant->plates as $plate){
+            if ($plate && $plate->image) Storage::delete($plate->image);
+        }
+
         if ($restaurant) {
             $restaurant->plates()->forceDelete();
 
@@ -57,7 +65,6 @@ class ProfileController extends Controller
 
             $restaurant->forceDelete();
         }
-
         Auth::logout();
 
         $user->forceDelete();
