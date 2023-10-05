@@ -21,7 +21,7 @@
                 <a href="http://localhost:5174/">If you are not a restaurant owner click here for redirect on user's page</a>
             </div>
             @auth
-                <div class="row gap-3 justify-content-center ">
+                <div class="mt-5 row gap-3 justify-content-center ">
                     <a class="col-5 h-100 btn btn-primary btn-lg d-flex justify-content-center"
                         href="{{ route('admin.plates.index') }}">Manage your restaurant and menù</a>
                     <a class="col-5 h-100 btn btn-success btn-lg d-flex justify-content-center"
