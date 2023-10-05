@@ -133,8 +133,7 @@
                                 <label for="image" class="col-md-4 col-form-label text-md-right">Image</label>
 
                                 <div class="col-md-6">
-                                    <input id="image" value="{{ old('image') }}" type="file"
-                                        class="form-control" name="image" required>
+                                    <input id="image" type="file" class="form-control" name="image" required>
                                     <small class="text-danger" id="restaurant-image-error"></small>
                                     <small class="text-danger" id="restaurant-image-error-length"></small>
                                 </div>
