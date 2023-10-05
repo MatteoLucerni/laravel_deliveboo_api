@@ -41,7 +41,7 @@ class RestaurantController extends Controller
             'address' => 'required|string',
             'phone_number' => 'required|size:10',
             'description' => 'nullable|string',
-            'image' => 'nullable|url',
+            'image' => 'nullable|image',
             'vat_number' => 'required|size:13',
             'types' => 'required|exists:types,id',
         ], [
@@ -50,7 +50,7 @@ class RestaurantController extends Controller
             'address.required' => 'Address field is required',
             'address.string' => 'Address field must me a string',
             'phone_number.required' => 'Phone number field is required',
-            'phone_number.size' => 'Phone number must contain 13 charaters',
+            'phone_number.size' => 'Phone number must contain 10 charaters',
             'description.string' => 'Name field must be a string',
             'vat_number.required' => 'Vat number field is required',
             'vat_number.size' => 'Vat number must contain 13 charaters',
