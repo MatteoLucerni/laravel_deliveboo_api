@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Panel')
 @section('content')
+    @include('includes.alert')
     <div class="jumbotron p-5 mb-4 bg-light rounded-3">
         <div class="container py-3">
             <h1 class="display-5 fw-bold mb-5">
@@ -90,14 +91,8 @@
                                 <a class="btn btn-warning" href="{{ route('admin.plates.edit', $plate->id) }}"><i
                                         class="fas fa-pen me-2"></i>Edit</a>
 
-                                <form data-name="{{ $plate->name }}" class="d-inline-block delete-form"
-                                    action="{{ route('admin.plates.destroy', $plate) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger">
-                                        <i class="fas fa-trash me-2"></i>Delete plate
-                                    </button>
-                                </form>
+                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                    data-route="plates" data-id="{{ $plate->id }}">Delete</button>
 
                             </td>
                             <td>Created: {{ $plate->formatted_created_at }} <br>
