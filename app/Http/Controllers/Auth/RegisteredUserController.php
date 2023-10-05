@@ -37,12 +37,6 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
 
-        // Saving in storage the image file
-
-        if (isset($request->image)) {
-            $image_url = Storage::putFile('restaurant_images', $request->image);
-        }
-
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
@@ -59,6 +53,12 @@ class RegisteredUserController extends Controller
                 Rule::exists('types', 'id')
             ],
         ]);
+
+        // Saving file's storage path on db
+
+        if (isset($request->image)) {
+            $image_url = Storage::putFile('restaurant_images', $request->image);
+        }
 
         $user = User::create([
             'name' => $request->name,
