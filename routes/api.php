@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PlateController;
 use App\Http\Controllers\Api\RestaurantController;
 use Illuminate\Http\Request;
@@ -27,3 +28,7 @@ Route::apiResource('/plates', PlateController::class);
 // routes for restaurants
 
 Route::apiResource('/restaurants', RestaurantController::class);
+
+// routes for orders
+
+Route::apiResource('/orders', OrderController::class);
