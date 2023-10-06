@@ -180,6 +180,11 @@ class PlateController extends Controller
 
         if ($restaurant->user_id !== Auth::id()) abort(403);
 
+       
+        $plate->is_visible = false;
+        $plate->save(); 
+        
+
         $plate->delete();
 
         return to_route('admin.plates.index');
@@ -196,6 +201,7 @@ class PlateController extends Controller
                 $query->where('user_id', $userId);
             })
             ->get();
+            
 
         return view('admin.plates.trash', compact('plates'));
     }
@@ -239,6 +245,9 @@ class PlateController extends Controller
         $plate = Plate::onlyTrashed()->where('id', $id)->whereHas('restaurant', function ($query) use ($userId) {
             $query->where('user_id', $userId);
         })->first();
+
+        $plate->is_visible = true;
+        $plate->save(); 
 
         if (!$plate) return abort(404);
 
