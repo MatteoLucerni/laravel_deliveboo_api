@@ -157,11 +157,14 @@ class PlateController extends Controller
 
         // Saving file's storage path on db
 
+        $currentImage = $request->input('current_image');
+
         if (array_key_exists('image', $data)) {
+            
             $image_url = Storage::put('plate_images', $data['image']);
             $data['image'] = $image_url;
         } else {
-            $data['image'] = 'placeholder.jpg';
+            $data['image'] = $currentImage;
         }
 
         if (isset($plate->is_visible) || $plate->is_visible != '1') {
