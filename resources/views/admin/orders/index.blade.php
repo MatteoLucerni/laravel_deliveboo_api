@@ -15,8 +15,8 @@
 
         <div class="row">
             <div class="col-12">
-                <div class="buttons custom-buttons my-4">
-                    <a href="{{ route('admin.orders.trash') }}" class="button-secondary-db btn btn-secondary btn-sm">
+                <div class="d-flex my-4 justify-content-center justify-content-md-start">
+                    <a href="{{ route('admin.orders.trash') }}" class="button-secondary-db btn">
                         Go to trash ({{ $trash_count }} items)
                     </a>
                 </div>
