@@ -13,29 +13,26 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
-        $validator = Validator::make($data, []);
-
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
-        }
-
-
         $order = new Order();
-        $order->name = $data['name'];
-        $order->surname = $data['surname'];
-        $order->email = $data['email'];
-        $order->tel = $data['tel'];
-        $order->address = $data['address'];
-        $order->note = $data['note'];
+        $order->restaurant_id = $data['cartItems'][0]['restaurant_id'];
+        $order->name = $data['orderData']['name'];
+        $order->surname = $data['orderData']['surname'];
+        $order->tel = $data['orderData']['tel'];
+        $order->email = $data['orderData']['email'];
+        $order->status = true;
+        $order->address = $data['orderData']['address'];
+        $order->note = $data['orderData']['note'];
         $order->total_price = $data['totalPrice'];
         $order->save();
 
-        $plates = $data['plates'];
-        foreach ($plates as $plate) {
-            $order->plates()->attach($plate->id, ['quantity' => $plate['quantity']]);
+        foreach ($data['cartItems'] as $item) {
+
+            $plate = Plate::find($item['id']);
+
+            $order->plates()->attach($plate, ['quantity' => $item['quantity']]);
         }
 
-        return response()->json($order);
+
+        return response()->json($data);
     }
 }
