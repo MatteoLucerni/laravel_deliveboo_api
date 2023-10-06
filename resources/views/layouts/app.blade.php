@@ -29,49 +29,51 @@
     body {
         visibility: hidden;
     }
+
     nav {
-    box-shadow: 11 11px 11px rgb(43, 43, 43);
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background: rgba(212, 212, 212, 0.59);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(15.5px);
-    -webkit-backdrop-filter: blur(15.5px);
-    border: 1px solid rgba(212, 212, 212, 0.3);
-}
+        box-shadow: 11 11px 11px rgb(43, 43, 43);
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        background: rgba(212, 212, 212, 0.59);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(15.5px);
+        -webkit-backdrop-filter: blur(15.5px);
+        border: 1px solid rgba(212, 212, 212, 0.3);
+    }
+
+    .logo-db {
+        width: 65px;
+    }
 </style>
 
-<body>
+<body class="background-color-page">
     <div id="app">
 
 
         <nav class="navbar sticky-top navbar-expand-md">
-            <div class="container">
-                <div class="container d-flex align-items-center ">
-                    <img class="logo" src="{{ asset('Yummy_Food.svg') }}" alt="DeliveBoo Logo">
-                    <div class="ms-3">
-                        <h1 class="display-4">DeliveBoo</h1>
-                        <i>"The happy food's place"</i>
+            <div class="container d-flex align-items-center justify-content-between">
+                <div class="container d-flex align-items-center justify-content-between ">
+                    <div class="d-flex align-items-center">
+                        <img class="logo-db rounded-circle" src="{{ asset('Yummy_Food.svg') }}" alt="DeliveBoo Logo">
+                        <div class="ms-3">
+                            <h1 class="display-5">DeliveBoo</h1>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                     </div>
                 </div>
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    <div class="logo_laravel">
-
-                    </div>
-                    {{-- config('app.name', 'Laravel') --}}
-                </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
