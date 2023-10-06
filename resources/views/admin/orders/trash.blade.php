@@ -9,29 +9,35 @@
         <ul class="list-unstyled">
             @forelse ($orders as $order)
                 <li class="my-5">
-                    <div class="card bg-light p-5">
-                        <div class="card-header rounded border-0 mb-4 d-flex justify-content-between align-content-center ">
+                    <div class="restaurant-card p-5">
+                        <div class="mb-4 d-flex justify-content-between align-content-center ">
                             <h2 class="m-0 d-flex align-items-center">
                                 {{ $order->name }} {{ $order->surname }}
                             </h2>
                         </div>
-                        <div class="card-body">
+                        <div class="divider-small mb-5"></div>
+                        <div class="mb-5">
                             <p>
                                 {{ $order->note }}
                             </p>
                         </div>
-                        <div class="card-footer d-flex justify-content-between mt-3 align-items-center border-0 bg-light">
+                        <div class="d-md-none">
+                            Created: {{ $order->created_at }} <br>
+                            Last edit: {{ $order->updated_at }} <br>
+                            Deleted: {{ $order->deleted_at }}
+                        </div>
+                        <div class="d-flex justify-content-center justify-content-md-between mt-3 align-items-center">
                             <div class="buttons d-flex">
                                 <form class="me-2" action="{{ route('admin.orders.restore', $order) }}" method="POST"
                                     data-name="{{ $order->name }}">
                                     @csrf
                                     @method('PATCH')
-                                    <button class="btn btn-success">
-                                        <i class="fas fa-arrow-rotate-left me-2"></i>Restore order
+                                    <button class="button-main-db">
+                                        <i class="fas fa-arrow-rotate-left me-2 "></i>Restore order
                                     </button>
                                 </form>
                             </div>
-                            <div class="text-end">
+                            <div class="text-end d-none d-md-block">
                                 Created: {{ $order->created_at }} <br>
                                 Last edit: {{ $order->updated_at }} <br>
                                 Deleted: {{ $order->deleted_at }}
@@ -43,8 +49,8 @@
                 <h4 class="alert alert-danger mt-5 text-center">Trash is empty</h4>
             @endforelse
         </ul>
-        <footer class="text-center mb-5">
-            <a href="{{ route('admin.orders.index') }}" class="btn btn-secondary mx-2 mt-5">Go back to the order list</a>
+        <footer class="text-center my-5">
+            <a href="{{ route('admin.orders.index') }}" class="btn button-secondary-db mx-2">Go back to the order list</a>
         </footer>
     </div>
 @endsection
