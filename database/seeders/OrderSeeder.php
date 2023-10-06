@@ -16,7 +16,6 @@ class OrderSeeder extends Seeder
     {
         $order = new Order();
         $order->restaurant_id = 1;
-        $order->order_date = Carbon::now()->toDateString();
         $order->name = 'Guglielmo';
         $order->surname = 'Arcangeli';
         $order->tel = '3473484965';
