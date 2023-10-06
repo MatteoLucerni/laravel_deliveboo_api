@@ -1,10 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <div class="jumbotron p-5 mb-4 bg-light rounded-3">
+    <div class="restaurant-card px-5 my-4 mx-4">
         <div class="container py-5">
-            <div class="logo_laravel">
-
-            </div>
             <h1 class="display-5 fw-bold">
                 Edit your restaurant
             </h1>
@@ -13,6 +10,7 @@
 
     <div class="content">
         <div class="container">
+            <div class="restaurant-card p-5 mb-5">
             <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" class="needs-validation"
                 enctype="multipart/form-data" method="POST" id="submit-form">
                 @method('PATCH')
@@ -116,9 +114,12 @@
                     </div>
 
                 <!-- Submit Button -->
-                <button type="submit" class="btn btn-success" id="edit-button">Submit</button>
-                <a class="btn btn-secondary" href="{{ route('admin.plates.index') }}">Go back</a>
+                <div class="d-flex align-items-center justify-content-center gap-4">
+                    <button type="submit" class="button-main-db" id="edit-button">Submit</button>
+                    <a class="button-secondary-db" href="{{ route('admin.plates.index') }}">Go back</a>
+                </div>
             </form>
+        </div>
         </div>
     </div>
 @endsection
