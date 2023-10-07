@@ -9,12 +9,12 @@
       <div class="modal-body">
         <p>Are you sure you want to restore this plate?</p>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      <div class="modal-footer d-flex justify-content-center gap-3">
+        <button type="button" class="button-secondary-db" data-bs-dismiss="modal">Cancel</button>
         <form id="restoreForm" method="POST">
           @csrf
           @method('PATCH')
-          <button type="submit" class="btn btn-success">Confirm Restore</button>
+          <button type="submit" class="button-main-db">Confirm Restore</button>
       </form>      
       </div>
     </div>
