@@ -5,7 +5,7 @@
   border: 0;
   box-sizing: border-box;
   border-radius: 100000px;
-  box-shadow: 0px 2px 8px #999898;
+  box-shadow: 0px 2px 8px #515151;
   background-color: $primary-color;
   line-height: 16px;
   outline: none;
@@ -39,7 +39,7 @@
   border: 0;
   box-sizing: border-box;
   border-radius: 100000px;
-  box-shadow: 0px 2px 8px #999898;
+  box-shadow: 0px 2px 8px #515151;
   background-color: $danger-color;
   line-height: 16px;
   outline: none;
@@ -58,7 +58,7 @@
   border: 0;
   box-sizing: border-box;
   border-radius: 100000px;
-  box-shadow: 0px 2px 8px #999898;
+  box-shadow: 0px 2px 8px #515151;
   background-color: $warning-color;
   line-height: 16px;
   outline: none;
@@ -79,8 +79,29 @@
   border: 0;
   box-sizing: border-box;
   border-radius: 100000px;
-  box-shadow: 0px 2px 8px #999898;
+  box-shadow: 0px 2px 8px #515151;
   background-color: $secondary-color;
+  line-height: 16px;
+  outline: none;
+  transition: background-color 0.3s, transform 0.3s;
+
+  &:hover {
+    background-color: lighten($secondary-color, 15%);
+    transform: scale(1.05);
+  }
+
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.button-main-db-sm {
+  padding: 5px 15px;
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 100000px;
+  box-shadow: 0px 2px 8px #0f0f0f;
+  background-color: $primary-color;
   line-height: 16px;
   outline: none;
   transition: background-color 0.3s, transform 0.3s;
@@ -92,4 +113,42 @@
 
   text-decoration: none;
   color: inherit;
+}
+.button-danger-db-sm {
+  padding: 5px 15px;
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 100000px;
+  box-shadow: 0px 2px 8px #0f0f0f;
+  background-color: $danger-color;
+  line-height: 16px;
+  outline: none;
+  transition: background-color 0.3s, transform 0.3s;
+
+  &:hover {
+    background-color: lighten($danger-color, 15%);
+    transform: scale(1.05);
+  }
+
+  text-decoration: none;
+  color: inherit;
+}
+.button-warning-db-sm {
+  padding: 5px 15px;
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 100000px;
+  box-shadow: 0px 2px 8px #0f0f0f;
+  background-color: $warning-color;
+  line-height: 16px;
+  outline: none;
+  transition: background-color 0.3s, transform 0.3s;
+
+  &:hover {
+    background-color: lighten($warning-color, 15%);
+    transform: scale(1.05);
+  }
+
+  text-decoration: none;
+  color: #212529;
 }

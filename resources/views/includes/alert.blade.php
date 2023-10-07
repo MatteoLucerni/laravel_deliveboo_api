@@ -8,12 +8,12 @@
         <div class="modal-body">
           <p>Are you sure you want to delete this plate?</p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <div class="modal-footer d-flex justify-content-center gap-3">
+          <button type="button" class="button-secondary-db" data-bs-dismiss="modal">Cancel</button>
           <form id="deleteForm" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">Confirm Delete</button>
+            <button type="submit" class="button-danger-db">Confirm Delete</button>
           </form>      
         </div>
       </div>
