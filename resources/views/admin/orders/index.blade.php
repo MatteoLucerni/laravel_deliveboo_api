@@ -2,16 +2,11 @@
 @section('title', 'Orders')
 
 @section('content')
+    <video autoplay muted preload="auto" class="object-fit-contain">
+        <source src="{{ asset('orders1.mp4') }}" type="video/mp4">
+    </video>
     <div class="container">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="filter-card p-4 my-4">
-                        <h1 class="mb-0">Orders</h1>
-                        <p class="text-muted">Manage and view customer orders</p>
-                    </div>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-12">
@@ -53,7 +48,7 @@
                                             <td>{{ $order->total_price }}€</td>
                                             <td>{{ $order->formatted_created_at }}</td>
                                             <td>
-                                                <div  class="d-flex align-items-center ">
+                                                <div class="d-flex align-items-center ">
 
                                                     <a class="btn button-main-db-sm me-2"
                                                         href="{{ route('admin.orders.show', $order->id) }}">
@@ -67,8 +62,7 @@
                                                         method="POST" data-name="{{ $order->name }}">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button
-                                                            class="button-danger-db-sm">
+                                                        <button class="button-danger-db-sm">
                                                             <i class="fas fa-trash me-2"></i><span
                                                                 class="d-none d-md-inline">Delete Order</span>
                                                         </button>

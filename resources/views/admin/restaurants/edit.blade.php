@@ -1,12 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <div class="restaurant-card px-5 my-4 mx-4">
-        <div class="container py-5">
-            <h1 class="display-5 fw-bold">
-                Edit your restaurant
-            </h1>
-        </div>
-    </div>
+<video autoplay muted preload="auto" class="object-fit-contain mb-3">
+    <source src="{{ asset('edit-restaurant.mp4') }}" type="video/mp4">
+</video>
 
     <div class="content">
         <div class="container">
