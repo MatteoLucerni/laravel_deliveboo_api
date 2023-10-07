@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('title', 'Home')
 @section('content')
-    <div class="filter-card p-5 mx-3 mt-5">
+    <video autoplay muted preload="auto" class="object-fit-contain">
+        <source src="{{ asset('deliveboo-banner-orange.mp4') }}" type="video/mp4">
+    </video>
+    <div class="filter-card p-5 mx-3 my-5">
         <div class="container">
             <div class="info text-center">
                 <h1 class="display-5 mb-3 fw-bold">
@@ -24,10 +27,10 @@
             </div>
             @auth
                 <div class="mt-5 row gap-4 justify-content-center flex-column flex-md-row">
-                    <a class="col-5-md col-lg-5 button-main-db text-center"
-                        href="{{ route('admin.plates.index') }}">Manage your restaurant and menu</a>
-                    <a class="col-5-md col-lg-5 button-danger-db text-center"
-                        href="{{ route('admin.orders.index') }}">Manage your restaurant's orders</a>
+                    <a class="col-5-md col-lg-5 button-main-db text-center" href="{{ route('admin.plates.index') }}">Manage your
+                        restaurant and menu</a>
+                    <a class="col-5-md col-lg-5 button-danger-db text-center" href="{{ route('admin.orders.index') }}">Manage
+                        your restaurant's orders</a>
                 </div>
             @else
                 <div class="row gap-2 mt-5 justify-content-center ">
