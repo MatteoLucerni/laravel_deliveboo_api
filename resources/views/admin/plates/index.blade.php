@@ -97,15 +97,15 @@
                                 <td>
                                     <div class="d-flex align-items-center ">
                                         <a class="button-main-db-sm" href="{{ route('admin.plates.show', $plate->id) }}"><i
-                                                class="fas fa-eye me-2"></i>Details</a>
+                                                class="fas fa-eye me-2"></i><span class="d-none d-lg-inline">Details</span></a>
                                         <a class="button-warning-db-sm mx-4"
                                             href="{{ route('admin.plates.edit', $plate->id) }}"><i
-                                                class="fas fa-pen me-2"></i>Edit</a>
+                                                class="fas fa-pen me-2"></i><span class="d-none d-lg-inline">Edit</span></a>
 
                                         <button class="button-danger-db-sm" data-bs-toggle="modal"
                                             data-bs-target="#deleteModal" data-route="plates"
                                             data-id="{{ $plate->id }}"><i class="fa-solid fa-trash"></i>
-                                            Delete</button>
+                                            <span class="d-none d-lg-inline">Delete</span></button>
                                     </div>
                                 </td>
                                 <td>Created: {{ $plate->formatted_created_at }} <br>
