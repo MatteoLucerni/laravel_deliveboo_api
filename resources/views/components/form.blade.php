@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="restaurant-card px-5 m-4 ">
-        <div class="container py-5">
-            <h1 class="display-5 fw-bold">
+        <div>
                 @if ($plate->exists)
-                    Edit Plate
+                <video autoplay muted preload="auto" class="object-fit-contain">
+                    <source src="{{ asset('edit-plate.mp4') }}" type="video/mp4">
+                </video>
                 @else
-                    Create Plate
+                <video autoplay muted preload="auto" class="object-fit-contain">
+                    <source src="{{ asset('create-plate.mp4') }}" type="video/mp4">
+                </video>
                 @endif
-            </h1>
         </div>
-    </div>
 
     <div class="content">
         <div class="container">
