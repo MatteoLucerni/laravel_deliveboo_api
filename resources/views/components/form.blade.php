@@ -134,14 +134,17 @@
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="button-main-db me-3" id="submit-button">
-                        @if ($plate->exists)
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+
+                        <button type="submit" class="button-main-db me-3" id="submit-button">
+                            @if ($plate->exists)
                             Update
-                        @else
+                            @else
                             Create
-                        @endif
-                    </button>
-                    <a class="btn button-secondary-db" href="{{ route('admin.plates.index') }}">Go back</a>
+                            @endif
+                        </button>
+                        <a class="btn button-secondary-db" href="{{ route('admin.plates.index') }}">Go back</a>
+                    </div>
                 </form>
             </div>
         </div>
