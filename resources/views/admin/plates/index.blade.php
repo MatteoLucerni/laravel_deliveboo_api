@@ -2,11 +2,11 @@
 @section('title', 'Panel')
 @section('content')
     @include('includes.alert')
+    <video autoplay muted preload="auto" class="object-fit-contain">
+        <source src="{{ asset('restaurant-panel.mp4') }}" type="video/mp4">
+    </video>
     <div class="background-color-page py-4">
         <div class="container-fluid py-3">
-            <h1 class="display-5 fw-bold mb-5">
-                Your restaurant's panel
-            </h1>
             <div class="restaurant-card p-5 d-md-flex d-lg-flex justify-content-lg-between gap-md-5 ">
                 <div class="d-flex flex-column justify-content-between">
                     <div>
