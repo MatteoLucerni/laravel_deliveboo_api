@@ -14,14 +14,15 @@
 
     <div class="content">
         <div class="container">
-            <h3>Edit Plate</h3>
 
             @include('components.form', ['plate' => $plate])
 
             <!-- Submit Button -->
-            <button type="submit" class="btn btn-success">Update</button>
-            <a class="btn btn-secondary" href="{{ route('admin.plates.index') }}">Go back</a>
-            </form>
+            <div class="d-flex justify-content-center justify-content-lg-start">
+                <button type="submit" class="btn btn-success">Update</button>
+                <a class="btn btn-secondary" href="{{ route('admin.plates.index') }}">Go back</a>
+                </form>
+            </div>
         </div>
     </div>
 @endsection
