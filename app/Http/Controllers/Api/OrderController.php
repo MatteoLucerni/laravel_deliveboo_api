@@ -18,6 +18,15 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        // check for plates validation
+
+        foreach ($data['cartItems'] as $item) {
+            if ($item['restaurant_id'] != $data['cartItems'][0]['restaurant_id'] || !count($data['cartItems'])) {
+                return response(null, 403);
+            }
+        }
+
         $order = new Order();
         $order->restaurant_id = $data['cartItems'][0]['restaurant_id'];
         $order->name = $data['orderData']['name'];
