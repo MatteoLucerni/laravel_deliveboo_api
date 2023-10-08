@@ -36,8 +36,10 @@
                                 class="fas fa-pen me-2"></i>Edit resturant's info</a>
                     </div>
                 </div>
-                <img class="img-fluid rounded-4 d-none d-md-block d-lg-block"
+                <div class="ratio ratio-1x1">
+                    <img class="img-fluid rounded-4 d-none d-md-block d-lg-block"
                     src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}">
+                </div>
             </div>
         </div>
     </div>
