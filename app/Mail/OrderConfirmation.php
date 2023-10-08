@@ -14,24 +14,20 @@ class OrderConfirmation extends Mailable
     use Queueable, SerializesModels;
 
     public $customer;
-    public $tel;
-    public $email;
-    public $address;
-    public $note;
     public $total_price;
+    public $restaurant;
+    public $payment;
 
 
     /**
      * Create a new message instance.
      */
-    public function __construct($customer, $tel, $email, $address, $note, $total_price)
+    public function __construct($customer, $total_price, $restaurant, $payment)
     {
         $this->customer = $customer;
-        $this->tel = $tel;
-        $this->email = $email;
-        $this->address = $address;
-        $this->note = $note;
         $this->total_price = $total_price;
+        $this->restaurant = $restaurant;
+        $this->payment = $payment;
     }
 
     /**
@@ -54,11 +50,9 @@ class OrderConfirmation extends Mailable
             view: 'mails.contacts.message',
             with: [
                 'customer' => $this->customer,
-                'tel' => $this->tel,
-                'email' => $this->email,
-                'address' => $this->address,
-                'note' => $this->note,
                 'total_price' => $this->total_price,
+                'restaurant' => $this->restaurant,
+                'payment' => $this->payment
             ]
         );
     }
