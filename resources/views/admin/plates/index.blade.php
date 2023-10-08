@@ -30,16 +30,18 @@
                         </ul>
                     </div>
                     <div class="buttons">
-                        <div class="mb-4">
+                        <div class="mb-4 my-3">
                             <small>On platform since: {{ $restaurant->formatted_created_at }}</small> <br>
                             <small>Last edit date: {{ $restaurant->formatted_updated_at }}</small>
                         </div>
-                        <a class="button-warning-db" href="{{ route('admin.restaurants.edit', $restaurant->id) }}"><i
-                                class="fas fa-pen me-2"></i>Edit resturant's info</a>
+                        <div class="d-flex align-items-center justify-content-center justify-content-md-center justify-content-lg-start">
+                            <a class="button-warning-db" href="{{ route('admin.restaurants.edit', $restaurant->id) }}"><i
+                                    class="fas fa-pen me-2"></i>Edit resturant's info</a>
+                        </div>
                     </div>
                 </div>
                 <div class="ratio ratio-1x1 restaurant-img d-none d-md-block d-lg-block">
-                    <img class="img-fluid rounded-4 d-none  object-fit-cover"
+                    <img class="img-fluid rounded-4 d-none d-md-block d-lg-block object-fit-cover"
                         src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}">
                 </div>
             </div>
