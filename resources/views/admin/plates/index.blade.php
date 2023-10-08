@@ -12,8 +12,10 @@
                     <div>
                         <h2 class="pb-1">{{ $restaurant->name }}</h2>
                         <div class="divider-horizontal mb-4 mb-mb-5 mb-lg-5"></div>
-                        <img class="img-fluid rounded-4 d-md-none d-lg-none mb-4"
-                            src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}">
+                        <div class="ratio ratio-1x1 restaurant-img d-md-none d-lg-none mb-4">
+                            <img class="img-fluid rounded-4 e  object-fit-cover"
+                                src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}">
+                        </div>
                         <h6>VAT.N: {{ $restaurant->vat_number }}</h6>
                         <p>{{ $restaurant->address }}</p>
                         <small>Types:</small>
@@ -28,17 +30,19 @@
                         </ul>
                     </div>
                     <div class="buttons">
-                        <div class="mb-4">
+                        <div class="mb-4 my-3">
                             <small>On platform since: {{ $restaurant->formatted_created_at }}</small> <br>
                             <small>Last edit date: {{ $restaurant->formatted_updated_at }}</small>
                         </div>
-                        <a class="button-warning-db" href="{{ route('admin.restaurants.edit', $restaurant->id) }}"><i
-                                class="fas fa-pen me-2"></i>Edit resturant's info</a>
+                        <div class="d-flex align-items-center justify-content-center justify-content-md-center justify-content-lg-start">
+                            <a class="button-warning-db" href="{{ route('admin.restaurants.edit', $restaurant->id) }}"><i
+                                    class="fas fa-pen me-2"></i>Edit resturant's info</a>
+                        </div>
                     </div>
                 </div>
-                <div class="ratio ratio-1x1">
-                    <img class="img-fluid rounded-4 d-none d-md-block d-lg-block"
-                    src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}">
+                <div class="ratio ratio-1x1 restaurant-img d-none d-md-block d-lg-block">
+                    <img class="img-fluid rounded-4 d-none d-md-block d-lg-block object-fit-cover"
+                        src="{{ asset('storage/' . $restaurant->image) }}" alt="{{ $restaurant->name }}">
                 </div>
             </div>
         </div>
@@ -99,7 +103,8 @@
                                 <td>
                                     <div class="d-flex align-items-center ">
                                         <a class="button-main-db-sm" href="{{ route('admin.plates.show', $plate->id) }}"><i
-                                                class="fas fa-eye me-2"></i><span class="d-none d-lg-inline">Details</span></a>
+                                                class="fas fa-eye me-2"></i><span
+                                                class="d-none d-lg-inline">Details</span></a>
                                         <a class="button-warning-db-sm mx-4"
                                             href="{{ route('admin.plates.edit', $plate->id) }}"><i
                                                 class="fas fa-pen me-2"></i><span class="d-none d-lg-inline">Edit</span></a>
