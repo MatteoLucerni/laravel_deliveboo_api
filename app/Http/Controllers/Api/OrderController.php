@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\OrderConfirmation;
 use App\Models\Order;
 use App\Models\Plate;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -34,13 +35,13 @@ class OrderController extends Controller
             $order->plates()->attach($plate, ['quantity' => $item['quantity']]);
         }
 
+        $restaurant = Restaurant::find($data['cartItems'][0]['restaurant_id']);
+
         $mail = new OrderConfirmation(
-            customer: $data['orderData']['name'] . $data['orderData']['surname'],
-            tel: $data['orderData']['tel'],
-            email: $data['orderData']['email'],
-            address: $data['orderData']['address'],
-            note: $data['orderData']['note'],
+            customer: $data['orderData'],
             total_price: $data['totalPrice'],
+            restaurant: $restaurant,
+            payment: $data['paymentInfo'],
         );
 
         Mail::to($data['orderData']['email'])->send($mail);
