@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class OrderConfirmation extends Mailable
+class RestaurantOrderMessage extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -37,7 +37,7 @@ class OrderConfirmation extends Mailable
     {
         return new Envelope(
             from: 'deliveboo@orders.com',
-            subject: 'Order Confirmation'
+            subject: 'New Order'
         );
     }
 
@@ -47,7 +47,7 @@ class OrderConfirmation extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mails.customers.message',
+            view: 'mails.restaurants.message',
             with: [
                 'customer' => $this->customer,
                 'total_price' => $this->total_price,
