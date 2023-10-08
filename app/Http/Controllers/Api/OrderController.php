@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderConfirmation;
 use App\Models\Order;
 use App\Models\Plate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
@@ -31,6 +33,18 @@ class OrderController extends Controller
 
             $order->plates()->attach($plate, ['quantity' => $item['quantity']]);
         }
+
+        $mail = new OrderConfirmation(
+            customer: $data['orderData']['name'] . $data['orderData']['surname'],
+            tel: $data['orderData']['tel'],
+            email: $data['orderData']['email'],
+            address: $data['orderData']['address'],
+            note: $data['orderData']['note'],
+            total_price: $data['totalPrice'],
+        );
+
+        Mail::to($data['orderData']['email'])->send($mail);
+
 
 
         return response()->json($data);
