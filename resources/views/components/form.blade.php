@@ -3,13 +3,17 @@
 @section('content')
     <div>
         @if ($plate->exists)
-            <video autoplay muted preload="auto" class="object-fit-contain">
-                <source src="{{ asset('edit-plate.mp4') }}" type="video/mp4">
-            </video>
+            <div class="container-fluid px-0 overflow-x-hidden">
+                <video autoplay muted preload="auto" class="object-fit-contain">
+                    <source src="{{ asset('edit-plate.mp4') }}" type="video/mp4">
+                </video>
+            </div>
         @else
-            <video autoplay muted preload="auto" class="object-fit-contain">
-                <source src="{{ asset('create-plate.mp4') }}" type="video/mp4">
-            </video>
+            <div class="container-fluid px-0 overflow-x-hidden">
+                <video autoplay muted preload="auto" class="object-fit-contain">
+                    <source src="{{ asset('create-plate.mp4') }}" type="video/mp4">
+                </video>
+            </div>
         @endif
     </div>
 

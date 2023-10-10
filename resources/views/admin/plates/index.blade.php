@@ -2,9 +2,11 @@
 @section('title', 'Panel')
 @section('content')
     @include('includes.alert')
-    <video autoplay muted preload="auto" class="object-fit-contain">
-        <source src="{{ asset('restaurant-panel.mp4') }}" type="video/mp4">
-    </video>
+    <div class="container-fluid px-0 overflow-x-hidden">
+        <video autoplay muted preload="auto" class="object-fit-contain">
+            <source src="{{ asset('restaurant-panel.mp4') }}" type="video/mp4">
+        </video>
+    </div>
     <div class="background-color-page py-4">
         <div class="container-fluid py-3">
             <div class="restaurant-card p-5 d-md-flex d-lg-flex justify-content-lg-between gap-md-5 ">
@@ -34,7 +36,8 @@
                             <small>On platform since: {{ $restaurant->formatted_created_at }}</small> <br>
                             <small>Last edit date: {{ $restaurant->formatted_updated_at }}</small>
                         </div>
-                        <div class="d-flex align-items-center justify-content-center justify-content-md-center justify-content-lg-start">
+                        <div
+                            class="d-flex align-items-center justify-content-center justify-content-md-center justify-content-lg-start">
                             <a class="button-warning-db" href="{{ route('admin.restaurants.edit', $restaurant->id) }}"><i
                                     class="fas fa-pen me-2"></i>Edit resturant's info</a>
                         </div>

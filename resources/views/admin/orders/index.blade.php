@@ -2,9 +2,11 @@
 @section('title', 'Orders')
 
 @section('content')
-    <video autoplay muted preload="auto" class="object-fit-contain">
-        <source src="{{ asset('orders1.mp4') }}" type="video/mp4">
-    </video>
+    <div class="container-fluid px-0 overflow-x-hidden">
+        <video autoplay muted preload="auto" class="object-fit-contain">
+            <source src="{{ asset('orders1.mp4') }}" type="video/mp4">
+        </video>
+    </div>
     <div class="container">
         <div class="container">
 
