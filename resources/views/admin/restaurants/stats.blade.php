@@ -27,15 +27,15 @@
 
 @section('scripts')
     <script>
-        var ctx1 = document.getElementById('monthlyOrdersChart').getContext('2d');
-        var ctx2 = document.getElementById('monthlyRevenueChart').getContext('2d');
+        const ctx1 = document.getElementById('monthlyOrdersChart').getContext('2d');
+        const ctx2 = document.getElementById('monthlyRevenueChart').getContext('2d');
 
         // Recupera i dati dal tuo controller Laravel
-        var orderData = {!! json_encode($orderData) !!};
-        var revenueData = {!! json_encode($revenueData) !!};
-        var labels = {!! json_encode($labels) !!};
+        const orderData = {!! json_encode($orderData) !!};
+        const revenueData = {!! json_encode($revenueData) !!};
+        const labels = {!! json_encode($labels) !!};
 
-        var orderChart = new Chart(ctx1, {
+        const orderChart = new Chart(ctx1, {
             type: 'bar',
             data: {
                 labels: labels,
@@ -57,7 +57,7 @@
             }
         });
 
-        var revenueChart = new Chart(ctx2, {
+        const revenueChart = new Chart(ctx2, {
             type: 'line',
             data: {
                 labels: labels,
