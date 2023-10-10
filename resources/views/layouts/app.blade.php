@@ -1,3 +1,14 @@
+<?php
+use Illuminate\Support\Facades\Auth;
+$user = Auth::user();
+$restaurant = $user->restaurant;
+
+if (!$restaurant) {
+    return abort(404);
+}
+?>
+
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -102,6 +113,9 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('admin.plates.index') }}">Restaurant & Menù</a>
                                     <a class="dropdown-item" href="{{ route('admin.orders.index') }}">Orders List</a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('admin.restaurants.stats', $restaurant) }}">Your
+                                        statistics</a>
                                     <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
