@@ -5,33 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>New order</title>
-    <style>
-        body {
-            text-align: center;
-        }
-    </style>
+    <title>New Order Received</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1>New order recived</h1>
-    <h3>{{ $restaurant['name'] }} you have a new order from {{ $customer['name'] }} {{ $customer['surname'] }}!
-    </h3>
-    <div class="card p-5">
-        <h3>Customer informations</h3>
-        <p>Name: {{ $customer['name'] }} {{ $customer['surname'] }}</p>
-        <p>Phone number: {{ $customer['tel'] }}</p>
-        <p>Email: {{ $customer['email'] }}</p>
-        <p>Address: {{ $customer['address'] }}</p>
-        <p>Extra notes: {{ $customer['note'] }}</p>
-        <p class="fw-bold text-success">Total Price: {{ $total_price }}€</p>
-        <h3 class="mt-3">Payment informations</h3>
-        <p>Type: {{ $payment['type'] }}</p>
-        <p>Card Type: {{ $payment['details']['cardType'] }}</p>
-        <p>Number: {{ $payment['description'] }}</p>
+    <div class="container text-center">
+        <h1 class="display-4">New Order Received</h1>
+        <h3 class="mb-4">{{ $restaurant['name'] }}, you have a new order from {{ $customer['name'] }} {{ $customer['surname'] }}!</h3>
 
-        <h3 class="text-success fw-bold">Check your restaurant panel for more info</h3>
+        <div class="card p-4">
+            <h3 class="mb-4">Customer Information</h3>
+            <p class="lead">Name: {{ $customer['name'] }} {{ $customer['surname'] }}</p>
+            <p class="lead">Phone number: {{ $customer['tel'] }}</p>
+            <p class="lead">Email: {{ $customer['email'] }}</p>
+            <p class="lead">Address: {{ $customer['address'] }}</p>
+            <p class="lead">Extra notes: {{ $customer['note'] }}</p>
+
+            <hr>
+
+            <h3 class="text-success fw-bold">Total Price: {{ $total_price }}€</h3>
+            <h3 class="text-success fw-bold mt-4">Check your restaurant panel for more info</h3>
+        </div>
     </div>
+
+    <!-- Include Bootstrap JS and Popper.js (if needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 </body>
 
 </html>
