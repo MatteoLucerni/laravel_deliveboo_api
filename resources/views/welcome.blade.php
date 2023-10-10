@@ -31,6 +31,10 @@
                         restaurant and menu</a>
                     <a class="col-5-md col-lg-5 button-danger-db text-center" href="{{ route('admin.orders.index') }}">Manage
                         your restaurant's orders</a>
+                    <a class="col-5-md col-lg-5 button-danger-db text-center"
+                        href="{{ route('admin.restaurants.stats', $restaurant) }}">See
+                        your
+                        restaurant's stats</a>
                 </div>
             @else
                 <div class="row gap-2 mt-5 justify-content-center ">
