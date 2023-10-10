@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Plate;
 use App\Models\Restaurant;
 use App\Models\Type;
@@ -79,6 +80,47 @@ class RestaurantController extends Controller
 
     public function stats(Restaurant $restaurant)
     {
-        return view('admin.restaurants.stats', compact('restaurant'));
+        $orders = $restaurant->orders;
+
+        $monthNames = [
+            1 => 'January',
+            2 => 'February',
+            3 => 'March',
+            4 => 'April',
+            5 => 'May',
+            6 => 'June',
+            7 => 'July',
+            8 => 'August',
+            9 => 'September',
+            10 => 'October',
+            11 => 'November',
+            12 => 'December',
+        ];
+
+
+        $totalIncame = 0;
+
+        foreach ($orders as $order) {
+            $totalIncame = $totalIncame + $order->total_price;
+        }
+
+        $orderMonthlyData = Order::where('restaurant_id', $restaurant->id)
+            ->selectRaw('MONTH(created_at) as month, COUNT(*) as total')
+            ->groupBy('month')
+            ->get();
+
+        $revenueMonthlyData = Order::where('restaurant_id', $restaurant->id)
+            ->selectRaw('MONTH(created_at) as month, SUM(total_price) as total')
+            ->groupBy('month')
+            ->get();
+
+        $labels = $orderMonthlyData->pluck('month')->map(function ($month) use ($monthNames) {
+            return $monthNames[$month];
+        });
+
+        $orderData = $orderMonthlyData->pluck('total');
+        $revenueData = $revenueMonthlyData->pluck('total');
+
+        return view('admin.restaurants.stats', compact('labels', 'totalIncame', 'orderData', 'revenueData'));
     }
 }
