@@ -24,13 +24,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $user = Auth::user();
-    $restaurant = $user->restaurant;
+    if (auth()->check()) {
+        $user = Auth::user();
+        $restaurant = $user->restaurant;
 
-    if (!$restaurant) {
-        return abort(404);
+        if (!$restaurant) {
+            return abort(404);
+        }
+
+        return view('welcome', compact('restaurant'));
+    } else {
+        return view('welcome');
     }
-    return view('welcome', compact('restaurant'));
 })->name('welcome');
 
 // routes for Admin

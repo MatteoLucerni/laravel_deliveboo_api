@@ -1,14 +1,3 @@
-<?php
-use Illuminate\Support\Facades\Auth;
-$user = Auth::user();
-$restaurant = $user->restaurant;
-
-if (!$restaurant) {
-    return abort(404);
-}
-?>
-
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
