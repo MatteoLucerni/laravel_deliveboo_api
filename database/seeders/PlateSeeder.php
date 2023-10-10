@@ -31,22 +31,22 @@ class PlateSeeder extends Seeder
         $food = new Plate();
         $food->restaurant_id = 2;
         $food->category_id = random_int(1, 5);
-        $food->name = 'Spaghetti allo Scoglio';
+        $food->name = 'Seafood Pizza';
         $food->price = 18.99;
         $food->image = 'plate_images/plate-1.jpg';
-        $food->ingredients = 'Cozze, spaghetti, aglio, gamberi, vongole, pomodoro';
-        $food->description = "Una succulenta bistecca alla griglia servita con sale, pepe e olio d'oliva.";
+        $food->ingredients = 'Mussels, spaghetti, garlic, shrimp, clams, tomato';
+        $food->description = "A special pizza prepared with our freshest seafood.";
         $food->is_visible = true;
         $food->save();
 
         $food = new Plate();
         $food->restaurant_id = 3;
         $food->category_id = random_int(1, 5);
-        $food->name = 'Sushi Misto';
+        $food->name = 'Mixed Sushi';
         $food->price = 25.00;
         $food->image = 'plate_images/plate-2.jpg';
-        $food->ingredients = 'Riso, salmone, tonno, avocado, alga nori, soia.';
-        $food->description = "Portata di sushi misto con i nostri migliori tagli.";
+        $food->ingredients = 'Rice, salmon, tuna, avocado, nori seaweed, soy sauce.';
+        $food->description = "A platter of mixed sushi with our best cuts.";
         $food->is_visible = true;
         $food->save();
 
@@ -56,19 +56,19 @@ class PlateSeeder extends Seeder
         $food->name = 'Chili Tacos';
         $food->price = 14.00;
         $food->image = 'plate_images/plate-4.jpg';
-        $food->ingredients = 'Tacos di farina di mais, carne di manzo, fagioli rossi, peperoncino.';
-        $food->description = "Un ottimo tacos, con dell'ottimo chili, e una buonissima salsa piccante.";
+        $food->ingredients = 'Corn flour tacos, beef, red beans, chili.';
+        $food->description = "A great taco with delicious chili and spicy sauce.";
         $food->is_visible = true;
         $food->save();
-        $food = new Plate();
 
+        $food = new Plate();
         $food->restaurant_id = 5;
         $food->category_id = random_int(1, 5);
-        $food->name = 'Doppio Cheese Burger';
+        $food->name = 'Double Cheeseburger';
         $food->price = 7.99;
         $food->image = 'plate_images/plate-5.jpg';
-        $food->ingredients = 'Hamburger di manzo, insalata, pomodoro, formaggio cheddar.';
-        $food->description = "Il grande classico!";
+        $food->ingredients = 'Beef burger, lettuce, tomato, cheddar cheese.';
+        $food->description = "The all-time classic!";
         $food->is_visible = true;
         $food->save();
     }

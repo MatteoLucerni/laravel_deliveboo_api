@@ -1,83 +1,83 @@
 <?php
 return [
     [
-        "name" => "Pizza Margherita",
+        "name" => "Margherita Pizza",
         "price" => 10.99,
-        "image" => 'plate_images/plate-1.jpg',
-        "ingredients" => "Pomodoro, mozzarella, basilico",
-        "description" => "La classica pizza Margherita con pomodoro fresco, mozzarella di bufala e basilico.",
+        "image" => 'plate_images/margherita.webp',
+        "ingredients" => "Tomato, mozzarella, basil",
+        "description" => "The classic Margherita pizza with fresh tomato, buffalo mozzarella, and basil.",
         "is_visible" => true
     ],
     [
-        "name" => "Pasta alla Carbonara",
+        "name" => "Carbonara Pasta",
         "price" => 12.99,
-        "image" => "plate_images/plate-1.jpg",
-        "ingredients" => "Spaghetti, uova, pancetta, pecorino",
-        "description" => "Una deliziosa pasta alla carbonara con spaghetti cotti al dente, uova fresche, pancetta croccante e pecorino romano.",
+        "image" => "plate_images/carbonara.webp",
+        "ingredients" => "Spaghetti, eggs, pancetta, pecorino cheese",
+        "description" => "A delicious carbonara pasta with perfectly cooked spaghetti, fresh eggs, crispy pancetta, and pecorino romano cheese.",
         "is_visible" => true
     ],
     [
-        "name" => "Sushi Misto",
+        "name" => "Mixed Sushi",
         "price" => 18.99,
         "image" => 'plate_images/plate-2.jpg',
-        "ingredients" => "Riso, pesce crudo, alga nori, avocado",
-        "description" => "Un assortimento di sushi fresco con pesce crudo, avocado e riso appena preparato.",
+        "ingredients" => "Rice, raw fish, nori seaweed, avocado",
+        "description" => "An assortment of fresh sushi with raw fish, avocado, and freshly prepared rice.",
         "is_visible" => true
     ],
     [
-        "name" => "Bistecca alla Griglia",
+        "name" => "Grilled Steak",
         "price" => 24.99,
-        "image" => "plate_images/plate-3.jpg",
-        "ingredients" => "Bistecca di manzo, sale, pepe, olio d'oliva",
-        "description" => "Una succulenta bistecca alla griglia servita con sale, pepe e olio d'oliva.",
+        "image" => "plate_images/grill.webp",
+        "ingredients" => "Beef steak, salt, pepper, olive oil",
+        "description" => "A succulent grilled steak served with salt, pepper, and olive oil.",
         "is_visible" => true
     ],
     [
-        "name" => "Insalata Caprese",
+        "name" => "Caprese Salad",
         "price" => 8.99,
-        "image" => 'plate_images/plate-2.jpg',
-        "ingredients" => "Pomodoro, mozzarella di bufala, basilico, olio d'oliva",
-        "description" => "Un'insalata fresca e leggera con pomodoro, mozzarella di bufala, basilico e olio d'oliva extravergine.",
+        "image" => 'plate_images/caprese.webp',
+        "ingredients" => "Tomato, buffalo mozzarella, basil, olive oil",
+        "description" => "A fresh and light salad with tomato, buffalo mozzarella, basil, and extra virgin olive oil.",
         "is_visible" => true
     ],
     [
-        "name" => "Lasagna alla Bolognese",
+        "name" => "Bolognese Lasagna",
         "price" => 14.99,
-        "image" => "plate_images/plate-2.jpg",
-        "ingredients" => "Fogli di pasta, carne macinata, besciamella, parmigiano",
-        "description" => "Una deliziosa lasagna alla bolognese con strati di pasta, carne macinata, besciamella e parmigiano.",
+        "image" => "plate_images/lasagna.webp",
+        "ingredients" => "Pasta sheets, minced meat, béchamel sauce, Parmesan cheese",
+        "description" => "A delicious Bolognese lasagna with layers of pasta, minced meat, béchamel sauce, and Parmesan cheese.",
         "is_visible" => true
     ],
     [
-        "name" => "Sushi Vegano",
+        "name" => "Vegan Sushi",
         "price" => 16.99,
-        "image" => 'placeholder.jpg',
-        "ingredients" => "Riso, verdure fresche, alga nori",
-        "description" => "Un assortimento di sushi vegano con verdure fresche, riso e alga nori.",
+        "image" => 'plate_images/vsushi.jpeg',
+        "ingredients" => "Rice, fresh vegetables, nori seaweed",
+        "description" => "An assortment of vegan sushi with fresh vegetables, rice, and nori seaweed.",
         "is_visible" => true
     ],
     [
-        "name" => "Tagliata di Manzo",
+        "name" => "Beef Tagliata",
         "price" => 26.99,
-        "image" => "plate_images/plate-2.jpg",
-        "ingredients" => "Bistecca di manzo, rucola, pomodorini, aceto balsamico",
-        "description" => "Una succulenta tagliata di manzo servita con rucola, pomodorini e aceto balsamico.",
+        "image" => "plate_images/tagliata.avif",
+        "ingredients" => "Beef steak, arugula, cherry tomatoes, balsamic vinegar",
+        "description" => "A succulent beef tagliata served with arugula, cherry tomatoes, and balsamic vinegar.",
         "is_visible" => true
     ],
     [
-        "name" => "Insalata di Quinoa",
+        "name" => "Quinoa Salad",
         "price" => 9.99,
-        "image" => 'placeholder.jpg',
-        "ingredients" => "Quinoa, verdure, feta, olive nere",
-        "description" => "Un'insalata fresca e nutriente con quinoa, verdure miste, formaggio feta e olive nere.",
+        "image" => 'palte_images/quinoa.jpeg',
+        "ingredients" => "Quinoa, mixed vegetables, feta cheese, black olives",
+        "description" => "A fresh and nutritious salad with quinoa, mixed vegetables, feta cheese, and black olives.",
         "is_visible" => true
     ],
     [
-        "name" => "Tiramisù",
+        "name" => "Tiramisu",
         "price" => 6.99,
-        "image" => "plate_images/plate-2.jpg",
-        "ingredients" => "Savoiardi, mascarpone, caffè, cacao",
-        "description" => "Un classico tiramisù italiano con savoiardi inzuppati nel caffè, mascarpone e cacao in polvere.",
+        "image" => "plate_images/tiramisu.webp",
+        "ingredients" => "Ladyfingers, mascarpone cheese, coffee, cocoa",
+        "description" => "A classic Italian tiramisu with ladyfingers soaked in coffee, mascarpone cheese, and cocoa powder.",
         "is_visible" => true
     ]
 ];
