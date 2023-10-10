@@ -43,7 +43,7 @@
 
                 <!-- Plate Image -->
                 <div class="row">
-                    <div class="mb-3 col-11">
+                    <div class="mb-3 col-12 col-lg-11">
                         <label for="plateImage" class="form-label">Plate Image URL</label>
                         <input name="image" type="file" class="@error('image') is-invalid @enderror form-control"
                             id="plateImage">
@@ -54,28 +54,14 @@
                             </div>
                         @enderror
                     </div>
-
-                    <!-- Plate Image -->
-                    <div class="row ">
-                        <div class="mb-3 col-11">
-                            <label for="plateImage" class="form-label">Plate Image URL</label>
-                            <input name="image" type="file" class="@error('image') is-invalid @enderror form-control"
-                                id="plateImage">
-                            @error('image')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div class="mb-3 col-1 d-none d-md-block d-lg-block">
-                            @if (!$plate->image)
-                                <img src="{{ asset('storage/placeholder.jpg') }}" class="img-fluid"
-                                    style="object-fit: cover ; height:85px ; width:85px" id="preview">
-                            @elseif($plate->image)
-                                <img src="{{ asset('storage/' . $plate->image) }}" class="img-fluid"
-                                    style="object-fit: cover ; height:85px ; width:85px" id="preview">
-                            @endif
-                        </div>
+                    <div class="mb-3 col-1 d-none d-md-block d-lg-block">
+                        @if (!$plate->image)
+                            <img src="{{ asset('storage/placeholder.jpg') }}" class="img-fluid"
+                                style="object-fit: cover ; height:85px ; width:85px" id="preview">
+                        @elseif($plate->image)
+                            <img src="{{ asset('storage/' . $plate->image) }}" class="img-fluid"
+                                style="object-fit: cover ; height:85px ; width:85px" id="preview">
+                        @endif
                     </div>
 
                     <!-- Plate Price -->
