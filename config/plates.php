@@ -27,7 +27,7 @@ return [
     [
         "name" => "Grilled Steak",
         "price" => 24.99,
-        "image" => "plate_images/grill1.webp",
+        "image" => "plate_images/grill1.jpeg",
         "ingredients" => "Beef steak, salt, pepper, olive oil",
         "description" => "A succulent grilled steak served with salt, pepper, and olive oil.",
         "is_visible" => true
