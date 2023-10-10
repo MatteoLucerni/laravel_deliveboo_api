@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('title', 'Home')
 @section('content')
-    <video autoplay muted preload="auto" class="object-fit-contain">
-        <source src="{{ asset('deliveboo-banner-orange.mp4') }}" type="video/mp4">
-    </video>
+    <div class="container-fluid px-0 overflow-x-hidden">
+        <video autoplay muted preload="auto" class="object-fit-contain">
+            <source src="{{ asset('deliveboo-banner-orange.mp4') }}" type="video/mp4">
+        </video>
+    </div>
     <div class="filter-card p-5 mx-3 my-5">
         <div class="container">
             <div class="info text-center">
