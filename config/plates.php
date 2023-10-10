@@ -27,7 +27,7 @@ return [
     [
         "name" => "Grilled Steak",
         "price" => 24.99,
-        "image" => "plate_images/grill.webp",
+        "image" => "plate_images/grill1.webp",
         "ingredients" => "Beef steak, salt, pepper, olive oil",
         "description" => "A succulent grilled steak served with salt, pepper, and olive oil.",
         "is_visible" => true
@@ -67,7 +67,7 @@ return [
     [
         "name" => "Quinoa Salad",
         "price" => 9.99,
-        "image" => 'palte_images/quinoa.jpeg',
+        "image" => 'plate_images/quinoa.jpeg',
         "ingredients" => "Quinoa, mixed vegetables, feta cheese, black olives",
         "description" => "A fresh and nutritious salad with quinoa, mixed vegetables, feta cheese, and black olives.",
         "is_visible" => true
