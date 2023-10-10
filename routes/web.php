@@ -8,6 +8,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Restaurant;
 use App\Models\Order;
 use App\Models\Plate;
+use App\Models\Restaurant as ModelsRestaurant;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +24,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $user = Auth::user();
+    $restaurant = $user->restaurant;
+
+    if (!$restaurant) {
+        return abort(404);
+    }
+    return view('welcome', compact('restaurant'));
 })->name('welcome');
 
 // routes for Admin
@@ -40,6 +48,7 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth'])->group(function ()
     // routes for resturants
     Route::patch('/restaurants/{id}', [RestaurantController::class, 'update'])->name('restaurants.update');
     Route::get('/restaurants/{id}/edit', [RestaurantController::class, 'edit'])->name('restaurants.edit');
+    Route::get('/restaurants/{restaurant}/statistics', [RestaurantController::class, 'stats'])->name('restaurants.stats');
     // end routes for restaurants
 
     // routes for orders

@@ -76,4 +76,9 @@ class RestaurantController extends Controller
 
         return to_route('admin.plates.index');
     }
+
+    public function stats(Restaurant $restaurant)
+    {
+        return view('admin.restaurants.stats', compact('restaurant'));
+    }
 }
