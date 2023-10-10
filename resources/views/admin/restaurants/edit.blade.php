@@ -1,8 +1,10 @@
 @extends('layouts.app')
 @section('content')
-<video autoplay muted preload="auto" class="object-fit-contain mb-3">
-    <source src="{{ asset('edit-restaurant.mp4') }}" type="video/mp4">
-</video>
+    <div class="container-fluid px-0 overflow-x-hidden">
+        <video autoplay muted preload="auto" class="object-fit-contain mb-3">
+            <source src="{{ asset('edit-restaurant.mp4') }}" type="video/mp4">
+        </video>
+    </div>
 
     <div class="content">
         <div class="container">
