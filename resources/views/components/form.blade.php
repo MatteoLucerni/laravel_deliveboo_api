@@ -44,7 +44,7 @@
                     <!-- Plate Image -->
                     <div class="row">
                         <div class="mb-3 col-12 col-lg-11">
-                            <label for="plateImage" class="form-label">Plate Image URL</label>
+                            <label for="plateImage" class="form-label">Plate Image</label>
                             <input name="image" type="file" class="@error('image') is-invalid @enderror form-control"
                                 id="plateImage">
                             <input type="hidden" name="current_image" value="{{ $plate->image }}">
