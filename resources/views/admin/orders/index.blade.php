@@ -31,7 +31,6 @@
                                         <th scope="col">Customer</th>
                                         <th scope="col">Tel</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Status</th>
                                         <th scope="col">Address</th>
                                         <th scope="col">Total</th>
                                         <th scope="col">Date</th>
@@ -45,7 +44,6 @@
                                             <td class="text-capitalize">{{ $order->name }} {{ $order->surname }}</td>
                                             <td>{{ $order->tel }}</td>
                                             <td>{{ $order->email }}</td>
-                                            <td>{{ $order->status }}</td>
                                             <td>{{ $order->address }}</td>
                                             <td>{{ $order->total_price }}€</td>
                                             <td>{{ $order->formatted_created_at }}</td>
@@ -74,7 +72,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td class="fw-bold text-danger text-center" colspan="9">
+                                            <td class="fw-bold text-danger text-center" colspan="8">
                                                 <h3>No orders</h3>
                                             </td>
                                         </tr>
