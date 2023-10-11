@@ -96,14 +96,29 @@ video {
 }
 
 .bg-orange-light {
-    background-color: lighten($primary-color, 17%);
+    background: rgba(0, 0, 0, 0.42);
+    background: rgba(0, 0, 0, 0.42);
+    border-radius: 17px 17px 16px 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.2px);
+    -webkit-backdrop-filter: blur(8.2px);
 }
 
 .bg-orange-strong {
-    background-color: lighten($primary-color, 10%);
+    color: white;
+    background: rgba(0, 0, 0, 0.42);
+    background: rgba(0, 0, 0, 0.42);
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.2px);
+    -webkit-backdrop-filter: blur(8.2px);
 }
 
 .toast-image {
     width: 20px;
     border-radius: 50%;
+}
+
+.toast-close-btn {
+    color: white !important;
 }
