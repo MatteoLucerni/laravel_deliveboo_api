@@ -27,10 +27,6 @@ class TypeSeeder extends Seeder
             ['name' => 'Spanish'],
             ['name' => 'Korean'],
             ['name' => 'American'],
-            ['name' => 'Mediterranean'],
-            ['name' => 'Vietnamese'],
-            ['name' => 'Brazilian'],
-            ['name' => 'Turkish'],
         ];
 
         foreach ($types as $type) {
