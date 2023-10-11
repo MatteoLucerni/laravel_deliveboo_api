@@ -40,9 +40,9 @@
                 </div>
             @else
                 <div class="row gap-2 mt-5 justify-content-center ">
-                    <a href="{{ route('login') }}" class="btn btn-primary btn-lg d-flex justify-content-center col-5">Login</a>
+                    <a href="{{ route('login') }}" class="btn button-main-db d-flex justify-content-center col-5">Login</a>
                     <a href="{{ route('register') }}"
-                        class="btn btn-success btn-lg d-flex justify-content-center col-5">Register</a>
+                        class="btn button-secondary-db d-flex justify-content-center col-5">Register</a>
                 </div>
             @endauth
         </div>
