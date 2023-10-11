@@ -17,9 +17,21 @@ class OrderController extends Controller
 {
     public function store(Request $request)
     {
+        $validator = Validator::make($request['orderData'], [
+            'name' => 'required|string',
+            'surname' => 'required|string',
+            'email' => 'required|string',
+            'tel' => 'required|numeric',
+            'address' => 'required|string',
+            'note' => 'nullable|string',
+        ]);
+        
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
+
         $data = $request->all();
 
-        // check for plates validation
 
         foreach ($data['cartItems'] as $item) {
             if ($item['restaurant_id'] != $data['cartItems'][0]['restaurant_id'] || !count($data['cartItems'])) {
