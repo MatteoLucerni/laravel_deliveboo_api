@@ -31,7 +31,7 @@
                             <div class="buttons d-flex">
                                 <button class="button-main-db restore-button" data-bs-toggle="modal"
                                     data-bs-target="#restoreModal" data-route="orders" data-id="{{ $order->id }}">Restore
-                                    plate</button>
+                                    order</button>
                             </div>
                             <div class="text-end d-none d-md-block">
                                 Created: {{ $order->created_at }} <br>
