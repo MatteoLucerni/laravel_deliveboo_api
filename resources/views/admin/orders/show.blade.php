@@ -25,8 +25,6 @@
                             <li class="text-danger">No plates</li>
                         @endforelse
                     </ul>
-                    <div class="divider-small my-3"></div>
-                    <p>Status: {{ $order->status ? 'In Process' : 'Delivered' }}</p>
                 </div>
             </div>
         </div>
