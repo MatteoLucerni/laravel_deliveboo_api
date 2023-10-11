@@ -40,7 +40,7 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Numero di Ordini Mensili',
+                    label: 'Monthly orders',
                     data: orderData,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
@@ -62,7 +62,7 @@
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Entrate Mensili',
+                    label: 'Monthly earnings',
                     data: revenueData,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
