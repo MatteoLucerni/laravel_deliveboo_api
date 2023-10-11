@@ -5,6 +5,7 @@
 
 @section('content')
     <div class="container">
+        @include('includes.restore')
         <h1 class="text-center mt-5">Order trash</h1>
         <ul class="list-unstyled">
             @forelse ($orders as $order)
@@ -28,14 +29,9 @@
                         </div>
                         <div class="d-flex justify-content-center justify-content-md-between mt-3 align-items-center">
                             <div class="buttons d-flex">
-                                <form class="me-2" action="{{ route('admin.orders.restore', $order) }}" method="POST"
-                                    data-name="{{ $order->name }}">
-                                    @csrf
-                                    @method('PATCH')
-                                    <button class="button-main-db">
-                                        <i class="fas fa-arrow-rotate-left me-2 "></i>Restore order
-                                    </button>
-                                </form>
+                                <button class="button-main-db restore-button" data-bs-toggle="modal"
+                                    data-bs-target="#restoreModal" data-route="orders" data-id="{{ $order->id }}">Restore
+                                    plate</button>
                             </div>
                             <div class="text-end d-none d-md-block">
                                 Created: {{ $order->created_at }} <br>

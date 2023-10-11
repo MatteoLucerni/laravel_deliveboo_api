@@ -9,7 +9,7 @@
     </div>
     <div class="container">
         <div class="container">
-
+            @include('includes.alert')
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex my-4 justify-content-center justify-content-md-start">
@@ -56,18 +56,11 @@
                                                             class="d-none d-md-inline">Details</span>
                                                     </a>
 
-                                                    <form data-name="{{ $order->name }} {{ $order->surname }}"
-                                                        class="d-inline-block ms-2 delete-form"
-                                                        action="{{ route('admin.orders.destroy', $order->id) }}"
-                                                        method="POST" data-name="{{ $order->name }}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="button-danger-db-sm">
-                                                            <i class="fas fa-trash me-2"></i><span
-                                                                class="d-none d-md-inline">Delete Order</span>
-                                                        </button>
+                                                    <button class="button-danger-db-sm" data-bs-toggle="modal"
+                                                        data-bs-target="#deleteModal" data-route="orders"
+                                                        data-id="{{ $order->id }}"><i class="fa-solid fa-trash"></i>
+                                                        <span class="d-none d-lg-inline">Delete</span></button>
                                                 </div>
-                                                </form>
                                             </td>
                                         </tr>
                                     @empty
