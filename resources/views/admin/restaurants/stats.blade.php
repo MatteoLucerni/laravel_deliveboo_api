@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid px-0 overflow-x-hidden">
         <video autoplay muted preload="auto" class="object-fit-contain mb-3">
-            <source src="{{ asset('edit-restaurant.mp4') }}" type="video/mp4">
+            <source src="{{ asset('stats.mp4') }}" type="video/mp4">
         </video>
     </div>
 
