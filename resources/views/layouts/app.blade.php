@@ -65,7 +65,7 @@ if (auth()->check()) {
 <body class="background-color-page">
     <div id="app">
 
-
+        @include('includes.toast')
         <nav class="navbar sticky-top navbar-expand-md">
             <div class="container d-flex align-items-center justify-content-between">
                 <div class="container d-flex align-items-center justify-content-between ">
