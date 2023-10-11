@@ -24,7 +24,6 @@ class OrderSeeder extends Seeder
             $order->surname = 'Cognome' . ($i);
             $order->tel = '345345345' . ($i);
             $order->email = 'email' . ($i) . '@email.com';
-            $order->status = true;
             $order->address = 'Indirizzo' . ($i);
             $order->note = 'Nota per l\'ordine' . ($i);
             $order->total_price = 10 * ($i);
@@ -39,7 +38,6 @@ class OrderSeeder extends Seeder
         $order->surname = 'Cognome';
         $order->tel = '4564564564';
         $order->email = 'email' . '@email.com';
-        $order->status = true;
         $order->address = 'Indirizzo';
         $order->note = 'Nota per l\'ordine';
         $order->total_price = 230;
@@ -53,7 +51,6 @@ class OrderSeeder extends Seeder
         $order->surname = 'Cognome';
         $order->tel = '4352342341';
         $order->email = 'email' . '@email.com';
-        $order->status = true;
         $order->address = 'Indirizzo';
         $order->note = 'Nota per l\'ordine';
         $order->total_price = 130;
