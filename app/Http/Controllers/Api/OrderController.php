@@ -25,7 +25,7 @@ class OrderController extends Controller
             'address' => 'required|string',
             'note' => 'nullable|string',
         ]);
-        
+
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 400);
         }
@@ -45,7 +45,6 @@ class OrderController extends Controller
         $order->surname = $data['orderData']['surname'];
         $order->tel = $data['orderData']['tel'];
         $order->email = $data['orderData']['email'];
-        $order->status = true;
         $order->address = $data['orderData']['address'];
         $order->note = $data['orderData']['note'];
         $order->total_price = $data['totalPrice'];
