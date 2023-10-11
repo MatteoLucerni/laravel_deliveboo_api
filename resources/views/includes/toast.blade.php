@@ -5,9 +5,10 @@
                 <img class="toast-image me-2" src="{{ asset('Yummy_Food.svg') }}" class="rounded me-2" alt="...">
                 <strong class="me-auto">DeliveBoo</strong>
                 <small>Just Now</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
             </div>
-            <div class="toast-body">
+            <div class="toast-body text-white ">
                 {{ session('toast-message') }}
             </div>
         </div>
