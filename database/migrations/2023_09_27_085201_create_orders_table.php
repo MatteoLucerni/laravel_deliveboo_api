@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('surname');
             $table->char('tel', 10);
             $table->string('email');
-            $table->boolean('status')->nullable();
             $table->string('address');
             $table->text('note')->nullable();
             $table->float('total_price', 6, 2);

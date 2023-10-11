@@ -14,13 +14,17 @@ class OrderPlateSeeder extends Seeder
      */
     public function run(): void
     {
-        $order = Order::find(1);
-        $plate = Plate::find(1);
+        $numberOfPlates = 12;
 
-        $plate_2 = Plate::find(4);
+        for ($i = 1; $i < $numberOfPlates; $i++) {
+            $order = Order::find($i);
+            $plate = Plate::find($i);
 
-        $order->plates()->attach($plate, ['quantity'=>3]);
-        $order->plates()->attach($plate_2, ['quantity'=>4]);
-        $order->save();
+            $plate_2 = Plate::find($i + 1);
+
+            $order->plates()->attach($plate, ['quantity' => 3]);
+            $order->plates()->attach($plate_2, ['quantity' => 4]);
+            $order->save();
+        }
     }
 }

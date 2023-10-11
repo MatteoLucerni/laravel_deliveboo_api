@@ -31,7 +31,7 @@
                 <div class="mt-5 row gap-4 justify-content-center flex-column flex-md-row">
                     <a class="col-5-md col-lg-5 button-main-db text-center" href="{{ route('admin.plates.index') }}">Manage your
                         restaurant and menu</a>
-                    <a class="col-5-md col-lg-5 button-danger-db text-center" href="{{ route('admin.orders.index') }}">Manage
+                    <a class="col-5-md col-lg-5 button-main-db text-center" href="{{ route('admin.orders.index') }}">Manage
                         your restaurant's orders</a>
                     <a class="col-5-md col-lg-5 button-danger-db text-center"
                         href="{{ route('admin.restaurants.stats', $restaurant) }}">See
