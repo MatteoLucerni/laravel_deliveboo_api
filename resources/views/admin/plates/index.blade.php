@@ -9,7 +9,7 @@
     </div>
     <div class="background-color-page py-4">
         <div class="container-fluid py-3">
-            <div class="restaurant-card p-5 d-md-flex d-lg-flex justify-content-lg-between gap-md-5 ">
+            <div class="mx-lg-5 restaurant-card p-5 d-md-flex d-lg-flex justify-content-lg-between gap-md-5 ">
                 <div class="d-flex flex-column justify-content-between">
                     <div>
                         <h2 class="pb-1">{{ $restaurant->name }}</h2>
@@ -38,7 +38,8 @@
                         </div>
                         <div
                             class="d-flex align-items-center justify-content-center justify-content-md-center justify-content-lg-start">
-                            <a class="button-warning-db" href="{{ route('admin.restaurants.edit', $restaurant->id) }}"><i
+                            <a class="button-warning-db text-center"
+                                href="{{ route('admin.restaurants.edit', $restaurant->id) }}"><i
                                     class="fas fa-pen me-2"></i>Edit resturant's info</a>
                         </div>
                     </div>
