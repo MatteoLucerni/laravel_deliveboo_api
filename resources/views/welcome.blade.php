@@ -25,7 +25,7 @@
                     let
                     your culinary journey shine!
                 </p>
-                <a href="http://localhost:5174/">Not an owner? Click here and check out our user's website!</a>
+                <a href="http://localhost:5173/">Not an owner? Click here and check out our user's website!</a>
             </div>
             @auth
                 <div class="mt-5 row gap-4 justify-content-center flex-column flex-md-row">
