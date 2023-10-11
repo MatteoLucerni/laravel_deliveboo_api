@@ -115,7 +115,7 @@ class PlateController extends Controller
 
         $restaurant->plates()->save($plate);
 
-        return to_route('admin.plates.show', $plate->id);
+        return to_route('admin.plates.show', $plate->id)->with('toast-message', 'Plate created successfully');
     }
 
     public function edit(Plate $plate)
@@ -160,7 +160,7 @@ class PlateController extends Controller
         $currentImage = $request->input('current_image');
 
         if (array_key_exists('image', $data)) {
-            
+
             $image_url = Storage::put('plate_images', $data['image']);
             $data['image'] = $image_url;
         } else {
@@ -173,7 +173,7 @@ class PlateController extends Controller
 
         $plate->update($data);
 
-        return redirect()->route('admin.plates.show', $plate->id);
+        return redirect()->route('admin.plates.show', $plate->id)->with('toast-message', 'Plate updated successfully');
     }
 
 
@@ -183,14 +183,14 @@ class PlateController extends Controller
 
         if ($restaurant->user_id !== Auth::id()) abort(403);
 
-       
+
         $plate->is_visible = false;
-        $plate->save(); 
-        
+        $plate->save();
+
 
         $plate->delete();
 
-        return to_route('admin.plates.index');
+        return to_route('admin.plates.index')->with('toast-message', 'Plate deleted successfully');
     }
 
     // trash
@@ -204,7 +204,7 @@ class PlateController extends Controller
                 $query->where('user_id', $userId);
             })
             ->get();
-            
+
 
         return view('admin.plates.trash', compact('plates'));
     }
@@ -250,12 +250,12 @@ class PlateController extends Controller
         })->first();
 
         $plate->is_visible = true;
-        $plate->save(); 
+        $plate->save();
 
         if (!$plate) return abort(404);
 
         $plate->restore();
 
-        return redirect()->route('admin.plates.trash');
+        return redirect()->route('admin.plates.trash')->with('toast-message', 'Plate restored successfully');
     }
 }
