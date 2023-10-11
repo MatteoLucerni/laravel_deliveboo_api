@@ -75,7 +75,7 @@ class RestaurantController extends Controller
         if (!Arr::exists($data, 'types') && count($restaurant->types)) $restaurant->types()->detach();
         elseif (Arr::exists($data, 'types')) $restaurant->types()->sync($data['types']);
 
-        return to_route('admin.plates.index');
+        return to_route('admin.plates.index')->with('toast-message', 'Restaurant updated successfully');
     }
 
     public function stats(Restaurant $restaurant)

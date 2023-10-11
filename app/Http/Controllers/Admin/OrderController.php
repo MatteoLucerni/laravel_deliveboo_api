@@ -67,7 +67,7 @@ class OrderController extends Controller
 
         $order->delete();
 
-        return redirect()->route('admin.orders.index');
+        return redirect()->route('admin.orders.index')->with('toast-message', 'Order deleted successfully');
     }
 
     public function trash()
@@ -123,6 +123,6 @@ class OrderController extends Controller
 
         $order->restore();
 
-        return redirect()->route('admin.orders.trash');
+        return redirect()->route('admin.orders.trash')->with('toast-message', 'Order restored successfully');
     }
 }
