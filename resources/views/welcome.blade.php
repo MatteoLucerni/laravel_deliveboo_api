@@ -39,7 +39,7 @@
                         restaurant's stats</a>
                 </div>
             @else
-                <div class="row gap-2 mt-5 justify-content-center ">
+                <div class="mt-5 row gap-4 justify-content-center flex-column flex-md-row">
                     <a href="{{ route('login') }}" class="btn button-main-db d-flex justify-content-center col-5">Login</a>
                     <a href="{{ route('register') }}"
                         class="btn button-secondary-db d-flex justify-content-center col-5">Register</a>
